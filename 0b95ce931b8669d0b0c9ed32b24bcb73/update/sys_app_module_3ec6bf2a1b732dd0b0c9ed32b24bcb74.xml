@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_app_module">
+    <sys_app_module action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <application display_value="EOCN/ABTN Emails">1a19025b1b8669d0b0c9ed32b24bcb0e</application>
+        <assessment/>
+        <content_page/>
+        <device_type/>
+        <filter table="sys_data_source">sys_id=21c7ca7c1b82751025017b46464bcbe7^EQ<item endquery="false" field="sys_id" goto="false" newquery="false" operator="=" or="false" value="21c7ca7c1b82751025017b46464bcbe7"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter>
+        <hint/>
+        <homepage/>
+        <image/>
+        <link_type>DETAIL</link_type>
+        <map_page/>
+        <mobile_title>Customer Data</mobile_title>
+        <mobile_view_name>Mobile</mobile_view_name>
+        <name>sys_data_source</name>
+        <order>20</order>
+        <override_menu_roles>false</override_menu_roles>
+        <query/>
+        <report/>
+        <require_confirmation>true</require_confirmation>
+        <roles>x_canl_emails_eocn.customer_data_user</roles>
+        <survey/>
+        <survey_overwrite>true</survey_overwrite>
+        <sys_class_name>sys_app_module</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-06 10:23:53</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>3ec6bf2a1b732dd0b0c9ed32b24bcb74</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name>EOCN/ABTN Load Data</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_app_module_3ec6bf2a1b732dd0b0c9ed32b24bcb74</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-10-20 12:41:54</sys_updated_on>
+        <timeline_page/>
+        <title>EOCN/ABTN Load Data</title>
+        <uncancelable>false</uncancelable>
+        <view_name/>
+        <window_name/>
+    </sys_app_module>
+</record_update>

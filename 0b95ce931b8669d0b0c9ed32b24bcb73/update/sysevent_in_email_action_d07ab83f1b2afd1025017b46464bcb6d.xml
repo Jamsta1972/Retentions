@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>false</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description/>
+        <event_name>email.read</event_name>
+        <filter_condition table="sys_email">recipientsLIKEretentions@glide.co.uk^ORrecipients=businesssupport@glide.co.uk^EQ<item endquery="false" field="recipients" goto="false" newquery="false" operator="LIKE" or="false" value="retentions@glide.co.uk"/>
+            <item endquery="false" field="recipients" goto="false" newquery="false" operator="=" or="true" value="businesssupport@glide.co.uk"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <from/>
+        <name>CeaseCancellationInboundAction-Reply</name>
+        <order>-894</order>
+        <reply_email><![CDATA[<p>// Retrieve the existing case based on the email thread ID<br />var existingCase &#61; new GlideRecord(&#34;x_canl_emails_eocn_retentions_case&#34;);<br />if (existingCase.get(&#34;email_thread_id&#34;, email.thread_id)) {<br />    // Update the existing case with information from the email reply<br />    existingCase.comments &#61; (existingCase.comments || &#39;&#39;) &#43; &#34;\n\n--- Reply from: &#34; &#43; email.origemail &#43; &#34;\n\n&#34; &#43; email.body_text;<br />    existingCase.update();<br />}</p>]]></reply_email>
+        <required_roles/>
+        <script><![CDATA[(function () {
+
+    if (isReply() && email.headers['In-Reply-To']) {
+        var caseSysId = getCaseSysIdByEmailThread(email.headers['In-Reply-To']);
+        if (caseSysId) {
+            
+            var existingCase = new GlideRecord('x_canl_emails_eocn_retentions_case');
+            if (existingCase.get(caseSysId)) {
+                
+                existingCase.comments += "\n\n--- Reply ---\n\n" + email.body_text;
+                existingCase.update();
+            }
+        }
+    }
+})();
+
+function isReply() {
+    
+    return email.subject && email.subject.toLowerCase().startsWith('re:');
+}
+
+function getCaseSysIdByEmailThread(inReplyToHeader) {
+    
+    var match = /sys_id=([a-fA-F\d]{32})/i.exec(inReplyToHeader);
+    return match ? match[1] : null;
+}
+]]></script>
+        <stop_processing>false</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>shilpa.tiwari</sys_created_by>
+        <sys_created_on>2023-11-23 10:49:09</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>d07ab83f1b2afd1025017b46464bcb6d</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>CeaseCancellationInboundAction-Reply</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sysevent_in_email_action_d07ab83f1b2afd1025017b46464bcb6d</sys_update_name>
+        <sys_updated_by>shilpa.tiwari</sys_updated_by>
+        <sys_updated_on>2024-01-19 13:57:53</sys_updated_on>
+        <table>x_canl_emails_eocn_retentions_case</table>
+        <template/>
+        <type>reply</type>
+    </sysevent_in_email_action>
+</record_update>

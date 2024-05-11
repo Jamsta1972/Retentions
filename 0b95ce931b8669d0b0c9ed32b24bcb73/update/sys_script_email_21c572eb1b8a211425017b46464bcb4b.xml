@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>eocn_current_services_table</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+	//Populate additional rows for current services, on the EOCN notification.
+	
+	//HTML 'Template' for Each Row (Note, it starts by closing off the current row, and the last row on the table is closed by the tags already in the notification itself):
+	var rowTemplateStr = '</span></p></td></tr><tr style="height: 28px;"> <td style="width: 108.225px; border-right: 1pt solid #a5a5a5; border-bottom: 1pt solid #a5a5a5; border-left: 1pt solid #a5a5a5; border-image: initial; border-top: none; padding: 0cm 5.4pt; height: 28px;" valign="top"> <p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">CURRENT_SERVICE</span></p></td><td style="width: 140.488px; border-top: none; border-left: none; border-bottom: 1pt solid #a5a5a5; border-right: 1pt solid #a5a5a5; padding: 0cm 5.4pt; height: 28px;" valign="top"> <p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">CURRENT_SERVICE_COST</span></p></td><td style="width: 195.688px; border-top: none; border-left: none; border-bottom: 1pt solid #a5a5a5; border-right: 1pt solid #a5a5a5; padding: 0cm 5.4pt; height: 28px;" valign="top"> <p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">RENEWAL_DATE</span></p></td><td style="width: 195.038px; border-top: none; border-left: none; border-bottom: 1pt solid #a5a5a5; border-right: 1pt solid #a5a5a5; padding: 0cm 5.4pt; height: 28px;" valign="top"> <p style="margin: 0cm; font-size: 9pt; font-family: \'Karla\'; color: #3b3838;">CURRENT_SERVICE_NOTICE_PERIOD</p></td><td style="width: 83.175px; border-top: none; border-left: none; border-bottom: 1pt solid #a5a5a5; border-right: 1pt solid #a5a5a5; padding: 0cm 5.4pt; height: 28px;" valign="top"> <p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">PRICEBOOK';
+	
+	var output = '';
+	//Map used to replace the key words in the HTML 'Template' for each row:
+	var serviceMap = {
+		current_service2: {
+			CURRENT_SERVICE: 'current_service2',
+			CURRENT_SERVICE_COST: 'current_service2_cost',
+			RENEWAL_DATE: 'current_service2_contract_end_date',
+			CURRENT_SERVICE_NOTICE_PERIOD: 'current_service2_notice_period',
+			PRICEBOOK: 'rolling_monthly_cost2'
+		},
+		current_service3: {
+			CURRENT_SERVICE: 'current_service3',
+			CURRENT_SERVICE_COST: 'current_service3_cost',
+			RENEWAL_DATE: 'current_service3_contract_end_date',
+			CURRENT_SERVICE_NOTICE_PERIOD: 'current_service3_notice_period',
+			PRICEBOOK: 'rolling_monthly_cost3'
+		},
+		current_service4: {
+			CURRENT_SERVICE: 'current_service4',
+			CURRENT_SERVICE_COST: 'current_service4_cost',
+			RENEWAL_DATE: 'current_service4_contract_end_date',
+			CURRENT_SERVICE_NOTICE_PERIOD: 'current_service4_notice_period',
+			PRICEBOOK: 'rolling_monthly_cost4'
+		},
+		current_service5: {
+			CURRENT_SERVICE: 'current_service5',
+			CURRENT_SERVICE_COST: 'current_service5_cost',
+			RENEWAL_DATE: 'current_service5_contract_end_date',
+			CURRENT_SERVICE_NOTICE_PERIOD: 'current_service5_notice_period',
+			PRICEBOOK: 'rolling_monthly_cost5'
+		},
+		current_service6: {
+			CURRENT_SERVICE: 'current_service6',
+			CURRENT_SERVICE_COST: 'current_service6_cost',
+			RENEWAL_DATE: 'current_service6_contract_end_date',
+			CURRENT_SERVICE_NOTICE_PERIOD: 'current_service6_notice_period',
+			PRICEBOOK: 'rolling_monthly_cost6'
+		}
+	};
+	
+	for (var service in serviceMap){
+		if (current.getValue(service)){
+			var rowStr = rowTemplateStr;
+			var mapObj = serviceMap[service];
+			for (var fld in mapObj){
+				rowStr = rowStr.replace(fld, current.getDisplayValue(mapObj[fld]) || '');
+			}
+			output += rowStr;
+		}
+	}
+		
+	template.print(output);
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-04-13 08:41:28</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>21c572eb1b8a211425017b46464bcb4b</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>eocn_current_services_table</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_email_21c572eb1b8a211425017b46464bcb4b</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-10-10 11:00:10</sys_updated_on>
+        <u_template/>
+    </sys_script_email>
+</record_update>

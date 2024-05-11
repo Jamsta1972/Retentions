@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element audit="true" db_object_id="027c08ad1bd4399025017b46464bcbf3" extends="sn_customerservice_case" label="Retentions case" max_length="40" name="x_canl_emails_eocn_retentions_case" type="collection">
+        <element attributes="edge_encryption_enabled=true" choice="1" label="Closure code" max_length="40" name="closure_code" type="string">
+            <choice>
+                <element inactive_on_update="false" label="Renewed (same service)" sequence="0" value="Renewed (same service)"/>
+                <element inactive_on_update="false" label="Rolling contract" sequence="1" value="Rolling contract"/>
+                <element inactive_on_update="false" label="Upgraded" sequence="2" value="Upgraded"/>
+                <element inactive_on_update="false" label="Downgraded" sequence="3" value="Downgraded"/>
+                <element inactive_on_update="false" label="Cancelled service" sequence="4" value="Cancelled service"/>
+                <element inactive_on_update="false" label="Email undeliverable" sequence="5" value="Email undeliverable"/>
+            </choice>
+        </element>
+        <element attributes="edge_encryption_enabled=true" label="Cost change date" max_length="40" name="cost_change_date" read_only="true" type="glide_date"/>
+        <element attributes="encode_utf8=false" hint="The data the drives outbound EOCN/ABTN notifications" label="Customer data" max_length="32" name="customer_data" read_only="true" reference="x_canl_emails_eocn_customer_data" type="reference"/>
+        <element attributes="edge_encryption_enabled=true" label="Customer reference(s)" max_length="400" name="customer_reference" type="string"/>
+        <element attributes="omit_sys_original=true" label="Existing price" max_length="20" name="existing_price" type="currency"/>
+        <element attributes="edge_encryption_enabled=true" label="Notification date" max_length="40" name="notification_date" type="glide_date_time"/>
+        <element attributes="no_sort=true,slushbucket_ref_no_expand=true" label="Person / People" max_length="1024" name="people" reference="sys_user" type="glide_list"/>
+        <element attributes="encode_utf8=false" label="Person" max_length="32" name="person" reference="sys_user" type="reference"/>
+        <element label="Renewal date" max_length="40" name="renewal_date" type="glide_date"/>
+        <element attributes="omit_sys_original=true" label="Sell price" max_length="20" name="sell_price" type="currency"/>
+    </element>
+</database>

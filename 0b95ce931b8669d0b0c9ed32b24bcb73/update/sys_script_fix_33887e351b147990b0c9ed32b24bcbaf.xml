@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>Retrospectively set company and location, from the customer reference.&#13;
+This will only need running once in PROD, if we are going to retrospectively generate cases for existing customer data records.</description>
+        <name>Customer Data: Set Company and Location</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[var current = new GlideRecord('x_canl_emails_eocn_customer_data');
+current.query();
+
+while (current.next()) {
+    var customer_reference = current.getValue('customer_reference');
+
+    var soldProdGR = new GlideRecord('u_gb_sold_product');
+    soldProdGR.get('name', customer_reference);
+    if (soldProdGR.isValidRecord()) {
+        current.account = soldProdGR.getValue('account') || '';
+        current.location = soldProdGR.getValue('u_location') || '';
+        current.update();
+    }
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-28 18:31:04</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>33887e351b147990b0c9ed32b24bcbaf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Customer Data: Set Company and Location</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_fix_33887e351b147990b0c9ed32b24bcbaf</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-07-28 18:31:04</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

@@ -1,0 +1,766 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes/>
+        <authored_on_release_version/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Trigger reminder emails for EOCN / ABTN notifcations, 14 and 28 days after the original email, if the customer has not yet responded</description>
+        <flow_priority/>
+        <generation_source/>
+        <internal_name>eocn__abtn_reminder_emails</internal_name>
+        <label_cache>[{"name":"7286b5e4-602e-448d-bf02-ae43b21c7545.item","label":"2 - For Each➛Retentions case Record","reference":"x_canl_emails_eocn_retentions_case","reference_display":"Retentions case","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"aabcb7ed-5c16-4a98-a3f2-7da1e4342d82.Records","label":"1 - Look Up Records➛Retentions case Records","reference":"x_canl_emails_eocn_retentions_case","reference_display":"Retentions case","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}}]</label_cache>
+        <master_snapshot>076f56c01b45b190b0c9ed32b24bcbb0</master_snapshot>
+        <name>EOCN / ABTN reminder emails</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>076f96c01b45b190b0c9ed32b24bcb03</remote_trigger_id>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:48:18</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>f0bd5e4c1b05b190b0c9ed32b24bcba4</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>EOCN / ABTN reminder emails</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_hub_flow_f0bd5e4c1b05b190b0c9ed32b24bcba4</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-09-04 11:07:48</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow>
+    <sys_variable_value action="delete_multiple" query="document_key=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_flow_timer_trigger action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <day_of_month>1</day_of_month>
+        <day_of_week/>
+        <name/>
+        <run_period/>
+        <run_start>2023-08-29 12:55:51</run_start>
+        <sys_class_name>sys_flow_timer_trigger</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>076f96c01b45b190b0c9ed32b24bcb03</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-09-04 11:07:48</sys_updated_on>
+        <time>1970-01-01 08:00:00</time>
+        <timer_type>11</timer_type>
+    </sys_flow_timer_trigger>
+    <sys_flow_trigger_auto_script action="delete_multiple" query="name=Trigger:076f96c01b45b190b0c9ed32b24bcb03^sys_idNOT INb6304dce1b057d9096b735e4464bcb8f"/>
+    <sys_flow_trigger_auto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_time/>
+        <max_drift/>
+        <name>Trigger:076f96c01b45b190b0c9ed32b24bcb03</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <run_as display_value="Jamie Wildish">a0d3229b4f3c234413e4ecd18110c749</run_as>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek/>
+        <run_period/>
+        <run_start>2023-09-04 11:07:48</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[sn_flow_trigger.FlowTriggerAPI.fireTimerTrigger('076f96c01b45b190b0c9ed32b24bcb03');]]></script>
+        <sys_class_name>sys_flow_trigger_auto_script</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-09-04 11:07:48</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b6304dce1b057d9096b735e4464bcb8f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-09-04 11:07:48</sys_updated_on>
+        <time_zone/>
+        <trigger display_value="">076f96c01b45b190b0c9ed32b24bcb03</trigger>
+        <u_advanced>false</u_advanced>
+        <u_conditions/>
+        <u_event_name/>
+        <u_event_parm_1/>
+        <u_event_parm_2/>
+        <u_run_business_rules>true</u_run_business_rules>
+        <u_save_script/>
+        <u_set_field_values/>
+        <u_table/>
+        <u_trigger_event>false</u_trigger_event>
+        <upgrade_safe>true</upgrade_safe>
+    </sys_flow_trigger_auto_script>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=f0bd5e4c1b05b190b0c9ed32b24bcba4^sys_idNOT IN02aed6801b45b190b0c9ed32b24bcb1e"/>
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="EOCN / ABTN reminder emails">f0bd5e4c1b05b190b0c9ed32b24bcba4</flow>
+        <name>Daily</name>
+        <remote_sys_id/>
+        <sys_class_name>sys_hub_trigger_instance</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:52:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>02aed6801b45b190b0c9ed32b24bcb1e</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:51</sys_updated_on>
+        <trigger_definition display_value="Daily">89142dc0c32222002841b63b12d3ae8a</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>daily</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=02aed6801b45b190b0c9ed32b24bcb1e"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>02aed6801b45b190b0c9ed32b24bcb1e</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:52:30</sys_created_on>
+        <sys_id>8aaed6801b45b190b0c9ed32b24bcb1f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:52:30</sys_updated_on>
+        <value>1970-01-01 08:00:00</value>
+        <variable display_value="Time">3ad4edc0c32222002841b63b12d3aee5</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_trigger_input_89142dc0c32222002841b63b12d3ae8a^id=02aed6801b45b190b0c9ed32b24bcb1e"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=f0bd5e4c1b05b190b0c9ed32b24bcba4^sys_idNOT IN70bd16401b45b190b0c9ed32b24bcbfd"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>f0bd5e4c1b05b190b0c9ed32b24bcba4</id>
+        <name>EOCN / ABTN reminder emails</name>
+        <sys_class_name>sys_flow_cat_variable_model</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:48:18</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>70bd16401b45b190b0c9ed32b24bcbfd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:48:18</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=70bd16401b45b190b0c9ed32b24bcbfd"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=f0bd5e4c1b05b190b0c9ed32b24bcba4^sys_idNOT IN0aaed6801b45b190b0c9ed32b24bcb27,146f16c01b45b190b0c9ed32b24bcba6"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment>Get cases where state = 'Awaiting customer response', email sent 14 or 28 days ago.</comment>
+        <display_text/>
+        <flow display_value="EOCN / ABTN reminder emails">f0bd5e4c1b05b190b0c9ed32b24bcba4</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:52:30</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0aaed6801b45b190b0c9ed32b24bcb27</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2024-05-01 07:00:20</sys_updated_on>
+        <ui_id>aabcb7ed-5c16-4a98-a3f2-7da1e4342d82</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=0aaed6801b45b190b0c9ed32b24bcb27"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>0aaed6801b45b190b0c9ed32b24bcb27</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:52:30</sys_created_on>
+        <sys_id>86aed6801b45b190b0c9ed32b24bcb2a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:52:30</sys_updated_on>
+        <value>x_canl_emails_eocn_retentions_case</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>0aaed6801b45b190b0c9ed32b24bcb27</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:52:30</sys_created_on>
+        <sys_id>c2aed6801b45b190b0c9ed32b24bcb2a</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:52:30</sys_updated_on>
+        <value>state=200^customer_data.scheduled_notification_dateRELATIVELT@dayofweek@ago@13^customer_data.scheduled_notification_dateRELATIVEGT@dayofweek@ago@15^NQstate=200^customer_data.scheduled_notification_dateRELATIVELT@dayofweek@ago@27^customer_data.scheduled_notification_dateRELATIVEGT@dayofweek@ago@29</value>
+        <variable display_value="Conditions">8f400a1587003300663ca1bb36cb0b50</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b^id=0aaed6801b45b190b0c9ed32b24bcb27"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=0aaed6801b45b190b0c9ed32b24bcb27"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=0aaed6801b45b190b0c9ed32b24bcb27"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Notification">0d8dd9f10f11101051218e8ebc767e27</action_type>
+        <action_type_parent/>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="EOCN / ABTN reminder emails">f0bd5e4c1b05b190b0c9ed32b24bcba4</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id>7286b5e4-602e-448d-bf02-ae43b21c7545</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:39</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>146f16c01b45b190b0c9ed32b24bcba6</sys_id>
+        <sys_mod_count>26</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>system</sys_updated_by>
+        <sys_updated_on>2024-05-01 07:00:21</sys_updated_on>
+        <ui_id>a7cecfbc-be31-4c2e-b765-cf5628bbf8a4</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=146f16c01b45b190b0c9ed32b24bcba6"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>146f16c01b45b190b0c9ed32b24bcba6</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:39</sys_created_on>
+        <sys_id>946f16c01b45b190b0c9ed32b24bcba8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:39</sys_updated_on>
+        <value>x_canl_emails_eocn_retentions_case</value>
+        <variable display_value="Table">818dd9f10f11101051218e8ebc767e32</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>146f16c01b45b190b0c9ed32b24bcba6</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:39</sys_created_on>
+        <sys_id>d06f16c01b45b190b0c9ed32b24bcba8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:39</sys_updated_on>
+        <value>06baf5841b81b190b0c9ed32b24bcb02</value>
+        <variable display_value="Notification">418dd9f10f11101051218e8ebc767e38</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=146f16c01b45b190b0c9ed32b24bcba6"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>notification</field>
+        <id>146f16c01b45b190b0c9ed32b24bcba6</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:39</sys_created_on>
+        <sys_id>d86f16c01b45b190b0c9ed32b24bcba7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:39</sys_updated_on>
+        <table>var__m_sys_hub_action_input_0d8dd9f10f11101051218e8ebc767e27</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>146f16c01b45b190b0c9ed32b24bcba6</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:39</sys_created_on>
+        <sys_id>506f16c01b45b190b0c9ed32b24bcba8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:39</sys_updated_on>
+        <table>var__m_sys_hub_action_input_0d8dd9f10f11101051218e8ebc767e27</table>
+        <value>{{7286b5e4-602e-448d-bf02-ae43b21c7545.item}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>146f16c01b45b190b0c9ed32b24bcba6</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:39</sys_created_on>
+        <sys_id>9c6f16c01b45b190b0c9ed32b24bcba7</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:39</sys_updated_on>
+        <table>var__m_sys_hub_action_input_0d8dd9f10f11101051218e8ebc767e27</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=146f16c01b45b190b0c9ed32b24bcba6"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=146f16c01b45b190b0c9ed32b24bcba6"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=f0bd5e4c1b05b190b0c9ed32b24bcba4^sys_idNOT IN986f16c01b45b190b0c9ed32b24bcb9e"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">146f16c01b45b190b0c9ed32b24bcb9d</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="EOCN / ABTN reminder emails">f0bd5e4c1b05b190b0c9ed32b24bcba4</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:39</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>986f16c01b45b190b0c9ed32b24bcb9e</sys_id>
+        <sys_mod_count>3</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:51</sys_updated_on>
+        <ui_id>7286b5e4-602e-448d-bf02-ae43b21c7545</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=986f16c01b45b190b0c9ed32b24bcb9e"/>
+    <sys_element_mapping action="delete_multiple" query="id=986f16c01b45b190b0c9ed32b24bcb9e"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>986f16c01b45b190b0c9ed32b24bcb9e</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:39</sys_created_on>
+        <sys_id>106f16c01b45b190b0c9ed32b24bcba2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:39</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{aabcb7ed-5c16-4a98-a3f2-7da1e4342d82.Records}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=986f16c01b45b190b0c9ed32b24bcb9e"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=986f16c01b45b190b0c9ed32b24bcb9e"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes/>
+        <authored_on_release_version/>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from/>
+        <copied_from_name/>
+        <description>Trigger reminder emails for EOCN / ABTN notifcations, 14 and 28 days after the original email, if the customer has not yet responded</description>
+        <flow_priority/>
+        <internal_name>eocn__abtn_reminder_emails</internal_name>
+        <label_cache>[{"name":"7286b5e4-602e-448d-bf02-ae43b21c7545.item","label":"2 - For Each➛Retentions case Record","reference":"x_canl_emails_eocn_retentions_case","reference_display":"Retentions case","type":"reference","base_type":"reference","attributes":{"pills_draggable_inside_block":"true","pills_draggable_outside_block":"false"}},{"name":"aabcb7ed-5c16-4a98-a3f2-7da1e4342d82.Records","label":"1 - Look Up Records➛Retentions case Records","reference":"x_canl_emails_eocn_retentions_case","reference_display":"Retentions case","type":"records","base_type":"records","attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}}]</label_cache>
+        <master>true</master>
+        <name>EOCN / ABTN reminder emails</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="EOCN / ABTN reminder emails">f0bd5e4c1b05b190b0c9ed32b24bcba4</parent_flow>
+        <remote_trigger_id/>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>076f56c01b45b190b0c9ed32b24bcbb0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <type>flow</type>
+    </sys_hub_flow_snapshot>
+    <sys_variable_value action="delete_multiple" query="document_key=076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_hub_trigger_instance action="delete_multiple" query="flow=076f56c01b45b190b0c9ed32b24bcbb0^sys_idNOT INc76f56c01b45b190b0c9ed32b24bcbe0"/>
+    <sys_hub_trigger_instance action="INSERT_OR_UPDATE">
+        <comment/>
+        <display_text/>
+        <flow display_value="EOCN / ABTN reminder emails">076f56c01b45b190b0c9ed32b24bcbb0</flow>
+        <name>Daily</name>
+        <remote_sys_id/>
+        <sys_class_name>sys_hub_trigger_instance</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c76f56c01b45b190b0c9ed32b24bcbe0</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:51</sys_updated_on>
+        <trigger_definition display_value="Daily">89142dc0c32222002841b63b12d3ae8a</trigger_definition>
+        <trigger_inputs/>
+        <trigger_outputs/>
+        <trigger_type>daily</trigger_type>
+    </sys_hub_trigger_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=c76f56c01b45b190b0c9ed32b24bcbe0"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_trigger_instance</document>
+        <document_key>c76f56c01b45b190b0c9ed32b24bcbe0</document_key>
+        <order>100</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_id>436f56c01b45b190b0c9ed32b24bcbe1</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <value>1970-01-01 08:00:00</value>
+        <variable display_value="Time">3ad4edc0c32222002841b63b12d3aee5</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_trigger_input_89142dc0c32222002841b63b12d3ae8a^id=c76f56c01b45b190b0c9ed32b24bcbe0"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=076f56c01b45b190b0c9ed32b24bcbb0^sys_idNOT IN436f56c01b45b190b0c9ed32b24bcbb2"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>076f56c01b45b190b0c9ed32b24bcbb0</id>
+        <name>EOCN / ABTN reminder emails</name>
+        <sys_class_name>sys_flow_cat_variable_model</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>436f56c01b45b190b0c9ed32b24bcbb2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=436f56c01b45b190b0c9ed32b24bcbb2"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_hub_action_instance action="delete_multiple" query="flow=076f56c01b45b190b0c9ed32b24bcbb0^sys_idNOT IN076f56c01b45b190b0c9ed32b24bcbd8,c76f56c01b45b190b0c9ed32b24bcbde"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_type display_value="Look Up Records">43400a1587003300663ca1bb36cb0b4b</action_type>
+        <action_type_parent display_value="Look Up Records">d1c56ec50b30030085c083eb37673a50</action_type_parent>
+        <attributes/>
+        <comment>Get cases where state = 'Awaiting customer response', email sent 14 or 28 days ago.</comment>
+        <display_text/>
+        <flow display_value="EOCN / ABTN reminder emails">076f56c01b45b190b0c9ed32b24bcbb0</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>076f56c01b45b190b0c9ed32b24bcbd8</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <ui_id>aabcb7ed-5c16-4a98-a3f2-7da1e4342d82</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=076f56c01b45b190b0c9ed32b24bcbd8"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>076f56c01b45b190b0c9ed32b24bcbd8</document_key>
+        <order>0</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_id>436f56c01b45b190b0c9ed32b24bcbda</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <value>x_canl_emails_eocn_retentions_case</value>
+        <variable display_value="Table">8f400a1587003300663ca1bb36cb0b4b</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>076f56c01b45b190b0c9ed32b24bcbd8</document_key>
+        <order>1</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_id>8f6f56c01b45b190b0c9ed32b24bcbd9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <value>state=200^customer_data.scheduled_notification_dateRELATIVELT@dayofweek@ago@13^customer_data.scheduled_notification_dateRELATIVEGT@dayofweek@ago@15^NQstate=200^customer_data.scheduled_notification_dateRELATIVELT@dayofweek@ago@27^customer_data.scheduled_notification_dateRELATIVEGT@dayofweek@ago@29</value>
+        <variable display_value="Conditions">8f400a1587003300663ca1bb36cb0b50</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="table=var__m_sys_hub_action_input_43400a1587003300663ca1bb36cb0b4b^id=076f56c01b45b190b0c9ed32b24bcbd8"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=076f56c01b45b190b0c9ed32b24bcbd8"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=076f56c01b45b190b0c9ed32b24bcbd8"/>
+    <sys_hub_action_instance action="INSERT_OR_UPDATE">
+        <action_inputs/>
+        <action_inputs/>
+        <action_type display_value="Send Notification">0d8dd9f10f11101051218e8ebc767e27</action_type>
+        <action_type_parent display_value="Send Notification">7eda5d710f11101051218e8ebc767ec1</action_type_parent>
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="EOCN / ABTN reminder emails">076f56c01b45b190b0c9ed32b24bcbb0</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id>7286b5e4-602e-448d-bf02-ae43b21c7545</parent_ui_id>
+        <sys_class_name>sys_hub_action_instance</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c76f56c01b45b190b0c9ed32b24bcbde</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <ui_id>a7cecfbc-be31-4c2e-b765-cf5628bbf8a4</ui_id>
+    </sys_hub_action_instance>
+    <sys_variable_value action="delete_multiple" query="document_key=c76f56c01b45b190b0c9ed32b24bcbde"/>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>c76f56c01b45b190b0c9ed32b24bcbde</document_key>
+        <order>3</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_id>036f56c01b45b190b0c9ed32b24bcbe0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <value>06baf5841b81b190b0c9ed32b24bcb02</value>
+        <variable display_value="Notification">418dd9f10f11101051218e8ebc767e38</variable>
+    </sys_variable_value>
+    <sys_variable_value action="INSERT_OR_UPDATE">
+        <document>sys_hub_action_instance</document>
+        <document_key>c76f56c01b45b190b0c9ed32b24bcbde</document_key>
+        <order>2</order>
+        <sys_class_name>sys_variable_value</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_id>c36f56c01b45b190b0c9ed32b24bcbe0</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <value>x_canl_emails_eocn_retentions_case</value>
+        <variable display_value="Table">818dd9f10f11101051218e8ebc767e32</variable>
+    </sys_variable_value>
+    <sys_element_mapping action="delete_multiple" query="id=c76f56c01b45b190b0c9ed32b24bcbde"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>notification</field>
+        <id>c76f56c01b45b190b0c9ed32b24bcbde</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_id>0b6f56c01b45b190b0c9ed32b24bcbdf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <table>var__m_sys_hub_action_input_0d8dd9f10f11101051218e8ebc767e27</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>record</field>
+        <id>c76f56c01b45b190b0c9ed32b24bcbde</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_id>8f6f56c01b45b190b0c9ed32b24bcbdf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <table>var__m_sys_hub_action_input_0d8dd9f10f11101051218e8ebc767e27</table>
+        <value>{{7286b5e4-602e-448d-bf02-ae43b21c7545.item}}</value>
+    </sys_element_mapping>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>table_name</field>
+        <id>c76f56c01b45b190b0c9ed32b24bcbde</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_id>cb6f56c01b45b190b0c9ed32b24bcbdf</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <table>var__m_sys_hub_action_input_0d8dd9f10f11101051218e8ebc767e27</table>
+        <value/>
+    </sys_element_mapping>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=c76f56c01b45b190b0c9ed32b24bcbde"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=c76f56c01b45b190b0c9ed32b24bcbde"/>
+    <sys_hub_sub_flow_instance action="delete_multiple" query="flow=076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_hub_flow_logic action="delete_multiple" query="flow=076f56c01b45b190b0c9ed32b24bcbb0^sys_idNOT IN076f56c01b45b190b0c9ed32b24bcbb6"/>
+    <sys_hub_flow_logic action="INSERT_OR_UPDATE">
+        <attributes/>
+        <block display_value="">146f16c01b45b190b0c9ed32b24bcb9d</block>
+        <comment/>
+        <connected_to/>
+        <decision_table/>
+        <decision_table_inputs/>
+        <display_text/>
+        <extended_inputs/>
+        <flow display_value="EOCN / ABTN reminder emails">076f56c01b45b190b0c9ed32b24bcbb0</flow>
+        <flow_variable/>
+        <flow_variables_assigned/>
+        <generation_source/>
+        <inputs/>
+        <inputs/>
+        <logic_definition display_value="For Each">098e1dc5c3e232002841b63b12d3ae33</logic_definition>
+        <order>2</order>
+        <outputs_assigned/>
+        <outputs_to_assign/>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_flow_logic</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>076f56c01b45b190b0c9ed32b24bcbb6</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <ui_id>7286b5e4-602e-448d-bf02-ae43b21c7545</ui_id>
+        <workflow_inputs/>
+        <workflow_reference/>
+    </sys_hub_flow_logic>
+    <sys_variable_value action="delete_multiple" query="document_key=076f56c01b45b190b0c9ed32b24bcbb6"/>
+    <sys_element_mapping action="delete_multiple" query="id=076f56c01b45b190b0c9ed32b24bcbb6"/>
+    <sys_element_mapping action="INSERT_OR_UPDATE">
+        <field>items</field>
+        <id>076f56c01b45b190b0c9ed32b24bcbb6</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:50</sys_created_on>
+        <sys_id>8b6f56c01b45b190b0c9ed32b24bcbb8</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:50</sys_updated_on>
+        <table>var__m_sys_hub_flow_logic_input_098e1dc5c3e232002841b63b12d3ae33</table>
+        <value>{{aabcb7ed-5c16-4a98-a3f2-7da1e4342d82.Records}}</value>
+    </sys_element_mapping>
+    <sys_hub_flow_logic_ext_input action="delete_multiple" query="model=076f56c01b45b190b0c9ed32b24bcbb6"/>
+    <sys_hub_input_scripts action="delete_multiple" query="instance=076f56c01b45b190b0c9ed32b24bcbb6"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_input_076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_documentation action="delete_multiple" query="name=var__m_sys_hub_flow_output_076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_076f56c01b45b190b0c9ed32b24bcbb0"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>f0bd5e4c1b05b190b0c9ed32b24bcba4</sys_id>
+        <latest_snapshot>076f56c01b45b190b0c9ed32b24bcbb0</latest_snapshot>
+        <compiler_build>glide-washingtondc-12-20-2023__patch2-hotfix1-04-15-2024_04-17-2024_1014.zip</compiler_build>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=f0bd5e4c1b05b190b0c9ed32b24bcba4^sys_idNOT IN0f6f96c01b45b190b0c9ed32b24bcb05"/>
+    <sys_flow_trigger_plan action="INSERT_OR_UPDATE">
+        <binding_strategy>com.snc.process_flow.engine.binding.RunAlways</binding_strategy>
+        <plan>{"type":"PlanProxy","persistor":{"@class":".ChunkingPlanPersistor","table":"sys_flow_trigger_plan","id":"0f6f96c01b45b190b0c9ed32b24bcb05","name":"plan","plan_signature":null}}</plan>
+        <plan_id>f0bd5e4c1b05b190b0c9ed32b24bcba4</plan_id>
+        <snapshot>a825ccd71bb5021025017b46464bcb17</snapshot>
+        <sys_class_name>sys_flow_trigger_plan</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 12:55:51</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>0f6f96c01b45b190b0c9ed32b24bcb05</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 12:55:51</sys_updated_on>
+        <trigger display_value="">076f96c01b45b190b0c9ed32b24bcb03</trigger>
+    </sys_flow_trigger_plan>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=f0bd5e4c1b05b190b0c9ed32b24bcba4"/>
+</record_update>

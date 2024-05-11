@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="" section_id="838d88211b18399025017b46464bcb8c" sys_domain="global" table="x_canl_emails_eocn_retentions_case" version="3" view="retentions">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>number</element>
+            <position>0</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:21</sys_created_on>
+            <sys_id>ebd1cfe81b58ca5025017b46464bcbac</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:21</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>company</element>
+            <position>1</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:21</sys_created_on>
+            <sys_id>e3d1cfe81b58ca5025017b46464bcbad</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:21</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>location</element>
+            <position>2</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:21</sys_created_on>
+            <sys_id>afd1cfe81b58ca5025017b46464bcbb9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:21</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>people</element>
+            <position>3</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:21</sys_created_on>
+            <sys_id>a3d1cfe81b58ca5025017b46464bcbba</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:21</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>category</element>
+            <position>4</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:21</sys_created_on>
+            <sys_id>a7d1cfe81b58ca5025017b46464bcbba</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:21</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>renewal_date</element>
+            <position>5</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:21</sys_created_on>
+            <sys_id>abd1cfe81b58ca5025017b46464bcbba</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:21</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>6</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:21</sys_created_on>
+            <sys_id>afd1cfe81b58ca5025017b46464bcbba</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:21</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>state</element>
+            <position>7</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>a3d1cfe81b58ca5025017b46464bcbbb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>closure_code</element>
+            <position>8</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>a7d1cfe81b58ca5025017b46464bcbbb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>assignment_group</element>
+            <position>9</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>abd1cfe81b58ca5025017b46464bcbbb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>assigned_to</element>
+            <position>10</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>afd1cfe81b58ca5025017b46464bcbbb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>notification_date</element>
+            <position>11</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>a3d1cfe81b58ca5025017b46464bcbbc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>existing_price</element>
+            <position>12</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>a7d1cfe81b58ca5025017b46464bcbbc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>sell_price</element>
+            <position>13</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>abd1cfe81b58ca5025017b46464bcbbc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>cost_change_date</element>
+            <position>14</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>afd1cfe81b58ca5025017b46464bcbbc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>15</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>a3d1cfe81b58ca5025017b46464bcbbd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>customer_reference</element>
+            <position>16</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>a7d1cfe81b58ca5025017b46464bcbbd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>short_description</element>
+            <position>17</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>abd1cfe81b58ca5025017b46464bcbbd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>18</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>afd1cfe81b58ca5025017b46464bcbbd</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>work_notes</element>
+            <position>19</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>a3d1cfe81b58ca5025017b46464bcbbe</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>comments</element>
+            <position>20</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>a7d1cfe81b58ca5025017b46464bcbbe</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>activity.xml</element>
+            <position>21</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2024-02-08 18:07:22</sys_created_on>
+            <sys_id>abd1cfe81b58ca5025017b46464bcbbe</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter display_value="Activities (filtered)">b832d3560a0001c700d781efe21e22f5</sys_ui_formatter>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f68dcced1bd4399025017b46464bcbc7">838d88211b18399025017b46464bcb8c</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2024-02-08 18:07:22</sys_updated_on>
+            <sys_user/>
+            <type>formatter</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:22:17</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>838d88211b18399025017b46464bcb8c</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_canl_emails_eocn_retentions_case</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+            <sys_update_name>sys_ui_section_838d88211b18399025017b46464bcb8c</sys_update_name>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:22:17</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Retentions" name="retentions">f68dcced1bd4399025017b46464bcbc7</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

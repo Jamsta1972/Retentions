@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_choice action="INSERT_OR_UPDATE" field="state" table="x_canl_emails_eocn_retentions_case" version="3">
+        <sys_choice_set action="INSERT_OR_UPDATE">
+            <element>state</element>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <sys_class_name>sys_choice_set</sys_class_name>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 12:32:08</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>state</sys_name>
+            <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+            <sys_update_name>sys_choice_x_canl_emails_eocn_retentions_case_state</sys_update_name>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 12:32:08</sys_updated_on>
+        </sys_choice_set>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Customer Service case has been opened by customer</hint>
+            <inactive>false</inactive>
+            <label>New</label>
+            <language>en</language>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <sequence>10</sequence>
+            <synonyms/>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 12:32:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 12:32:33</sys_updated_on>
+            <u_correlation_id/>
+            <u_glide_service/>
+            <u_incident_type/>
+            <u_service_management_category/>
+            <u_sm_outage_res/>
+            <value>1</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Awaiting customer response</label>
+            <language>en</language>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <sequence>20</sequence>
+            <synonyms/>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 12:32:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 12:32:40</sys_updated_on>
+            <u_correlation_id/>
+            <u_glide_service/>
+            <u_incident_type/>
+            <u_service_management_category/>
+            <u_sm_outage_res/>
+            <value>200</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>In progress</label>
+            <language>en</language>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <sequence>30</sequence>
+            <synonyms/>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 12:32:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 12:32:47</sys_updated_on>
+            <u_correlation_id/>
+            <u_glide_service/>
+            <u_incident_type/>
+            <u_service_management_category/>
+            <u_sm_outage_res/>
+            <value>300</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint/>
+            <inactive>false</inactive>
+            <label>Complete</label>
+            <language>en</language>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <sequence>40</sequence>
+            <synonyms/>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 12:32:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 12:32:55</sys_updated_on>
+            <u_correlation_id/>
+            <u_glide_service/>
+            <u_incident_type/>
+            <u_service_management_category/>
+            <u_sm_outage_res/>
+            <value>400</value>
+        </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Case has been cancelled</hint>
+            <inactive>false</inactive>
+            <label>Cancelled</label>
+            <language>en</language>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <sequence>50</sequence>
+            <synonyms/>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 12:32:08</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 12:33:23</sys_updated_on>
+            <u_correlation_id/>
+            <u_glide_service/>
+            <u_incident_type/>
+            <u_service_management_category/>
+            <u_sm_outage_res/>
+            <value>7</value>
+        </sys_choice>
+    </sys_choice>
+</record_update>

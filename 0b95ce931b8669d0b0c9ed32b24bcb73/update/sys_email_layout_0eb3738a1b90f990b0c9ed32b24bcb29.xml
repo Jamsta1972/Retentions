@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_email_layout">
+    <sys_email_layout action="INSERT_OR_UPDATE">
+        <advanced>false</advanced>
+        <advanced_layout/>
+        <description/>
+        <layout><![CDATA[<p></p>
+<p></p>
+<!-- [if !mso]><!--><!--<![endif]-->
+<style type="text/css">#outlook a { padding:0; }          body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }          table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }          img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }          p { display:block;margin:13px 0; }</style>
+<!-- [if mso]>        <noscript>        <xml>        <o:OfficeDocumentSettings>          <o:AllowPNG/>          <o:PixelsPerInch>96</o:PixelsPerInch>        </o:OfficeDocumentSettings>        </xml>        </noscript>        <![endif]--><!-- [if lte mso 11]>        <style type="text/css">          .mj-outlook-group-fix { width:100% !important; }        </style>        <![endif]--><!-- [if !mso]><!-->
+<p><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css" /></p>
+<style type="text/css">@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);</style>
+<!--<![endif]-->
+<style type="text/css">@media only screen and (min-width:480px) {        .mj-column-per-100 { width:100% !important; max-width: 100%; }.mj-column-per-33-333333333333336 { width:33.333333333333336% !important; max-width: 33.333333333333336%; }      }</style>
+<style media="screen and (min-width:480px)">.moz-text-html .mj-column-per-100 { width:100% !important; max-width: 100%; }.moz-text-html .mj-column-per-33-333333333333336 { width:33.333333333333336% !important; max-width: 33.333333333333336%; }<span id="__caret">_</span></style>
+<style type="text/css">[owa] .mj-column-per-100 { width:100% !important; max-width: 100%; }[owa] .mj-column-per-33-333333333333336 { width:33.333333333333336% !important; max-width: 33.333333333333336%; }</style>
+<style type="text/css">@media only screen and (max-width:480px) {      table.mj-full-width-mobile { width: 100% !important; }      td.mj-full-width-mobile { width: auto !important; }    }</style>
+<div style="background-color: #c7c5cc;"><!-- [if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="margin: 0px auto; max-width: 600px;">
+<table style="width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 15px 0px 0px 0px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;">
+<table style="vertical-align: top;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="background: #ffffff; font-size: 0px; padding: 0px 25px 0px 25px; word-break: break-word;" align="left">
+<div style="font-family: Arial, sans-serif; font-size: 15px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
+<p class="text-build-content" style="text-align: right; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="U-x48cs3zr"><span style="color: #28163b; font-family: Arial; font-size: 15px; line-height: 24px;"><span dir="ltr">0333 380 0143</span> &nbsp;| EndOfContract@Glide.co.uk</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="margin: 0px auto; max-width: 600px;">
+<table style="width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 0px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;">
+<table style="vertical-align: top;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="font-size: 0px; padding: 0px; word-break: break-word;" align="center">
+<table style="border-collapse: collapse; border-spacing: 0px;" role="presentation" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="width: 600px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/lgrqm/g2li6.png" alt="" width="600" height="auto" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="#ffffff" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="background: #ffffff; background-color: #ffffff; margin: 0px auto; max-width: 600px;">
+<table style="background: #ffffff; background-color: #ffffff; width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 20px 0px 20px 0px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;">
+<table style="vertical-align: top;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="font-size: 0px; padding: 0px 25px 0px 25px; word-break: break-word;" align="left">
+<div style="font-family: Ubuntu, Helvetica, Arial, sans-serif; font-size: 15px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
+<p class="text-build-content" style="margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="_YWyrLPB3v"><span style="font-family: Arial, sans-serif; font-size: 15px;">${notification:body}</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="#ffffff" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="background: #ffffff; background-color: #ffffff; margin: 0px auto; max-width: 600px;">
+<table style="background: #ffffff; background-color: #ffffff; width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 20px 20px 30px 20px; padding-bottom: 30px; padding-left: 20px; padding-right: 20px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:560px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;">
+<div align="center"></div>
+<table style="vertical-align: top;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="font-size: 0px; word-break: break-word;">
+<div style="height: 10px; line-height: 10px;"> </div>
+</td>
+</tr>
+<tr>
+<td style="font-size: 0px; padding: 10px 25px; padding-top: 0px; padding-bottom: 0px; word-break: break-word;" align="left">
+<div style="font-family: Arial, sans-serif; font-size: 12px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
+<p class="text-build-content" style="line-height: 17px; text-align: center; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="4EZnlrSq7NX"><span style="color: #7b7b7b; font-family: Arial; font-size: 12px;">Glide Student &amp; Residential Limited, a company registered in England &amp; Wales. Registration Number: 03188615. Registered office: Glide House Ground Floor, Building 4, Windmill Road, Kenn, Clevedon, England, BS21 6UJ.</span></p>
+</div>
+</td>
+</tr>
+<tr>
+<td style="font-size: 0px; padding: 10px 25px; word-break: break-word;" align="center">
+<table style="border-collapse: collapse; border-spacing: 0px;" role="presentation" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="width: 510px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/lgrqm/g2lkx.png" alt="" width="510" height="auto" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="margin: 0px auto; max-width: 600px;">
+<table style="width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 20px 0px 20px 0px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;">
+<table role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="vertical-align: top; padding: 0;">
+<table role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="font-size: 0px; padding: 10px 25px; padding-top: 0px; padding-bottom: 0px; word-break: break-word;" align="center">
+<div style="font-family: Ubuntu, Helvetica, Arial, sans-serif; font-size: 11px; letter-spacing: normal; line-height: 22px; text-align: center; color: #000000;">
+<p class="text-build-content" style="text-align: center; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="1MvQMtSYY_x2C"><span style="color: #ffffff; font-family: Arial, sans-serif;">This e-mail has been sent to [[EMAIL_TO]], </span><a class="link-build-content" style="color: inherit; ; text-decoration: none;" href="[[UNSUB_LINK_EN]]" target="_blank" rel="noopener"><span style="color: #ffffff; font-family: Arial, sans-serif;">click here to unsubscribe</span></a><span style="color: #ffffff; font-family: Arial, sans-serif;">.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></div>]]></layout>
+        <name>Retentions: EOCN Layout</name>
+        <sys_class_name>sys_email_layout</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-29 17:24:53</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>0eb3738a1b90f990b0c9ed32b24bcb29</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Retentions: EOCN Layout</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_email_layout_0eb3738a1b90f990b0c9ed32b24bcb29</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-07-29 17:25:13</sys_updated_on>
+    </sys_email_layout>
+</record_update>

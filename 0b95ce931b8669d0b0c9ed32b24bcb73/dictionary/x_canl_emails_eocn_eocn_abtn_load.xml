@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="69f682a71b56ed5432128732f54bcb89" extends="sys_import_set_row" label="EOCN_ABTN_Load" max_length="40" name="x_canl_emails_eocn_eocn_abtn_load" type="collection">
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Address" label="Address" max_length="40" name="u_address" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Comparable_ Service" label="Comparable_ Service" max_length="40" name="u_comparable__service" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Contract_End_Date" label="Contract_End_Date" max_length="40" name="u_contract_end_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service1" label="Current_Service1" max_length="40" name="u_current_service1" type="string"/>
+        <element attributes="import_attribute_name=Current_Service1_Cost" label="Current_Service1_Cost" max_length="40" name="u_current_service1_cost" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service1_contract_end_date" label="Current_Service1_contract_end_date" max_length="40" name="u_current_serv_tract_end_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service1_Notice_Period" label="Current_Service1_Notice_Period" max_length="40" name="u_current_serv__notice_period" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer email" label="Customer email" max_length="40" name="u_customer_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer Reference" label="Customer Reference" max_length="40" name="u_customer_reference" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Glide Customer" label="Glide Customer" max_length="40" name="u_glide_customer" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal date" label="Renewal date" max_length="40" name="u_renewal_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service" label="Renewal_Service" max_length="40" name="u_renewal_service" type="string"/>
+        <element attributes="import_attribute_name=Renewal_Service_Cost" label="Renewal_Service_Cost" max_length="40" name="u_renewal_service_cost" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Description" label="Renewal_Service_Description" max_length="40" name="u_renewal_service_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Retention_Tel_No" label="Retention_Tel_No" max_length="40" name="u_retention_tel_no" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Rolling_Cost_Increase_date" label="Rolling_Cost_Increase_date" max_length="40" name="u_rolling_cost_increase_date" type="glide_date"/>
+        <element attributes="import_attribute_name=Rolling_monthly_cost" label="Rolling_monthly_cost" max_length="40" name="u_rolling_monthly_cost" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Scheduled_notification_date" label="Scheduled_notification_date" max_length="40" name="u_scheduled_notification_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service" label="Upgrade_Service" max_length="40" name="u_upgrade_service" type="string"/>
+        <element attributes="import_attribute_name=Upgrade_Service_Cost" label="Upgrade_Service_Cost" max_length="40" name="u_upgrade_service_cost" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Description" label="Upgrade_Service_Description" max_length="40" name="u_upgrade_service_description" type="string"/>
+    </element>
+</database>

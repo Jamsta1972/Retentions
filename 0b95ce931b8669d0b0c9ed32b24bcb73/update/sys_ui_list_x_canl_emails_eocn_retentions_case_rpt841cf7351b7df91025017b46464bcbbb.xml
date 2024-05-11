@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_list parent="" relationship="" sys_domain="global" table="x_canl_emails_eocn_retentions_case" version="2" view="RPT841cf7351b7df91025017b46464bcbbb">
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>number</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>0</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>8962c00e1bbdf91025017b46464bcb96</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>category</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>1</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>0162c00e1bbdf91025017b46464bcb97</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>company</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>2</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>8162c00e1bbdf91025017b46464bcb97</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>state</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>3</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>0562c00e1bbdf91025017b46464bcb97</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assignment_group</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>4</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>8562c00e1bbdf91025017b46464bcb97</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>assigned_to</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>5</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>0962c00e1bbdf91025017b46464bcb97</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>short_description</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>6</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>8962c00e1bbdf91025017b46464bcb97</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_updated_on</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>7</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>0d62c00e1bbdf91025017b46464bcb97</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_updated_by</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>8</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>8d62c00e1bbdf91025017b46464bcb97</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list_element action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element>sys_created_on</element>
+            <list_id display_value="x_canl_emails_eocn_retentions_case" element="NULL" name="x_canl_emails_eocn_retentions_case" parent="NULL" relationship="NULL" sys_domain="global" view="2b0dda351b4ab910fef8c88b274bcbd9">0162c00e1bbdf91025017b46464bcb95</list_id>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <position>9</position>
+            <sum>false</sum>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_id>0162c00e1bbdf91025017b46464bcb98</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+        </sys_ui_list_element>
+        <sys_ui_list action="INSERT_OR_UPDATE">
+            <average_value>false</average_value>
+            <element/>
+            <max_value>false</max_value>
+            <min_value>false</min_value>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <parent/>
+            <position/>
+            <relationship/>
+            <sum>false</sum>
+            <sys_class_name>sys_ui_list</sys_class_name>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 13:24:43</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0162c00e1bbdf91025017b46464bcb95</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_canl_emails_eocn_retentions_case</sys_name>
+            <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+            <sys_update_name>sys_ui_list_x_canl_emails_eocn_retentions_case_RPT841cf7351b7df91025017b46464bcbbb</sys_update_name>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 13:24:43</sys_updated_on>
+            <sys_user/>
+            <view display_value="Rpt841cf7351b7df91025017b46464bcbbb" name="RPT841cf7351b7df91025017b46464bcbbb">2b0dda351b4ab910fef8c88b274bcbd9</view>
+            <view_name/>
+        </sys_ui_list>
+    </sys_ui_list>
+</record_update>

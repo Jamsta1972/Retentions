@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_package_dependency_m2m">
+    <sys_package_dependency_m2m action="INSERT_OR_UPDATE">
+        <dependency display_value="Customer Service" source="sn_customerservice">51d811fad7223100b7490ee60e61034f</dependency>
+        <min_version>23.8.2</min_version>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-31 10:09:10</sys_created_on>
+        <sys_id>4323e8f61bd07150fef8c88b274bcb83</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-07-31 10:09:10</sys_updated_on>
+    </sys_package_dependency_m2m>
+</record_update>

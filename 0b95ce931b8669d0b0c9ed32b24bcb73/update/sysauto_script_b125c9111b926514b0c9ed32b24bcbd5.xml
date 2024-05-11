@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_time/>
+        <max_drift/>
+        <name>Send EOCN / ABTN emails</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <run_as/>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2023-04-18 10:41:11</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[(function() {
+    abtn_b2b();
+    eocn_b2b();
+    abtn_b2c();
+    eocn_b2c();
+
+    function abtn_b2b() {
+        var qStr = 'resi_customer=false^current_service1_contract_end_date<javascript:gs.beginningOfToday()' +
+            '^scheduled_notification_dateONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()';
+
+        var cdGR = new GlideRecord('x_canl_emails_eocn_customer_data');
+        cdGR.addEncodedQuery(qStr);
+        cdGR.query();
+        gs.info('abtn_b2b emails sent: ' + cdGR.getRowCount());
+        while (cdGR.next()) {
+            var eventName = 'x_canl_emails_eocn.b2b.abtn';
+            var templateGroup = parseInt(cdGR.notification_template_group);
+            if (templateGroup > 1)
+                eventName += templateGroup;
+            createCase(cdGR, 'ABTN');			
+            cdGR.cost_increase_date = getABTNCostIncreaseDate(cdGR);
+            cdGR.update();
+
+            gs.eventQueue(eventName, cdGR, cdGR.getValue('people'));
+        }
+    }
+
+    function eocn_b2b() {
+        var qStr = 'resi_customer=false^renewal_date>=javascript:gs.beginningOfToday()' +
+            '^scheduled_notification_dateONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()';
+
+        var cdGR = new GlideRecord('x_canl_emails_eocn_customer_data');
+        cdGR.addEncodedQuery(qStr);
+        cdGR.query();
+        gs.info('eocn_b2b emails sent: ' + cdGR.getRowCount());
+        while (cdGR.next()) {
+            var eventName = 'x_canl_emails_eocn.b2b.eocn';
+            var templateGroup = parseInt(cdGR.notification_template_group);
+            if (templateGroup > 1)
+                eventName += templateGroup;
+            createCase(cdGR, 'EOCN');
+            cdGR.cost_increase_date = getEOCNCostIncreaseDate(cdGR);
+            cdGR.update();
+
+            gs.eventQueue(eventName, cdGR, cdGR.getValue('people'));
+        }
+    }
+
+    function abtn_b2c() {
+        var qStr = 'resi_customer=true^current_service1_contract_end_date<javascript:gs.beginningOfToday()' +
+            '^scheduled_notification_dateONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()';
+
+        var cdGR = new GlideRecord('x_canl_emails_eocn_customer_data');
+        cdGR.addEncodedQuery(qStr);
+        cdGR.query();
+        gs.info('abtn_b2c emails sent: ' + cdGR.getRowCount());
+        while (cdGR.next()) {
+            var eventName = 'x_canl_emails_eocn.b2c.abtn';
+            var templateGroup = parseInt(cdGR.notification_template_group);
+            if (templateGroup > 1)
+                eventName += templateGroup;
+            createCase(cdGR, 'ABTN');
+            cdGR.cost_increase_date = getABTNCostIncreaseDate(cdGR);
+            cdGR.update();
+
+            gs.eventQueue(eventName, cdGR, cdGR.getValue('people'));
+        }
+    }
+
+    function eocn_b2c() {
+        var qStr = 'resi_customer=true^renewal_date>=javascript:gs.beginningOfToday()' +
+            '^scheduled_notification_dateONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()';
+
+        var cdGR = new GlideRecord('x_canl_emails_eocn_customer_data');
+        cdGR.addEncodedQuery(qStr);
+        cdGR.query();
+        gs.info('eocn_b2c emails sent: ' + cdGR.getRowCount());
+        while (cdGR.next()) {
+            var eventName = 'x_canl_emails_eocn.b2c.eocn';
+            var templateGroup = parseInt(cdGR.notification_template_group);
+            if (templateGroup > 1)
+                eventName += templateGroup;
+            createCase(cdGR, 'EOCN');
+            cdGR.cost_increase_date = getEOCNCostIncreaseDate(cdGR);
+            cdGR.update();
+
+            gs.eventQueue(eventName, cdGR, cdGR.getValue('people'));
+        }
+    }
+
+    function createCase(cdGR, letterType) {
+        var csGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+        csGR.newRecord();
+
+        csGR.company = cdGR.account;
+        csGR.location = cdGR.location;
+        csGR.people = cdGR.people;
+        csGR.customer_data = cdGR.getUniqueValue();
+        csGR.state = '200'; //Awaiting customer response.
+        csGR.category = (letterType == 'ABTN') ? '1' : '2'; //ABTN = 1, EOCN = 2.
+        csGR.cost_change_date = (letterType == 'ABTN') ? getABTNCostIncreaseDate(cdGR) : getEOCNCostIncreaseDate(cdGR);
+        csGR.assignment_group = '0cda8e5f1bb629103329a86fe54bcbfc'; //GB Client Relationship Team
+        csGR.short_description = letterType + ' Customer Notification';
+        csGR.notification_date = new GlideDateTime();
+        csGR.renewal_date = cdGR.renewal_date;
+		csGR.existing_price = calculateExistingPrice(cdGR, letterType);
+		csGR.customer_reference = gatherCustomerRefs(cdGR);
+
+		//Set description with customer details (as held as strings in the Customer Data record)
+		var custRefFlds = ['customer_reference', 'customer_reference2', 'customer_reference3'];
+		csGR.description = 'Customer: ' + cdGR.getValue('glide_customer') 
+			+ '\nAddress: ' + cdGR.getValue('address')
+			+ '\nEmail(s): ' + cdGR.getValue('customer_emails')
+			+ '\nCustomer Ref(s): ' + custRefFlds.map(function(fld){
+				return cdGR.getValue(fld);
+			}).filter(function(fld){
+				return !!fld;
+			}).join(', ');
+
+        csGR.insert();
+        //A business rule associates the email with the case (as it is generated in association with the customer data record)
+		
+		//Now update the ABTN or EOCN date fields on the Sold Product records:
+		if (letterType == 'ABTN')
+			setABTNDates(csGR.getValue('customer_reference'));
+		else if (letterType == 'EOCN')
+			setEOCNDates(csGR.getValue('customer_reference'));
+    }
+
+	function calculateExistingPrice(cdGR, letterType){
+		//Populate Existing Price, on the Retentions Case.		
+		var MAX_NUMBER_OF_SERVICES = 6;
+
+		var existingPrice = 0;
+
+		for (var i = 1; i <= MAX_NUMBER_OF_SERVICES; i++){
+			var dateNow = new GlideDate();
+			var serviceEndFld = 'current_service' + i + '_contract_end_date';
+			var serviceCostFld = 'current_service' + i + '_cost';
+			if (!cdGR[serviceEndFld] || !cdGR[serviceCostFld])
+				continue;
+
+			var serviceEnd = new GlideDate();
+            serviceEnd.setValue(cdGR[serviceEndFld]);
+			//For ABTN, only include price of services where the contract end date is in the past:
+			if (letterType == 'ABTN' && serviceEnd.getValue() >= dateNow.getValue())
+				continue;
+
+			//For EOCN, only include price of services where the contract end date is on or before 90 days from now:
+			dateNow.addDaysUTC(90);
+			if (letterType == 'EOCN' && serviceEnd.getValue() > dateNow.getValue())
+				continue;
+
+			existingPrice += parseFloat(cdGR[serviceCostFld]);
+		}
+
+		return existingPrice;
+
+	}
+
+    function getABTNCostIncreaseDate(cdGR){
+        //Return the closest first day of the month that is at least 60 calendar days after the date of the email.
+		var aDate = new GlideDate();
+		aDate.setValue(cdGR.scheduled_notification_date);
+		aDate.addDaysUTC(60);
+
+		var dayOfMonth = aDate.getDayOfMonthNoTZ();
+
+		if (dayOfMonth > 1) {
+			aDate.addMonthsUTC(1);
+			var newDayOfMonth = aDate.getDayOfMonthNoTZ();
+			aDate.addDaysUTC(1 - newDayOfMonth);
+		}
+
+        return aDate.getValue();
+    }
+
+    function getEOCNCostIncreaseDate(cdGR){
+        var aDate = new GlideDate();
+		aDate.setValue(cdGR.scheduled_notification_date);
+		aDate.addDaysUTC(30); //Set to 30 days from now.
+
+		var cs1Date = new GlideDate();
+		cs1Date.setValue(cdGR.current_service1_contract_end_date);
+		if (cs1Date.getValue() > aDate.getValue()) //If the Contract End date is > 30 days from now, set to the contract end date.
+			aDate = cs1Date;
+
+		var dayOfMonth = aDate.getDayOfMonthNoTZ();
+
+		if (dayOfMonth > 1) { //Move to the first of the following month (if not currently on 1st of month).
+			aDate.addMonthsUTC(1);
+			var newDayOfMonth = aDate.getDayOfMonthNoTZ();
+			aDate.addDaysUTC(1 - newDayOfMonth);
+		}
+
+        return aDate.getValue();
+    }
+
+	function gatherCustomerRefs(cdGR){
+		var customerRefs = cdGR.getValue('customer_reference');
+		if (cdGR.customer_reference2){
+			customerRefs += ',' + cdGR.customer_reference2;
+		}
+		if (cdGR.customer_reference3){
+			customerRefs += ',' + cdGR.customer_reference3;
+		}
+		if (cdGR.customer_reference4){
+			customerRefs += ',' + cdGR.customer_reference4;
+		}
+		if (cdGR.customer_reference5){
+			customerRefs += ',' + cdGR.customer_reference5;
+		}
+		if (cdGR.customer_reference6){
+			customerRefs += ',' + cdGR.customer_reference6;
+		}
+
+		return customerRefs;
+	}
+
+	function setABTNDates(customerRefs){
+		//Set ABTN Dates on the Sold Product record(s):
+		var custRefList = customerRefs.split(',');
+		custRefList.forEach(function(custRef){
+			var soldProdGR = new GlideRecord('sn_install_base_sold_product');
+			soldProdGR.get('name', custRef);
+			if (soldProdGR.isValidRecord()){
+				var dtToday = new GlideDate();
+				//Do not update if the renewal date is not in the past:
+				var renewalDate = soldProdGR.getValue('u_renewal_date') || '';
+				if (!renewalDate || dtToday.getValue() <= renewalDate)
+					return;
+
+				//Set NEXT ABTN to 10 months from now (ref STRY0016605)
+				var dtTenMonths = new GlideDate();
+				dtTenMonths.addMonthsUTC(10);
+				soldProdGR.u_last_abtn_sent = dtToday;
+				soldProdGR.u_next_abtn_due = dtTenMonths;
+				soldProdGR.update();
+			}
+		});
+	}
+
+	function setEOCNDates(customerRefs){
+		//Set EOCN Dates on the Sold Product record(s):
+		var custRefList = customerRefs.split(',');
+		custRefList.forEach(function(custRef){
+			var soldProdGR = new GlideRecord('sn_install_base_sold_product');
+			soldProdGR.get('name', custRef);
+			if (soldProdGR.isValidRecord()){
+				var dtToday = new GlideDate();
+				//Do not update if the renewal date is not in the future:
+				var renewalDate = soldProdGR.getValue('u_renewal_date') || '';
+				if (!renewalDate || renewalDate <= dtToday.getValue())
+					return;
+
+				soldProdGR.u_last_eocn_sent = dtToday;
+				soldProdGR.update();
+			}
+		});
+	}
+
+})();]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-04-18 10:42:28</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b125c9111b926514b0c9ed32b24bcbd5</sys_id>
+        <sys_mod_count>42</sys_mod_count>
+        <sys_name>Send EOCN / ABTN emails</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sysauto_script_b125c9111b926514b0c9ed32b24bcbd5</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2024-02-29 16:29:16</sys_updated_on>
+        <time_zone/>
+        <u_advanced>true</u_advanced>
+        <u_conditions/>
+        <u_event_name/>
+        <u_event_parm_1/>
+        <u_event_parm_2/>
+        <u_run_business_rules>true</u_run_business_rules>
+        <u_save_script><![CDATA[new global.ScriptlessScheduledJobUtils(current).updateRecords();]]></u_save_script>
+        <u_set_field_values/>
+        <u_table>x_canl_emails_eocn_customer_data</u_table>
+        <u_trigger_event>false</u_trigger_event>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

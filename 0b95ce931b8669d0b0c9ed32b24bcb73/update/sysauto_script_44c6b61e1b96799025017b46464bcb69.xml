@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_time/>
+        <max_drift/>
+        <name>Retentions Case: Auto Closure</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <run_as/>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_period/>
+        <run_start>2023-11-06 17:42:35</run_start>
+        <run_time>1970-01-01 03:00:00</run_time>
+        <run_type>daily</run_type>
+        <script><![CDATA[(function() {
+	//Close Retentions cases that are awaiting customer response, and are now at the cost change date.
+	var recGR = new GlideRecord("x_canl_emails_eocn_retentions_case");
+	recGR.addEncodedQuery('state=200^cost_change_date<=javascript:gs.endOfToday()^categoryIN1,2^customer_dataISNOTEMPTY');
+	recGR.query();
+	
+	while (recGR.next()) {
+		recGR.state = '400'; //Complete
+		recGR.closure_code = 'Rolling contract';
+		recGR.sell_price = calculateSellPrice(recGR);
+		recGR.work_notes = 'Auto-closing, as no customer response and the cost change date has been reached';
+		recGR.update();
+	}
+
+	function calculateSellPrice(recGR){
+		var rollingCostFlds = ['rolling_monthly_cost', 'rolling_monthly_cost2', 'rolling_monthly_cost3', 'rolling_monthly_cost4', 'rolling_monthly_cost5', 'rolling_monthly_cost6'];
+
+		var sellPrice = 0;
+		var cdGR = recGR.customer_data.getRefRecord();
+		rollingCostFlds.forEach(function(fld){
+			sellPrice += parseFloat(cdGR[fld]);
+		});
+
+		return sellPrice;
+	}
+
+})();
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-11-06 17:55:47</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>44c6b61e1b96799025017b46464bcb69</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Retentions Case: Auto Closure</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sysauto_script_44c6b61e1b96799025017b46464bcb69</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-11-06 18:01:24</sys_updated_on>
+        <time_zone/>
+        <u_advanced>true</u_advanced>
+        <u_conditions/>
+        <u_event_name/>
+        <u_event_parm_1/>
+        <u_event_parm_2/>
+        <u_run_business_rules>true</u_run_business_rules>
+        <u_save_script><![CDATA[new global.ScriptlessScheduledJobUtils(current).updateRecords();]]></u_save_script>
+        <u_set_field_values/>
+        <u_table>x_canl_emails_eocn_retentions_case</u_table>
+        <u_trigger_event>false</u_trigger_event>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+</record_update>

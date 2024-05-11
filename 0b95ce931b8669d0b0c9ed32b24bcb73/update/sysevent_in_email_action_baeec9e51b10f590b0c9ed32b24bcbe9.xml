@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>true</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description>Process reply to an email notification sent to a customer wrt a Retentions case (e.g. ABTN / EOCN)</description>
+        <event_name>email.read</event_name>
+        <filter_condition/>
+        <from/>
+        <name>Retentions reply</name>
+        <order>-895</order>
+        <reply_email/>
+        <required_roles/>
+        <script><![CDATA[(function() {
+    var sentby = email.origemail.toString();
+    var bodyText = email.body_text;
+	
+    if (sentby.includes("cablecomnetworking.co.uk") || sentby.includes("glide.co.uk"))
+        current.work_notes = "reply from: " + email.origemail + "\n\n" + bodyText;
+    else
+        current.comments = "reply from: " + email.origemail + "\n\n" + bodyText;
+		
+    current.state = '1'; //New.
+    current.update();
+})();]]></script>
+        <stop_processing>true</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-27 16:09:49</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>baeec9e51b10f590b0c9ed32b24bcbe9</sys_id>
+        <sys_mod_count>10</sys_mod_count>
+        <sys_name>Retentions reply</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sysevent_in_email_action_baeec9e51b10f590b0c9ed32b24bcbe9</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-07-31 11:14:17</sys_updated_on>
+        <table>x_canl_emails_eocn_retentions_case</table>
+        <template/>
+        <type>reply</type>
+    </sysevent_in_email_action>
+</record_update>

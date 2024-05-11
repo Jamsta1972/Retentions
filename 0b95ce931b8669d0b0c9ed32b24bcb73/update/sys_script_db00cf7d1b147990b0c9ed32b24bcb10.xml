@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>true</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_canl_emails_eocn_customer_data</collection>
+        <condition/>
+        <description>Set (or create) Person from the customer email address. Runs after the rule that sets account and location, as they are used here.&#13;
+This will become defunct when we are populating this record from internal data, rather than from a data load.</description>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_canl_emails_eocn_customer_data">customer_emailVALCHANGES^customer_emailISNOTEMPTY^EQ<item endquery="false" field="customer_email" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
+            <item endquery="false" field="customer_email" goto="false" newquery="false" operator="ISNOTEMPTY" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Set (or create) Person</name>
+        <order>101</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+
+	var customer_email = current.getValue('customer_email');
+	var userGR = new GlideRecord('sys_user');
+	userGR.addQuery('email', customer_email);
+	userGR.addQuery('company', current.getValue('account'));
+	userGR.setLimit(1);
+	userGR.query();
+	if (userGR.next()){ //First look for a user record associated with the company.
+		current.person = userGR.getUniqueValue();
+		return;
+	}
+
+	//If not found, look for user record with matching email address only:
+	userGR = new GlideRecord('sys_user');
+	userGR.addQuery('email', customer_email);
+	userGR.setLimit(1);
+	userGR.query();
+	if (userGR.next()){
+		current.person = userGR.getUniqueValue();
+		return;
+	}
+
+	//If not found, create a new user record, and populate M2M tables.
+	userGR = new GlideRecord('sys_user');
+	userGR.newRecord();
+	userGR.email = customer_email;
+	userGR.user_name = gs.generateGUID();
+	userGR.first_name = current.glide_customer || customer_email;
+	userGR.last_name = '-';
+	userGR.u_user_type = 'C1 Customer';
+	userGR.company = current.account;
+	userGR.location = current.location;
+	userGR.insert();
+	current.person = userGR.getUniqueValue();
+
+	if (current.location){
+		var locConGR = new GlideRecord('u_m2m_locations_users');
+		locConGR.u_user = userGR.getUniqueValue();
+		locConGR.u_location = current.location;
+		locConGR.insert();
+	}
+	if (current.account){
+		var compConGR = new GlideRecord('u_m2m_companies_users2');
+		compConGR.u_user = userGR.getUniqueValue();
+		compConGR.u_company = current.account;
+		compConGR.insert();
+	}
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-28 19:00:41</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>db00cf7d1b147990b0c9ed32b24bcb10</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name>Set (or create) Person</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_db00cf7d1b147990b0c9ed32b24bcb10</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-07-30 00:04:34</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=db00cf7d1b147990b0c9ed32b24bcb10"/>
+</record_update>

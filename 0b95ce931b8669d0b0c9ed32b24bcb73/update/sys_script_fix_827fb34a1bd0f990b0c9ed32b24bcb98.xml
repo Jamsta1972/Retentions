@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>For all EOCN/ABTN emails sent prior to existence of retentions cases, create a case, and reassociate the emails and watermarks with the new cases.&#13;
+RUN THIS IN THE GLOBAL SCOPE, in Xplore.</description>
+        <name>Retro-create EOCN/ABTN retentions cases</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[function createCase(cdGR, letterType) {
+    var csGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+    csGR.newRecord();
+
+    csGR.company = cdGR.account;
+    csGR.location = cdGR.location;
+    csGR.person = cdGR.person;
+    csGR.customer_data = cdGR.getUniqueValue();
+    csGR.state = '200'; //Awaiting customer response.
+    csGR.category = (letterType == 'ABTN') ? '1' : '2'; //ABTN = 1, EOCN = 2.
+    csGR.assignment_group = '0cda8e5f1bb629103329a86fe54bcbfc'; //GB Client Relationship Team
+    csGR.short_description = letterType + ' Customer Notification';
+    csGR.notification_date = new GlideDateTime();
+    csGR.renewal_date = cdGR.renewal_date;
+    return csGR.insert();
+}
+
+//Iterate through all emails linked to a 'Customer Data' record.
+var emailGR = new GlideRecord('sys_email');
+var qStr = 'target_table=x_canl_emails_eocn_customer_data';
+emailGR.addEncodedQuery(qStr);
+emailGR.query();
+while (emailGR.next()) {
+
+    //Grab the 'Customer Data' record, and create a new retentions case linked to it.
+    var cdGR = emailGR.instance.getRefRecord();
+
+    //But, if a case already exists for this customer data record, move on:
+    var csGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+    csGR.addQuery('customer_data', cdGR.getUniquValue());
+    csGR.query();
+    if (csGR.hasNext())
+        continue;
+
+    var replyTo = emailGR.getValue('reply_to');
+    var letterType = (replyTo == 'EndOfContract@Glide.co.uk') ? 'EOCN' : 'ABTN';
+    var caseId = createCase(cdGR, letterType);
+
+    //Link this email to the new case:
+    emailGR.target_table = 'x_canl_emails_eocn_retentions_case';
+    emailGR.instance = caseId;
+    emailGR.update();
+
+    //Update the watermark:
+    var wmGR = new GlideRecord('sys_watermark');
+    wmGR.get('email', emailGR.getUniqueValue());
+    if (!wmGR.isValidRecord()) {
+        gs.info('JW_Watermark not found for sys_email: ' + emailGR.getUniqueValue());
+        continue;
+    }
+    wmGR.source_table = 'x_canl_emails_eocn_retentions_case';
+    wmGR.source_id = caseId;
+    wmGR.update();
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-29 18:17:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>827fb34a1bd0f990b0c9ed32b24bcb98</sys_id>
+        <sys_mod_count>6</sys_mod_count>
+        <sys_name>Retro-create EOCN/ABTN retentions cases</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_fix_827fb34a1bd0f990b0c9ed32b24bcb98</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-07-29 20:43:05</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

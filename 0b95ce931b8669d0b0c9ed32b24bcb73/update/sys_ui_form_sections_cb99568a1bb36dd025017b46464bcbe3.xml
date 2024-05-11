@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="cb99568a1bb36dd025017b46464bcbe3" sys_domain="global" table="x_canl_emails_eocn_customer_data" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-04 14:19:48</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8b99568a1bb36dd025017b46464bcbe5</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_customer_data" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">cb99568a1bb36dd025017b46464bcbe3</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a526be1f1bca69d0b0c9ed32b24bcb15</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-04 14:19:48</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:24:33</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>0cbdb6b11bf5f91025017b46464bcb12</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_customer_data" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">cb99568a1bb36dd025017b46464bcbe3</sys_ui_form>
+            <sys_ui_section caption="Customer Refs" display_value="Customer Refs" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">c8bdfa711bf5f91025017b46464bcb76</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:25:24</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-04 14:19:48</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c799560e1bb36dd025017b46464bcbf9</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_customer_data" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">cb99568a1bb36dd025017b46464bcbe3</sys_ui_form>
+            <sys_ui_section caption="Current" display_value="Current" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">8799568a1bb36dd025017b46464bcbe6</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:25:24</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-04 14:34:16</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>8fecdace1bb36dd025017b46464bcb89</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_customer_data" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">cb99568a1bb36dd025017b46464bcbe3</sys_ui_form>
+            <sys_ui_section caption="Renewal" display_value="Renewal" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">03ecdace1bb36dd025017b46464bcb87</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:25:24</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>4</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-04 14:39:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>c32e92421bf36dd025017b46464bcb39</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_customer_data" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">cb99568a1bb36dd025017b46464bcbe3</sys_ui_form>
+            <sys_ui_section caption="Upgrade" display_value="Upgrade" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">4b2e92421bf36dd025017b46464bcb36</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:25:24</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>5</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-04 14:49:59</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>4180aac21bf36dd025017b46464bcb04</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_customer_data" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">cb99568a1bb36dd025017b46464bcbe3</sys_ui_form>
+            <sys_ui_section caption="Comparable" display_value="Comparable" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">cd80aac21bf36dd025017b46464bcb00</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:25:24</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>6</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-04 14:51:15</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>23c0e2061bf36dd025017b46464bcbb3</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_customer_data" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">cb99568a1bb36dd025017b46464bcbe3</sys_ui_form>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:25:24</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>7</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-04 14:54:34</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>14912ac61bf36dd025017b46464bcbea</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_customer_data" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">cb99568a1bb36dd025017b46464bcbe3</sys_ui_form>
+            <sys_ui_section caption="Pricebook" display_value="Pricebook" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">c091e6061bf36dd025017b46464bcb97</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:25:24</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_canl_emails_eocn_customer_data</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-04 14:19:48</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>cb99568a1bb36dd025017b46464bcbe3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_canl_emails_eocn_customer_data</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+            <sys_update_name>sys_ui_form_sections_cb99568a1bb36dd025017b46464bcbe3</sys_update_name>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-04 14:19:48</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

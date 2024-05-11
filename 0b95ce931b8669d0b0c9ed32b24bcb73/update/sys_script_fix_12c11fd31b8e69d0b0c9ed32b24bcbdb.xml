@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description/>
+        <name>GlideDate Tests in this Scope</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[var current = new GlideRecord('x_canl_emails_eocn_customer_data');
+current.get('2736765f1bca69d0b0c9ed32b24bcbb9');
+
+//gs.eventQueue('x_canl_emails_eocn.eocn_email_trigger', current, current.getValue('customer_email'));
+
+ var renewalDateValue = current.getValue('renewal_date') || ''; //Cannot use getGlideObject in a scoped app, annoyingly.
+	var renewalDate = new GlideDate();
+	if (renewalDateValue)
+		renewalDate.setValue(renewalDateValue);
+    var nowDate = new GlideDate();
+    var output = 'Out of Contract';
+    if (renewalDateValue && nowDate.getValue() < renewalDateValue) {
+        output = renewalDate.getDisplayValue();
+    }
+
+gs.info('JW_output: ' + output);]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-04-12 15:48:08</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>12c11fd31b8e69d0b0c9ed32b24bcbdb</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>GlideDate Tests in this Scope</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_fix_12c11fd31b8e69d0b0c9ed32b24bcbdb</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-04-12 15:59:30</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>
