@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>eocn_renewal_or_comparable</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+
+	//Present 'Comparable Service' if populated, otherwise 'Curent Service 1'.
+	var output = current.getValue('comparable_service') || current.getValue('current_service1') || '';
+	template.print(output);
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-04-12 14:34:03</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e3dab2d31b0e69d0b0c9ed32b24bcbfa</sys_id>
+        <sys_mod_count>5</sys_mod_count>
+        <sys_name>eocn_renewal_or_comparable</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_email_e3dab2d31b0e69d0b0c9ed32b24bcbfa</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-08 08:52:15</sys_updated_on>
+        <u_template/>
+    </sys_script_email>
+</record_update>

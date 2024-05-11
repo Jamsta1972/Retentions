@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>Retrospectively set the Customer Refs field on Retentions cases</description>
+        <name>STRY0016066 - Retentions Customer Refs</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[var retGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+var qStr = 'categoryIN1,2^customer_dataISNOTEMPTY';
+retGR.addEncodedQuery(qStr);
+retGR.query();
+while (retGR.next()){
+	var cdGR = retGR.customer_data.getRefRecord();
+	retGR.customer_reference = gatherCustomerRefs(cdGR);
+	retGR.setWorkflow(false);
+	retGR.autoSysFields(false);
+	retGR.update();
+}
+
+function gatherCustomerRefs(cdGR) {
+    var customerRefs = cdGR.getValue('customer_reference');
+    if (cdGR.customer_reference2) {
+        customerRefs += ',' + cdGR.customer_reference2;
+    }
+    if (cdGR.customer_reference3) {
+        customerRefs += ',' + cdGR.customer_reference3;
+    }
+    if (cdGR.customer_reference4) {
+        customerRefs += ',' + cdGR.customer_reference4;
+    }
+    if (cdGR.customer_reference5) {
+        customerRefs += ',' + cdGR.customer_reference5;
+    }
+    if (cdGR.customer_reference6) {
+        customerRefs += ',' + cdGR.customer_reference6;
+    }
+	gs.info('JW_customerRefs for ' + cdGR.getDisplayValue() + ': ' + customerRefs);
+    return customerRefs;
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-11-06 17:27:17</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>823276561b96799025017b46464bcbeb</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>STRY0016066 - Retentions Customer Refs</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_fix_823276561b96799025017b46464bcbeb</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-11-06 17:30:39</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

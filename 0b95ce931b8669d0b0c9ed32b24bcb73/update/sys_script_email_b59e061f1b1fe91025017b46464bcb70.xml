@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>abtn_upgrade_option</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+	
+	//If an upgrade is available, insert a section to the notification.
+	var UPGRADE_SERVICE = current.getDisplayValue('upgrade_service');
+	if(!UPGRADE_SERVICE)
+		return;
+	
+	var UPGRADE_SERVICE_DESCRIPTION = current.getDisplayValue('upgrade_service_description');
+	var UPGRADE_SERVICE_COST = current.getDisplayValue('upgrade_service_cost');
+	var UPGRADE_SERVICE_TERM = current.getDisplayValue('upgrade_service_term');
+	var UPGRADE_INSTALL_FEE = current.getDisplayValue('upgrade_install_fee');
+	var showInstallFeeColumn = false; //Install Fee column is only shown, if populated.
+	if (UPGRADE_INSTALL_FEE != '£0.00')
+		showInstallFeeColumn = true;
+
+    //Include second row on table, if there is a second upgrade service:
+    var secondRow = '';
+    var UPGRADE_SERVICE2 = current.getDisplayValue('upgrade_service2') || '';
+
+    if (UPGRADE_SERVICE2) {
+        var UPGRADE_SERVICE_DESCRIPTION2 = current.getDisplayValue('upgrade_service_description2');
+        var UPGRADE_SERVICE_COST2 = current.getDisplayValue('upgrade_service_cost2');
+        var UPGRADE_SERVICE_TERM2 = current.getDisplayValue('upgrade_service_term2');
+		var UPGRADE_INSTALL_FEE2 = current.getDisplayValue('upgrade_install_fee2');
+		if (UPGRADE_INSTALL_FEE2 != '£0.00')
+			showInstallFeeColumn = true;
+
+        secondRow = '<tr><td style="width: 169.85pt; border: solid #A5A5A5 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE2 + ' on a new contract for ' + UPGRADE_SERVICE_TERM2 + '</span></p></td><td style="width: 184.3pt; border-top: none; border-left: none; border-bottom: solid #A5A5A5 1.0pt; border-right: solid #A5A5A5 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE_DESCRIPTION2 + '</span></p></td><td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid #A5A5A5 1.0pt; border-right: solid #A5A5A5 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE_COST2 + '</span></p></td>' + ((showInstallFeeColumn)? '<td style="width: 92.15pt; border: solid #A5A5A5 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_INSTALL_FEE2 + '</span></p></td>' : '') + '</tr>';
+    }
+
+  var output = '<p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;"><br/>Please see the below upgrade offer (subject to site survey), if you would like to take advantage of additional services we can offer. </span></p><table class="MsoTableGrid" style="width: 446.3pt; border-collapse: collapse; border: none;" border="1" cellspacing="0" cellpadding="0"><tbody><tr><td style="width: 169.85pt; border: solid #A5A5A5 1.0pt; background: #D9D9D9; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">Option</span></p></td><td style="width: 184.3pt; border: solid #A5A5A5 1.0pt; border-left: none; background: #D9D9D9; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">Service</span></p></td><td style="width: 92.15pt; border: solid #A5A5A5 1.0pt; border-left: none; background: #D9D9D9; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">Monthly Cost</span></p></td>' + ((showInstallFeeColumn)? '<td style="width: 92.15pt; border: solid #A5A5A5 1.0pt; border-left: none; background: #D9D9D9; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">Install Fee</span></p></td>' : '') + '</tr><tr><td style="width: 169.85pt; border: solid #A5A5A5 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE + ' on a new contract for ' + UPGRADE_SERVICE_TERM + '</span></p></td><td style="width: 184.3pt; border-top: none; border-left: none; border-bottom: solid #A5A5A5 1.0pt; border-right: solid #A5A5A5 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE_DESCRIPTION + '</span></p></td><td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid #A5A5A5 1.0pt; border-right: solid #A5A5A5 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE_COST + '</span></p></td>' + ((showInstallFeeColumn)? '<td style="width: 92.15pt; border: solid #A5A5A5 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_INSTALL_FEE + '</span></p></td>' : '') + '</tr>' + secondRow + '</tbody></table><p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">If you would like to sign up for this product or to speak to someone to find out more about this upgrade option, please reply via </span><a style="color: #0563c1; text-decoration: underline;" href="mailto:AnnualBestTariff@Glide.co.uk"><span style="font-family: Karla;">AnnualBestTariff@Glide.co.uk</span></a><span style="font-family: Karla;"> or call us on </span><span class="ui-provider"><span style="line-height: 107%; font-family: Karla;">0333 380 0143.</span></span></p>';
+	
+	template.print(output);
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-06-13 14:12:41</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b59e061f1b1fe91025017b46464bcb70</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>abtn_upgrade_option</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_email_b59e061f1b1fe91025017b46464bcb70</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-08-29 09:31:40</sys_updated_on>
+        <u_template/>
+    </sys_script_email>
+</record_update>

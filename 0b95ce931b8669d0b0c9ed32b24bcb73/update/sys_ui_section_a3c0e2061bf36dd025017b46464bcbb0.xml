@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Rolling" section_id="a3c0e2061bf36dd025017b46464bcbb0" sys_domain="global" table="x_canl_emails_eocn_customer_data" version="3" view="">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.begin_split</element>
+            <position>0</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:25</sys_created_on>
+            <sys_id>7935077d1bf5f91025017b46464bcbd1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:25</sys_updated_on>
+            <sys_user/>
+            <type>.begin_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rolling_cost_increase_date</element>
+            <position>1</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:25</sys_created_on>
+            <sys_id>f935077d1bf5f91025017b46464bcbd1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:25</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rolling_monthly_cost</element>
+            <position>2</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:25</sys_created_on>
+            <sys_id>7d35077d1bf5f91025017b46464bcbd1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:25</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rolling_monthly_cost2</element>
+            <position>3</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:25</sys_created_on>
+            <sys_id>fd35077d1bf5f91025017b46464bcbd1</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:25</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rolling_monthly_cost3</element>
+            <position>4</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:25</sys_created_on>
+            <sys_id>7135077d1bf5f91025017b46464bcbd2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:25</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rolling_monthly_cost4</element>
+            <position>5</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:25</sys_created_on>
+            <sys_id>f135077d1bf5f91025017b46464bcbd2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:25</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rolling_monthly_cost5</element>
+            <position>6</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:25</sys_created_on>
+            <sys_id>7535077d1bf5f91025017b46464bcbd2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:25</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>rolling_monthly_cost6</element>
+            <position>7</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:25</sys_created_on>
+            <sys_id>f535077d1bf5f91025017b46464bcbd2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:25</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>8</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:26</sys_created_on>
+            <sys_id>7935077d1bf5f91025017b46464bcbd2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:26</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>9</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-10-11 08:57:26</sys_created_on>
+            <sys_id>f935077d1bf5f91025017b46464bcbd2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Rolling" display_value="Rolling" name="x_canl_emails_eocn_customer_data" sys_domain="global" view="Default view">a3c0e2061bf36dd025017b46464bcbb0</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-10-11 08:57:26</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Rolling</caption>
+            <header>false</header>
+            <name>x_canl_emails_eocn_customer_data</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-04 14:51:14</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>a3c0e2061bf36dd025017b46464bcbb0</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_canl_emails_eocn_customer_data</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+            <sys_update_name>sys_ui_section_a3c0e2061bf36dd025017b46464bcbb0</sys_update_name>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-04 14:51:14</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

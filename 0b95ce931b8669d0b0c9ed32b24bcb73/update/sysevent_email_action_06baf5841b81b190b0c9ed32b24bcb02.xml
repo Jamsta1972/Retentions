@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_email_action">
+    <sysevent_email_action action="INSERT_OR_UPDATE">
+        <action_insert>false</action_insert>
+        <action_update>false</action_update>
+        <active>true</active>
+        <advanced_condition/>
+        <affected_field_on_event/>
+        <category display_value="Uncategorized" name="Uncategorized">c97d83137f4432005f58108c3ffa917a</category>
+        <collection>x_canl_emails_eocn_retentions_case</collection>
+        <condition/>
+        <content_type>text/html</content_type>
+        <default_interval/>
+        <description>Send reminders after 14 days and 28 days, if customer has not responsded to original EOCN or ABTN notification.&#13;
+Fired by Flow: EOCN / ABTN reminder emails.</description>
+        <digest_from/>
+        <digest_html/>
+        <digest_reply_to/>
+        <digest_separator_html><![CDATA[<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>]]></digest_separator_html>
+        <digest_separator_text><![CDATA[\n--------------------------------------------------------------------------------\n]]></digest_separator_text>
+        <digest_subject/>
+        <digest_template/>
+        <digest_text/>
+        <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
+        <event_name>activate.life.cycle.migration</event_name>
+        <event_parm_1>false</event_parm_1>
+        <event_parm_2>false</event_parm_2>
+        <exclude_delegates>false</exclude_delegates>
+        <force_delivery>false</force_delivery>
+        <from/>
+        <generation_type>triggered</generation_type>
+        <importance/>
+        <include_attachments>false</include_attachments>
+        <item>event.parm1</item>
+        <item_table/>
+        <mandatory>false</mandatory>
+        <message/>
+        <message_html><![CDATA[<p>&nbsp;</p>
+<!-- [if !mso]><!--><!--<![endif]-->
+<style type="text/css">#outlook a { padding:0; }
+      body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
+      table, td { border-collapse:collapse;mso-table-lspace:0pt;mso-table-rspace:0pt; }
+      img { border:0;height:auto;line-height:100%; outline:none;text-decoration:none;-ms-interpolation-mode:bicubic; }
+      p { display:block;margin:13px 0; }</style>
+<!-- [if mso]>
+    <noscript>
+    <xml>
+    <o:OfficeDocumentSettings>
+      <o:AllowPNG/>
+      <o:PixelsPerInch>96</o:PixelsPerInch>
+    </o:OfficeDocumentSettings>
+    </xml>
+    </noscript>
+    <![endif]--><!-- [if lte mso 11]>
+    <style type="text/css">
+      .mj-outlook-group-fix { width:100% !important; }
+    </style>
+    <![endif]--><!-- [if !mso]><!-->
+<p><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css" /></p>
+<style type="text/css">@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);</style>
+<!--<![endif]-->
+<style type="text/css">@media only screen and (min-width:480px) {
+        .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.mj-column-per-25 { width:25% !important; max-width: 25%; }
+.mj-column-per-75 { width:75% !important; max-width: 75%; }
+      }</style>
+<style media="screen and (min-width:480px)">.moz-text-html .mj-column-per-100 { width:100% !important; max-width: 100%; }
+.moz-text-html .mj-column-per-25 { width:25% !important; max-width: 25%; }
+.moz-text-html .mj-column-per-75 { width:75% !important; max-width: 75%; }</style>
+<style type="text/css">[owa] .mj-column-per-100 { width:100% !important; max-width: 100%; }
+[owa] .mj-column-per-25 { width:25% !important; max-width: 25%; }
+[owa] .mj-column-per-75 { width:75% !important; max-width: 75%; }</style>
+<style type="text/css">@media only screen and (max-width:479px) {
+      table.mj-full-width-mobile { width: 100% !important; }
+      td.mj-full-width-mobile { width: auto !important; }
+    }</style>
+<div style="background-color: #f5f5f5;"><!-- [if mso | IE]><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="margin: 0px auto; max-width: 600px;">
+<table style="width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 0px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;">
+<table style="vertical-align: top;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="font-size: 0px; padding: 0px; word-break: break-word;" align="center">
+<table style="border-collapse: collapse; border-spacing: 0px;" role="presentation" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="width: 600px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/mmzt6/gp7j8.jpeg" alt="" width="600" height="auto" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="#fdf8f0" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="background: #fdf8f0; background-color: #fdf8f0; margin: 0px auto; max-width: 600px;">
+<table style="background: #fdf8f0; background-color: #fdf8f0; width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 30px 40px 30px 40px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:520px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;">
+<table style="vertical-align: top;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="font-size: 0px; padding: 0px 20px 0px 20px; word-break: break-word;" align="left">
+<div style="font-family: Arial, sans-serif; font-size: 18px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
+<p class="text-build-content" style="line-height: 24px; text-align: center; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="NqWTlzvAyks9VbVApWtfD"><span style="color: #250d47; font-family: Arial; font-size: 18px;">We wanted to remind you that you can secure your current price with Glide by renewing with us today!</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="#250d47" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><v:rect style="width:600px;" xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false"><v:fill origin="0, -0.5" position="0, -0.5" src="https://go.glide.co.uk/tplimg/x1hty/b/mmx7i/gpq7p.jpeg" color="#250d47" type="frame" size="100%,100%" /><v:textbox style="mso-fit-shape-to-text:true" inset="0,0,0,0"><![endif]-->
+<div style="background: #250d47 url('https://go.glide.co.uk/tplimg/x1hty/b/mmx7i/gpq7p.jpeg') center top / 100% 100% no-repeat; background-position: center top; background-repeat: no-repeat; background-size: 100% 100%; margin: 0px auto; max-width: 600px;">
+<div style="line-height: 0; font-size: 0;">
+<table style="background: #250d47 url('https://go.glide.co.uk/tplimg/x1hty/b/mmx7i/gpq7p.jpeg') center top / 100% 100% no-repeat; background-position: center top; background-repeat: no-repeat; background-size: 100% 100%; width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 30px 40px 30px 40px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:520px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="background-color: #400c6c; font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;">
+<table style="background-color: #400c6c; vertical-align: top;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="background-color: #400c6c; font-size: 0px; padding: 0px 20px 0px 20px; word-break: break-word;" align="left">
+<div style="font-family: Arial, sans-serif; font-size: 18px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
+<p class="text-build-content" style="line-height: 25px; text-align: center; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="zX1f_3xvo7Kbuqbk3Z2V8"><span style="color: #2aca73; font-family: Arial; font-size: 22px;">Want to save? Then renew with Glide!</span><br /><br /><span style="color: #ffffff; font-family: Arial; font-size: 18px;">Don&rsquo;t miss out and extend your journey now&nbsp;for another&nbsp;24 months to qualify.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- [if mso | IE]></v:textbox></v:rect></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" bgcolor="#ffffff" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="background: #ffffff; background-color: #ffffff; margin: 0px auto; max-width: 600px;">
+<table style="background: #ffffff; background-color: #ffffff; width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 20px 0px 20px 0px; padding-left: 0px; padding-right: 0px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:middle;width:150px;" ><![endif]-->
+<div class="mj-column-per-25 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: middle; width: 100%;">
+<table style="vertical-align: middle;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="font-size: 0px; padding: 0px 20px 0px 20px; word-break: break-word;" align="center">
+<table style="border-collapse: collapse; border-spacing: 0px;" role="presentation" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="width: 110px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/m1k7h/gpkyg.gif" alt="" width="110" height="auto" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td><td class="" style="vertical-align:middle;width:450px;" ><![endif]-->
+<div class="mj-column-per-75 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: middle; width: 100%;">
+<table style="vertical-align: middle;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="font-size: 0px; padding: 0px 30px 0px 30px; word-break: break-word;" align="left">
+<div style="font-family: Arial, sans-serif; font-size: 15px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
+<p class="text-build-content" style="line-height: 28px; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="YqFTiLn66"><span style="color: #250d47; font-family: Arial; font-size: 15px;">To take advantage of this deal, please contact us on&nbsp;<strong>0333 380 0143</strong> or email <strong>${mail_script:eocn_abtn_reminder_reply_to} </strong>to discuss your options.</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="margin: 0px auto; max-width: 600px;">
+<table style="width: 100%;" role="presentation" border="0" cellspacing="0" cellpadding="0" align="center">
+<tbody>
+<tr>
+<td style="direction: ltr; font-size: 0px; padding: 20px 0px 20px 0px; padding-left: 0px; padding-right: 0px; text-align: center;"><!-- [if mso | IE]><table role="presentation" border="0" cellpadding="0" cellspacing="0"><tr><td class="" style="vertical-align:top;width:600px;" ><![endif]-->
+<div class="mj-column-per-100 mj-outlook-group-fix" style="font-size: 0px; text-align: left; direction: ltr; display: inline-block; vertical-align: top; width: 100%;">
+<table style="vertical-align: top;" role="presentation" border="0" width="100%" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="font-size: 0px; padding: 0px; word-break: break-word;" align="center">
+<table style="border-collapse: collapse; border-spacing: 0px;" role="presentation" border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td style="width: 600px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/m1k7h/gpn8x.png" alt="" width="600" height="auto" /></td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+<tr>
+<td style="font-size: 0px; padding: 0px 20px 0px 20px; padding-top: 0px; padding-bottom: 0px; word-break: break-word;" align="left">
+<div style="font-family: Arial, sans-serif; font-size: 11px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
+<p class="text-build-content" style="line-height: 20px; text-align: center; margin: 10px 0; margin-top: 10px;" data-testid="dYqZT0S3UUIQ"><span style="color: #55575d; font-family: Arial; font-size: 11px;">*T&amp;C's apply. Each year in April, we may adjust the prices of some of our products and services in line with the ONS&rsquo;s Retail Price Index (RPI). For example, if you are paying &pound;90/month, a 10% RPI increase would mean you would pay &pound;99/month from April 2024.</span></p>
+<p class="text-build-content" style="line-height: 20px; text-align: center; margin: 10px 0; margin-bottom: 10px;" data-testid="dYqZT0S3UUIQ"><span style="color: #55575d; font-family: Arial; font-size: 11px;">&copy; 2023 Glide Student &amp; Residential Ltd, Glide House, Ground Floor, Building 4, Windmill Road, Clevedon, North Somerset, BS21 6UJ, United Kingdom, 01275 793400</span></p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- [if mso | IE]></td></tr></table><table align="center" border="0" cellpadding="0" cellspacing="0" class="" role="presentation" style="width:600px;" width="600" ><tr><td style="line-height:0px;font-size:0px;mso-line-height-rule:exactly;"><![endif]-->
+<div style="margin: 0px auto; max-width: 600px;">&nbsp;</div>
+<!-- [if mso | IE]></td></tr></table><![endif]--></div>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>EOCN/ABTN Reminder</name>
+        <omit_watermark>false</omit_watermark>
+        <order>100</order>
+        <push_message_only>false</push_message_only>
+        <recipient_fields>people</recipient_fields>
+        <recipient_groups/>
+        <recipient_users/>
+        <reply_to/>
+        <send_self>true</send_self>
+        <sms_alternate/>
+        <style/>
+        <subject>Time is ticking... lock in your pricing now*</subject>
+        <subscribable>false</subscribable>
+        <sys_class_name>sysevent_email_action</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-08-29 10:16:14</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>06baf5841b81b190b0c9ed32b24bcb02</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>EOCN/ABTN Reminder</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sysevent_email_action_06baf5841b81b190b0c9ed32b24bcb02</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2024-02-09 09:33:39</sys_updated_on>
+        <sys_version>2</sys_version>
+        <template/>
+        <type>email</type>
+        <u_body_html/>
+        <u_generate_and_attach_pdf>false</u_generate_and_attach_pdf>
+        <u_pdf_html/>
+        <u_pdf_orientation>PORTRAIT</u_pdf_orientation>
+        <u_pdf_size>A4</u_pdf_size>
+        <u_pdf_title/>
+        <u_suffix_with_date>false</u_suffix_with_date>
+        <u_suffix_with_reference/>
+        <u_use_subject_as_pdf_title>false</u_use_subject_as_pdf_title>
+        <weight>0</weight>
+    </sysevent_email_action>
+</record_update>

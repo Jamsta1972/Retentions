@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>false</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description/>
+        <event_name>email.read</event_name>
+        <filter_condition table="sys_email">recipients=retentions@glide.co.uk^ORrecipients=businesssupport@glide.co.uk^EQ<item endquery="false" field="recipients" goto="false" newquery="false" operator="=" or="false" value="retentions@glide.co.uk"/>
+            <item endquery="false" field="recipients" goto="false" newquery="false" operator="=" or="true" value="businesssupport@glide.co.uk"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <from/>
+        <name>CeaseCancellationInboundAction</name>
+        <order>100</order>
+        <reply_email/>
+        <required_roles/>
+        <script><![CDATA[(function () {
+    if (ignoreThisEmail()) {
+        return;
+    }
+
+    var senderEmail = email.from;
+    var subject = email.subject;
+    var body = email.body_text;
+
+    // Check for keywords
+    var keywords = ["Cancel", "Cancellation", "Cease", "Liquidation", "No longer trading", "Terminate", "Termination", "Terminated"];
+    var containsKeyword = keywords.some(function(keyword) {
+        return subject.toLowerCase().includes(keyword.toLowerCase()) || body.toLowerCase().includes(keyword.toLowerCase());
+    });
+
+    // Create a case if keywords are found
+    if (containsKeyword) {
+        current.initialize();
+        current.category = '5';
+        current.assignment_group = '0cda8e5f1bb629103329a86fe54bcbfc';
+        current.state = 1; // New
+        current.short_description = subject;
+        current.description = body;
+
+        // Check if sender email matches an SN user record
+        var userGr = new GlideRecord("sys_user");
+        if (userGr.get("email", senderEmail)) {
+            current.customer = userGr.getValue("company");
+            current.person = userGr.getUniqueValue();
+
+            // Check if only one location is linked
+            var locationGr = new GlideRecord("cmn_location");
+            locationGr.addQuery("sys_id", userGr.location);
+            locationGr.query();
+            if (locationGr.next()) {
+                current.location = locationGr.getUniqueValue();
+            }
+        } else {
+            // Create a temporary user for use on the case record
+            var tempUser = createTemporaryUser(senderEmail);
+            current.person = tempUser.getUniqueValue();
+            current.customer = tempUser.getValue("company");
+            current.location = tempUser.getValue("location");
+        }
+
+        // Insert the new case record
+        current.insert();
+    }
+})();
+
+function createTemporaryUser(emailAddress) {
+    var sysUser = new GlideRecord('sys_user');
+    sysUser.newRecord();
+    sysUser.u_user_type = 'C1 Customer';
+    sysUser.user_name = 'g' + gs.generateGUID();
+    sysUser.email = emailAddress;
+    sysUser.first_name = emailAddress;
+    var userId = sysUser.insert();
+
+    // Attempt to associate with a company:
+    var domain = emailAddress.replace(/.*@/, "");
+    var company = false;
+    var companyGR = new GlideRecord('core_company');
+    companyGR.addQuery('u_email_domain', 'CONTAINS', domain);
+    companyGR.query();
+    while (companyGR.next()) {
+        company = companyGR.getValue('sys_id');
+    }
+    if (company) {
+        var m2m = new GlideRecord('u_m2m_companies_users2');
+        m2m.newRecord();
+        m2m.u_company = company;
+        m2m.u_user = userId;
+        m2m.insert();
+    }
+
+    return sysUser;
+}
+
+function ignoreThisEmail() {
+    var subject = (email.subject || '').toLowerCase();
+    var bodyText = (email.body_text || '').toLowerCase();
+    var phrases = ['out of office', 'out of the office', 'annual leave'];
+    var ignore = false;
+
+    phrases.forEach(function(phrase) {
+        if (subject.includes(phrase) || bodyText.includes(phrase)) {
+            ignore = true;
+        }
+    });
+
+    return ignore;
+}
+]]></script>
+        <stop_processing>false</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>shilpa.tiwari</sys_created_by>
+        <sys_created_on>2023-11-21 15:25:21</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>35f313cb1b2eb514b0c9ed32b24bcb3c</sys_id>
+        <sys_mod_count>20</sys_mod_count>
+        <sys_name>CeaseCancellationInboundAction</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sysevent_in_email_action_35f313cb1b2eb514b0c9ed32b24bcb3c</sys_update_name>
+        <sys_updated_by>shilpa.tiwari</sys_updated_by>
+        <sys_updated_on>2024-01-19 13:57:55</sys_updated_on>
+        <table>x_canl_emails_eocn_retentions_case</table>
+        <template/>
+        <type>new</type>
+    </sysevent_in_email_action>
+</record_update>

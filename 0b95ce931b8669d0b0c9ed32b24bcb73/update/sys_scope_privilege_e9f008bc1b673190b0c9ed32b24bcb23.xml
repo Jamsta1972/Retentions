@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="INSERT_OR_UPDATE">
+        <operation>read</operation>
+        <source_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2024-01-02 15:55:56</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e9f008bc1b673190b0c9ed32b24bcb23</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>sn_install_base_sold_product</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_scope_privilege_e9f008bc1b673190b0c9ed32b24bcb23</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2024-01-02 15:59:44</sys_updated_on>
+        <target_name>sn_install_base_sold_product</target_name>
+        <target_scope display_value="Customer Service Install Base Management">7f1fc05477122300d7159b71a91061b7</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+</record_update>

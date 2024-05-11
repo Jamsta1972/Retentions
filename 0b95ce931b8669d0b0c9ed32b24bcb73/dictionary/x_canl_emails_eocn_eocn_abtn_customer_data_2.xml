@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="31c78eb01bc2751025017b46464bcb9d" extends="sys_import_set_row" label="EOCN_ABTN_CUSTOMER_DATA_2" max_length="40" name="x_canl_emails_eocn_eocn_abtn_customer_data_2" type="collection">
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Address" label="Address" max_length="48" name="u_address" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Comparable_ Service" label="Comparable_ Service" max_length="40" name="u_comparable__service" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Comparable_ Service2" label="Comparable_ Service2" max_length="40" name="u_comparable__service2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Comparable_ Service3" label="Comparable_ Service3" max_length="40" name="u_comparable__service3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Comparable_ Service4" label="Comparable_ Service4" max_length="40" name="u_comparable__service4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Comparable_ Service5" label="Comparable_ Service5" max_length="40" name="u_comparable__service5" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Comparable_ Service6" label="Comparable_ Service6" max_length="40" name="u_comparable__service6" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service1" label="Current_Service1" max_length="40" name="u_current_service1" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service1_Cost" label="Current_Service1_Cost" max_length="40" name="u_current_service1_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service2" label="Current_Service2" max_length="40" name="u_current_service2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service2_Cost" label="Current_Service2_Cost" max_length="40" name="u_current_service2_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service3" label="Current_Service3" max_length="40" name="u_current_service3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service3_Cost" label="Current_Service3_Cost" max_length="40" name="u_current_service3_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service4" label="Current_Service4" max_length="40" name="u_current_service4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service4_Cost" label="Current_Service4_Cost" max_length="40" name="u_current_service4_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service5" label="Current_Service5" max_length="40" name="u_current_service5" type="string"/>
+        <element attributes="import_attribute_name=Current_Service5_Cost" label="Current_Service5_Cost" max_length="15" name="u_current_service5_cost" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service6" label="Current_Service6" max_length="40" name="u_current_service6" type="string"/>
+        <element attributes="import_attribute_name=Current_Service6_Cost" label="Current_Service6_Cost" max_length="15" name="u_current_service6_cost" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service4_contract_end_date" label="Current_Service4_contract_end_date" max_length="40" name="u_current_serv_tract_end_dat0" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service3_contract_end_date" label="Current_Service3_contract_end_date" max_length="40" name="u_current_serv_tract_end_dat1" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service2_contract_end_date" label="Current_Service2_contract_end_date" max_length="40" name="u_current_serv_tract_end_dat2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service1_contract_end_date" label="Current_Service1_contract_end_date" max_length="40" name="u_current_serv_tract_end_dat3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service6_contract_end_date" label="Current_Service6_contract_end_date" max_length="40" name="u_current_serv_tract_end_dat4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service5_contract_end_date" label="Current_Service5_contract_end_date" max_length="40" name="u_current_serv_tract_end_date" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service1_Notice_Period" label="Current_Service1_Notice_Period" max_length="40" name="u_current_serv__notice_perio0" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service6_ Notice_Period" label="Current_Service6_ Notice_Period" max_length="40" name="u_current_serv__notice_perio1" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service5_ Notice_Period" label="Current_Service5_ Notice_Period" max_length="40" name="u_current_serv__notice_perio2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service4_ Notice_Period" label="Current_Service4_ Notice_Period" max_length="40" name="u_current_serv__notice_perio3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service2_ Notice_Period" label="Current_Service2_ Notice_Period" max_length="40" name="u_current_serv__notice_perio4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Current_Service3_ Notice_Period" label="Current_Service3_ Notice_Period" max_length="40" name="u_current_serv__notice_period" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer Email" label="Customer Email" max_length="200" name="u_customer_email" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer Reference" label="Customer Reference" max_length="100" name="u_customer_reference" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer Reference2" label="Customer Reference2" max_length="100" name="u_customer_reference2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer Reference3" label="Customer Reference3" max_length="100" name="u_customer_reference3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer Reference4" label="Customer Reference4" max_length="100" name="u_customer_reference4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer Reference5" label="Customer Reference5" max_length="100" name="u_customer_reference5" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Customer Reference6" label="Customer Reference6" max_length="100" name="u_customer_reference6" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Glide Customer" label="Glide Customer" max_length="40" name="u_glide_customer" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal Date" label="Renewal Date" max_length="40" name="u_renewal_date" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Cost" label="Renewal_Service_Cost" max_length="40" name="u_renewal_service_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Cost2" label="Renewal_Service_Cost2" max_length="40" name="u_renewal_service_cost2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Cost3" label="Renewal_Service_Cost3" max_length="40" name="u_renewal_service_cost3" type="string"/>
+        <element attributes="import_attribute_name=Renewal_Service_Cost4" label="Renewal_Service_Cost4" max_length="15" name="u_renewal_service_cost4" type="decimal"/>
+        <element attributes="import_attribute_name=Renewal_Service_Cost5" label="Renewal_Service_Cost5" max_length="15" name="u_renewal_service_cost5" type="decimal"/>
+        <element attributes="import_attribute_name=Renewal_Service_Cost6" label="Renewal_Service_Cost6" max_length="15" name="u_renewal_service_cost6" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Description" label="Renewal_Service_Description" max_length="65" name="u_renewal_service_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Description2" label="Renewal_Service_Description2" max_length="59" name="u_renewal_service_description2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Description3" label="Renewal_Service_Description3" max_length="65" name="u_renewal_service_description3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Description4" label="Renewal_Service_Description4" max_length="40" name="u_renewal_service_description4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Description5" label="Renewal_Service_Description5" max_length="40" name="u_renewal_service_description5" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Description6" label="Renewal_Service_Description6" max_length="40" name="u_renewal_service_description6" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Term" label="Renewal_Service_Term" max_length="40" name="u_renewal_service_term" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Term2" label="Renewal_Service_Term2" max_length="40" name="u_renewal_service_term2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Term3" label="Renewal_Service_Term3" max_length="40" name="u_renewal_service_term3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Term4" label="Renewal_Service_Term4" max_length="40" name="u_renewal_service_term4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Term5" label="Renewal_Service_Term5" max_length="40" name="u_renewal_service_term5" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Renewal_Service_Term6" label="Renewal_Service_Term6" max_length="40" name="u_renewal_service_term6" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Resi_customer" label="Resi_customer" max_length="40" name="u_resi_customer" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Rolling_monthly_cost" label="Rolling_monthly_cost" max_length="40" name="u_rolling_monthly_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Rolling_monthly_cost2" label="Rolling_monthly_cost2" max_length="40" name="u_rolling_monthly_cost2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Rolling_monthly_cost3" label="Rolling_monthly_cost3" max_length="40" name="u_rolling_monthly_cost3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Rolling_monthly_cost4" label="Rolling_monthly_cost4" max_length="40" name="u_rolling_monthly_cost4" type="string"/>
+        <element attributes="import_attribute_name=Rolling_monthly_cost5" label="Rolling_monthly_cost5" max_length="15" name="u_rolling_monthly_cost5" type="decimal"/>
+        <element attributes="import_attribute_name=Rolling_monthly_cost6" label="Rolling_monthly_cost6" max_length="15" name="u_rolling_monthly_cost6" type="decimal"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Scheduled_notification_date" label="Scheduled_notification_date" max_length="40" name="u_scheduled_notification_date" type="glide_date"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Tariff_lowest_cost" label="Tariff_lowest_cost" max_length="40" name="u_tariff_lowest_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=unavailable_service" label="unavailable_service" max_length="40" name="u_unavailable_service" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Unavailable_Service_Description" label="Unavailable_Service_Description" max_length="40" name="u_unavailable__ce_description" type="string"/>
+        <element attributes="import_attribute_name=Upgrade_Install_Fee" label="Upgrade_Install_Fee" max_length="40" name="u_upgrade_install_fee" type="integer"/>
+        <element attributes="import_attribute_name=Upgrade_Install_Fee2" label="Upgrade_Install_Fee2" max_length="40" name="u_upgrade_install_fee2" type="integer"/>
+        <element attributes="import_attribute_name=Upgrade_Install_Fee3" label="Upgrade_Install_Fee3" max_length="40" name="u_upgrade_install_fee3" type="integer"/>
+        <element attributes="import_attribute_name=Upgrade_Install_Fee4" label="Upgrade_Install_Fee4" max_length="40" name="u_upgrade_install_fee4" type="integer"/>
+        <element attributes="import_attribute_name=Upgrade_Install_Fee5" label="Upgrade_Install_Fee5" max_length="40" name="u_upgrade_install_fee5" type="integer"/>
+        <element attributes="import_attribute_name=Upgrade_Install_Fee6" label="Upgrade_Install_Fee6" max_length="40" name="u_upgrade_install_fee6" type="integer"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service" label="Upgrade_Service" max_length="40" name="u_upgrade_service" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service2" label="Upgrade_Service2" max_length="40" name="u_upgrade_service2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service3" label="Upgrade_Service3" max_length="40" name="u_upgrade_service3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service4" label="Upgrade_Service4" max_length="40" name="u_upgrade_service4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service5" label="Upgrade_Service5" max_length="40" name="u_upgrade_service5" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service6" label="Upgrade_Service6" max_length="40" name="u_upgrade_service6" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Cost" label="Upgrade_Service_Cost" max_length="40" name="u_upgrade_service_cost" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Cost2" label="Upgrade_Service_Cost2" max_length="40" name="u_upgrade_service_cost2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Cost3" label="Upgrade_Service_Cost3" max_length="40" name="u_upgrade_service_cost3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Cost4" label="Upgrade_Service_Cost4" max_length="40" name="u_upgrade_service_cost4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Cost5" label="Upgrade_Service_Cost5" max_length="40" name="u_upgrade_service_cost5" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Cost6" label="Upgrade_Service_Cost6" max_length="40" name="u_upgrade_service_cost6" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Description" label="Upgrade_Service_Description" max_length="73" name="u_upgrade_service_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Term" label="Upgrade_Service_Term" max_length="40" name="u_upgrade_service_term" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Term2" label="Upgrade_Service_Term2" max_length="40" name="u_upgrade_service_term2" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Term3" label="Upgrade_Service_Term3" max_length="40" name="u_upgrade_service_term3" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Term4" label="Upgrade_Service_Term4" max_length="40" name="u_upgrade_service_term4" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Term5" label="Upgrade_Service_Term5" max_length="40" name="u_upgrade_service_term5" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Term6" label="Upgrade_Service_Term6" max_length="40" name="u_upgrade_service_term6" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Description2 description" label="Upgrade_Service_Description2 description" max_length="40" name="u_upgrade_serv_n2_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Description3 description" label="Upgrade_Service_Description3 description" max_length="40" name="u_upgrade_serv_n3_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Description4 description" label="Upgrade_Service_Description4 description" max_length="40" name="u_upgrade_serv_n4_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Description5 description" label="Upgrade_Service_Description5 description" max_length="40" name="u_upgrade_serv_n5_description" type="string"/>
+        <element attributes="edge_encryption_enabled=true,import_attribute_name=Upgrade_Service_Description6 description" label="Upgrade_Service_Description6 description" max_length="40" name="u_upgrade_serv_n6_description" type="string"/>
+    </element>
+</database>

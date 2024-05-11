@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>Retrospectively populate Existing Price, on Existing Retentions cases.</description>
+        <name>STRY0016055 - Populate Existing Price</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[var retGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+var qStr = 'categoryIN1,2^customer_dataISNOTEMPTY';
+retGR.addEncodedQuery(qStr);
+retGR.query();
+while(retGR.next()){
+	var cdGR = retGR.customer_data.getRefRecord();
+	var letterType = (retGR.getValue('category') == '1') ? 'ABTN' : 'EOCN';
+	var caseCreatedDate = retGR.getValue('sys_created_on');
+	var existingPrice =  calculateExistingPrice(cdGR, letterType, caseCreatedDate);
+	retGR.existing_price = existingPrice;
+	retGR.setWorkflow(false);
+	retGR.autoSysFields(false);
+	retGR.update();
+}
+
+
+function calculateExistingPrice(cdGR, letterType, caseCreatedDate){
+	//Populate Existing Price, on the Retentions Case.		
+	var MAX_NUMBER_OF_SERVICES = 6;
+
+	var existingPrice = 0;
+
+	for (var i = 1; i <= MAX_NUMBER_OF_SERVICES; i++){
+		var serviceEndFld = 'current_service' + i + '_contract_end_date';
+		var serviceCostFld = 'current_service' + i + '_cost';
+		if (!cdGR[serviceEndFld] || !cdGR[serviceCostFld])
+			continue;
+
+		var serviceEnd = new GlideDate();
+		serviceEnd.setValue(cdGR[serviceEndFld]);
+		//For ABTN, only include price of services where the contract end date is before the case created date:
+		if (letterType == 'ABTN' && serviceEnd.getValue() >= caseCreatedDate)
+			continue;
+
+		//For EOCN, only include price of services where the contract end date is on or before 90 days after the case created date:
+		var caseCreatedDatePlus90 = new GlideDateTime();
+		caseCreatedDatePlus90.setValue(caseCreatedDate);
+		caseCreatedDatePlus90.addDaysUTC(90);
+		if (letterType == 'EOCN' && serviceEnd.getValue() > caseCreatedDatePlus90)
+			continue;
+
+		existingPrice += parseFloat(cdGR[serviceCostFld]);
+	}
+
+	return existingPrice;
+
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-11-06 16:52:37</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>1af8a2561b56799025017b46464bcb45</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>STRY0016055 - Populate Existing Price</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_fix_1af8a2561b56799025017b46464bcb45</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-11-13 11:18:18</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

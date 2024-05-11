@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_in_email_action">
+    <sysevent_in_email_action action="INSERT_OR_UPDATE">
+        <action>record_action</action>
+        <active>true</active>
+        <assignment_operator/>
+        <condition_script/>
+        <description>This runs when the customer replies to one of the original EOCN/ABTN notifications, that were sent before we started using Retentions cases. Those notifications were associated with a 'Customer Data' record. This notification creates a new Retentions case, and links the sys_email / sys_watermark records to the case.</description>
+        <event_name>email.read</event_name>
+        <filter_condition/>
+        <from/>
+        <name>ABTN/EOCN Customer Data - Reply</name>
+        <order>-895</order>
+        <reply_email/>
+        <required_roles/>
+        <script><![CDATA[var csGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+csGR.newRecord();
+
+var cd_id = current.getUniqueValue();
+csGR.company = current.account;
+csGR.location = current.location;
+csGR.people = current.people;
+csGR.customer_data = current.getUniqueValue();
+csGR.state = '200'; //Awaiting customer response.
+var letterType = (email.recipients.includes('AnnualBestTariff@Glide.co.uk')) ? 'ABTN' : 'EOCN';
+csGR.category = (letterType == 'ABTN') ? '1' : '2'; //ABTN = 1, EOCN = 2.
+csGR.assignment_group = '0cda8e5f1bb629103329a86fe54bcbfc'; //GB Client Relationship Team
+csGR.short_description = letterType + ' Customer Notification';
+csGR.notification_date = current.scheduled_notification_date;
+csGR.renewal_date = current.renewal_date;
+
+//Set description with customer details (as held as strings in the Customer Data record)
+var custRefFlds = ['customer_reference', 'customer_reference2', 'customer_reference3'];
+csGR.description = 'Customer: ' + current.getValue('glide_customer') +
+    '\nAddress: ' + current.getValue('address') +
+    '\nEmail: ' + current.getValue('customer_email') +
+    '\nCustomer Ref(s): ' + custRefFlds.map(function(fld) {
+        return current.getValue(fld);
+    }).filter(function(fld) {
+        return !!fld;
+    }).join(', ');
+
+csGR.comments = "received from: " + email.origemail + "\n\n" + email.body_text;
+csGR.insert();
+
+//Now, reassociate the sys_email records for this customer data record, with the newly created case:
+var emailGR = new GlideRecord('sys_email');
+emailGR.addQuery('instance', cd_id);
+emailGR.orderByDesc('sys_created_on');
+emailGR.query();
+while (emailGR.next()){
+	emailGR.target_table = 'x_canl_emails_eocn_retentions_case';
+	emailGR.instance = csGR.getUniqueValue();
+	emailGR.update();
+	//Update the watermark record:
+	gs.eventQueue('x_canl_emails_eocn.update.watermark', emailGR);
+}
+]]></script>
+        <stop_processing>true</stop_processing>
+        <sys_class_name>sysevent_in_email_action</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-30 17:47:52</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>589281aa1b94fd9025017b46464bcbf8</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>ABTN/EOCN Customer Data - Reply</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sysevent_in_email_action_589281aa1b94fd9025017b46464bcbf8</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2024-02-09 09:59:49</sys_updated_on>
+        <table>x_canl_emails_eocn_customer_data</table>
+        <template/>
+        <type>reply</type>
+    </sysevent_in_email_action>
+</record_update>

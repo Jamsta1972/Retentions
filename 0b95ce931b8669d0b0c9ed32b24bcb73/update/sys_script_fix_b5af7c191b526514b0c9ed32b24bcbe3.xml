@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>Send notifications, from 'Customer Data' table.</description>
+        <name>Send EOCN / ABTN notifications</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[
+abtn_b2b();
+eoc_b2b();
+abtn_b2c();
+eoc_b2c();
+
+function abtn_b2b(){
+    var qStr = 'resi_customer=false^renewal_date<javascript:gs.beginningOfToday()';
+    var cdGR = new GlideRecord('x_canl_emails_eocn_customer_data');
+    cdGR.addEncodedQuery(qStr);
+    cdGR.query();
+    while (cdGR.next()){
+        gs.eventQueue('x_canl_emails_eocn.b2b.abtn', cdGR, cdGR.getValue('customer_email'));
+    }
+}
+
+function eoc_b2b(){
+    var qStr = 'resi_customer=false^renewal_date>=javascript:gs.beginningOfToday()';
+    var cdGR = new GlideRecord('x_canl_emails_eocn_customer_data');
+    cdGR.addEncodedQuery(qStr);
+    cdGR.query();
+    while (cdGR.next()){
+        gs.eventQueue('x_canl_emails_eocn.b2b.eocn', cdGR, cdGR.getValue('customer_email'));
+    }
+}
+
+function abtn_b2c(){
+    var qStr = 'resi_customer=true^renewal_date<javascript:gs.beginningOfToday()';
+    var cdGR = new GlideRecord('x_canl_emails_eocn_customer_data');
+    cdGR.addEncodedQuery(qStr);
+    cdGR.query();
+    while (cdGR.next()){
+        gs.eventQueue('x_canl_emails_eocn.b2c.abtn', cdGR, cdGR.getValue('customer_email'));
+    }
+}
+
+function eoc_b2c(){
+    var qStr = 'resi_customer=true^renewal_date>=javascript:gs.beginningOfToday()';
+    var cdGR = new GlideRecord('x_canl_emails_eocn_customer_data');
+    cdGR.addEncodedQuery(qStr);
+    cdGR.query();
+    while (cdGR.next()){
+        gs.eventQueue('x_canl_emails_eocn.b2c.eocn', cdGR, cdGR.getValue('customer_email'));
+    }
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-04-18 10:17:59</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>b5af7c191b526514b0c9ed32b24bcbe3</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Send EOCN / ABTN notifications</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_fix_b5af7c191b526514b0c9ed32b24bcbe3</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-04-18 10:18:45</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

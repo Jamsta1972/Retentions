@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>Ref STRY0016946. Re set the Next ABTN due date field</description>
+        <name>Set Next ABTN due date  - STRY0016946</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[var qStr = 'u_renewal_dateISNOTEMPTY^ORu_last_abtn_sentISNOTEMPTY^u_statusNOT INCease requested,Ceased';
+var spGR = new GlideRecord('sn_install_base_sold_product');
+spGR.addEncodedQuery(qStr);
+spGR.query();
+
+while (spGR.next()) {
+    if (spGR.u_renewal_date) {
+        //Set to the first Tuesday after 15th of the month 10 months after Renewal Date:
+        var dt = new GlideDate();
+        dt.setValue(spGR.getValue('u_renewal_date'));
+        dt.addMonthsUTC(10);
+        dt = getTuesdayAfter15th(dt);
+        spGR.u_next_abtn_due = dt;
+		spGR.update();
+        continue;
+    }
+
+    if (spGR.u_last_abtn_sent) {
+        //Set to the first Tuesday after 15th of the month 10 months after Last ABTN sent:
+        var dt = new GlideDate();
+        dt.setValue(spGR.getValue('u_last_abtn_sent'));
+        dt.addMonthsUTC(10);
+        dt = getTuesdayAfter15th(dt);
+        spGR.u_next_abtn_due = dt;
+		spGR.update();
+        continue;
+    }
+}
+
+function getTuesdayAfter15th(dt) {
+    //Return the date of the first Tuesday after the 15h of the month that the date dt falls in.
+    var newDt = new GlideDateTime();
+    newDt.setValue(dt.getYearUTC() + '-' + dt.getMonthUTC() + '-15 12:00:00'); //To be well clear of clock change shenanigans.
+
+    var dayofWeek = newDt.getDayOfWeekUTC(); //1 = Monday, 7 = Sunday.
+    var noDaysToAdd = (dayofWeek == 1) ? 1 : 9 - dayofWeek;
+    /*
+    1 mon, add 1
+    2 tue, add 7
+    3 wed, add 6
+    4 thu, add 5, etc...
+    */
+    newDt.addDaysUTC(noDaysToAdd);
+    return newDt;
+}]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2024-04-16 13:29:11</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>665dc82a83edce108234c480ceaad3ca</sys_id>
+        <sys_mod_count>4</sys_mod_count>
+        <sys_name>Set Next ABTN due date  - STRY0016946</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_fix_665dc82a83edce108234c480ceaad3ca</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2024-04-16 14:46:41</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

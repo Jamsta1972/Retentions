@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>abtn2_upgrade_option</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+	
+	//If an upgrade is available, insert a section to the notification.
+	var UPGRADE_SERVICE = current.getDisplayValue('upgrade_service');
+	if(!UPGRADE_SERVICE)
+		return;
+	
+	var UPGRADE_SERVICE_DESCRIPTION = current.getDisplayValue('upgrade_service_description');
+	var UPGRADE_SERVICE_COST = current.getDisplayValue('upgrade_service_cost');
+	var UPGRADE_SERVICE_TERM = current.getDisplayValue('upgrade_service_term');
+	var UPGRADE_INSTALL_FEE = current.getDisplayValue('upgrade_install_fee');
+	var showInstallFeeColumn = false; //Install Fee column is only shown, if populated.
+	if (UPGRADE_INSTALL_FEE != '£0.00')
+		showInstallFeeColumn = true;
+
+    //Establish if there are additional upgrade services, with an install fee:
+    for (var i = 2; i < 7; i++){
+        var additionalUpgrade = current.getDisplayValue('upgrade_service' + i) || '';
+        var installFee = current.getDisplayValue('upgrade_install_fee' + i);
+        if (additionalUpgrade && installFee != '£0.00'){
+            showInstallFeeColumn = true;
+            break;
+        }
+    }
+
+   //Include additional rows on the table, if there are additional upgrade services:
+   var additionalRows = '';
+   for (var i = 2; i < 7; i++){
+       var additionalUpgradeService = current.getDisplayValue('upgrade_service' + i) || '';
+
+       if (additionalUpgradeService){
+           var UPGRADE_SERVICE_DESCRIPTIONx = current.getDisplayValue('upgrade_service_description' + i);
+           var UPGRADE_SERVICE_COSTx = current.getDisplayValue('upgrade_service_cost' + i);
+           var UPGRADE_SERVICE_TERMx = current.getDisplayValue('upgrade_service_term' + i);
+           var UPGRADE_INSTALL_FEEx = current.getDisplayValue('upgrade_install_fee' + i);
+
+           var additionalRow = '<tr><td style="width: 169.85pt; border: solid #A5A5A5 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + additionalUpgradeService + ' on a new contract for ' + UPGRADE_SERVICE_TERMx + '</span></p></td><td style="width: 184.3pt; border-top: none; border-left: none; border-bottom: solid #A5A5A5 1.0pt; border-right: solid #A5A5A5 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE_DESCRIPTIONx + '</span></p></td><td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid #A5A5A5 1.0pt; border-right: solid #A5A5A5 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE_COSTx + '</span></p></td>' + ((showInstallFeeColumn)? '<td style="width: 92.15pt; border: solid #A5A5A5 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_INSTALL_FEEx + '</span></p></td>' : '') + '</tr>';
+
+           additionalRows += additionalRow;
+       }
+   }
+
+   var output = '<p style="margin: 10pt 0cm; font-size: 11pt; font-family: Calibri, sans-serif;"><span style="position: absolute; z-index: -1895823360; margin-left: 242px; margin-top: 0px; width: 782px; height: 843px;"><br /></span><span style="background-color: #ffffff;"><strong><span style="font-size: 12pt; font-family: Karla; color: #3b3838; background: #ffffff;">Thinking about signing up for an ultrafast full fibre service or upgrading your existing full fibre service?</span></strong></span></p><strong/><p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">This is the best priced Glide service which offers an increased performance compared to your existing service (subject to site survey and network capacity). </span></p></strong><table class="MsoTableGrid" style="width: 446.3pt; border-collapse: collapse; border: none;" border="1" cellspacing="0" cellpadding="0"><tbody><tr><td style="width: 169.85pt; border: solid #A5A5A5 1.0pt; background: #D9D9D9; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">Option****</span></p></td><td style="width: 184.3pt; border: solid #A5A5A5 1.0pt; border-left: none; background: #D9D9D9; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">Service</span></p></td><td style="width: 92.15pt; border: solid #A5A5A5 1.0pt; border-left: none; background: #D9D9D9; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">Monthly Cost***</span></p></td>' + ((showInstallFeeColumn)? '<td style="width: 92.15pt; border: solid #A5A5A5 1.0pt; border-left: none; background: #D9D9D9; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">Install Fee</span></p></td>' : '') + '</tr><tr><td style="width: 169.85pt; border: solid #A5A5A5 1.0pt; border-top: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE + ' on a new contract for ' + UPGRADE_SERVICE_TERM + '</span></p></td><td style="width: 184.3pt; border-top: none; border-left: none; border-bottom: solid #A5A5A5 1.0pt; border-right: solid #A5A5A5 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE_DESCRIPTION + '</span></p></td><td style="width: 92.15pt; border-top: none; border-left: none; border-bottom: solid #A5A5A5 1.0pt; border-right: solid #A5A5A5 1.0pt; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_SERVICE_COST + '</span></p></td>' + ((showInstallFeeColumn)? '<td style="width: 92.15pt; border: solid #A5A5A5 1.0pt; border-left: none; padding: 0cm 5.4pt 0cm 5.4pt;" valign="top"><p style="margin: 0cm; font-size: 9pt; font-family: \'Avenir Book\'; color: #3b3838;"><span style="font-family: Karla;">' + UPGRADE_INSTALL_FEE + '</span></p></td>' : '') + '</tr>' + additionalRows + '</tbody></table><p style="margin-right: 0cm; margin-left: 0cm; font-size: 12pt; font-family: Times New Roman, serif;"><span class="normaltextrun" style="background-color: #ffffff;"><span style="font-size: 8pt; font-family: Karla; background: #ffffff;">***N.B Costs exclusive of VAT</span></span></p>';
+
+   template.print(output);
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-27 07:53:22</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6ebd5f951bd0399025017b46464bcb27</sys_id>
+        <sys_mod_count>13</sys_mod_count>
+        <sys_name>abtn2_upgrade_option</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_email_6ebd5f951bd0399025017b46464bcb27</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2024-05-07 15:44:17</sys_updated_on>
+        <u_template/>
+    </sys_script_email>
+</record_update>

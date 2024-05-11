@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="f06d80211b18399025017b46464bcb31" sys_domain="global" table="x_canl_emails_eocn_retentions_case" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b86d80211b18399025017b46464bcb4f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_retentions_case" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">f06d80211b18399025017b46464bcb31</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">b86d80211b18399025017b46464bcb46</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:36</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b46d80211b18399025017b46464bcb3a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_retentions_case" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">f06d80211b18399025017b46464bcb31</sys_ui_form>
+            <sys_ui_section caption="Notes" display_value="Notes" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">b46d80211b18399025017b46464bcb34</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:36</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>386d80211b18399025017b46464bcb56</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_retentions_case" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">f06d80211b18399025017b46464bcb31</sys_ui_form>
+            <sys_ui_section caption="Resolution Information" display_value="Resolution Information" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">306d80211b18399025017b46464bcb50</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:36</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>346d80211b18399025017b46464bcb46</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_retentions_case" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">f06d80211b18399025017b46464bcb31</sys_ui_form>
+            <sys_ui_section caption="Major Case Information" display_value="Major Case Information" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">306d80211b18399025017b46464bcb41</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:36</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>4</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:36</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>b86d80211b18399025017b46464bcb40</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_canl_emails_eocn_retentions_case" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">f06d80211b18399025017b46464bcb31</sys_ui_form>
+            <sys_ui_section caption="Related Records" display_value="Related Records" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="f596b3413bb30300b5c42479b3efc486">3c6d80211b18399025017b46464bcb3a</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:36</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:36</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>f06d80211b18399025017b46464bcb31</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_canl_emails_eocn_retentions_case</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+            <sys_update_name>sys_ui_form_sections_f06d80211b18399025017b46464bcb31</sys_update_name>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:36</sys_updated_on>
+            <sys_user/>
+            <view display_value="Major Case" name="major_case">f596b3413bb30300b5c42479b3efc486</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>

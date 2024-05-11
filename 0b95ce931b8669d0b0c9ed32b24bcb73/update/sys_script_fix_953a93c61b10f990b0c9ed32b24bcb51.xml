@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_fix">
+    <sys_script_fix action="INSERT_OR_UPDATE">
+        <before>false</before>
+        <description>Retrospectively set Person, from the customer email.&#13;
+This will only need running once in PROD, if we are going to retrospectively generate cases for existing customer data records.&#13;
+Run it AFTER the related fix script that sets account and location.</description>
+        <name>Customer Data: Set Person</name>
+        <record_for_rollback>true</record_for_rollback>
+        <script><![CDATA[    var current = new GlideRecord('x_canl_emails_eocn_customer_data');
+    current.query();
+
+    while (current.next()) {
+
+        var customer_email = current.getValue('customer_email');
+        var userGR = new GlideRecord('sys_user');
+        userGR.addQuery('email', customer_email);
+        userGR.addQuery('company', current.getValue('account'));
+        userGR.setLimit(1);
+        userGR.query();
+        if (userGR.next()) { //First look for a user record associated with the company.
+            current.person = userGR.getUniqueValue();
+			current.update();
+			continue;
+        }
+
+        //If not found, look for user record with matching email address only:
+        userGR = new GlideRecord('sys_user');
+        userGR.addQuery('email', customer_email);
+        userGR.setLimit(1);
+        userGR.query();
+        if (userGR.next()) { //First look for a user record associated with the company.
+            current.person = userGR.getUniqueValue();
+			current.update();
+            continue;
+        }
+
+        //If not found, create a new user record, and populate M2M tables.
+        userGR = new GlideRecord('sys_user');
+        userGR.newRecord();
+        userGR.email = customer_email;
+        userGR.user_name = gs.generateGUID();
+        userGR.first_name = current.glide_customer || customer_email;
+        userGR.last_name = '-';
+        userGR.u_user_type = 'C1 Customer';
+        userGR.company = current.account;
+        userGR.location = current.location;
+        userGR.insert();
+        current.person = userGR.getUniqueValue();
+		current.update();
+
+        if (current.location) {
+            var locConGR = new GlideRecord('u_m2m_locations_users');
+            locConGR.u_user = userGR.getUniqueValue();
+            locConGR.u_location = current.location;
+            locConGR.insert();
+        }
+        if (current.account) {
+            var compConGR = new GlideRecord('u_m2m_companies_users2');
+            compConGR.u_user = userGR.getUniqueValue();
+            compConGR.u_company = current.account;
+            compConGR.insert();
+        }
+
+    }]]></script>
+        <sys_class_name>sys_script_fix</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-29 15:33:26</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>953a93c61b10f990b0c9ed32b24bcb51</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Customer Data: Set Person</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_fix_953a93c61b10f990b0c9ed32b24bcb51</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-07-29 15:33:26</sys_updated_on>
+        <unloadable>false</unloadable>
+    </sys_script_fix>
+</record_update>

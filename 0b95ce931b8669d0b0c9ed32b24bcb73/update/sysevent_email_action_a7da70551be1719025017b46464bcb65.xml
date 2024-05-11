@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_email_action">
+    <sysevent_email_action action="INSERT_OR_UPDATE">
+        <action_insert>false</action_insert>
+        <action_update>false</action_update>
+        <active>true</active>
+        <advanced_condition/>
+        <affected_field_on_event/>
+        <category display_value="Ticket" name="Ticket">dbd281404fa3030013e4ecd18110c748</category>
+        <collection>x_canl_emails_eocn_retentions_case</collection>
+        <condition/>
+        <content_type>text/html</content_type>
+        <default_interval/>
+        <description>Where an  email has been received and created a new retentions case with a category of Copper/Cab&#13;
+same email is used for both Copper stop / Cab refresh</description>
+        <digest_from/>
+        <digest_html/>
+        <digest_reply_to/>
+        <digest_separator_html><![CDATA[<p>&nbsp;</p>
+<hr />
+<p>&nbsp;</p>]]></digest_separator_html>
+        <digest_separator_text><![CDATA[\n--------------------------------------------------------------------------------\n]]></digest_separator_text>
+        <digest_subject/>
+        <digest_template/>
+        <digest_text/>
+        <digestable>false</digestable>
+        <enable_dynamic_translation>false</enable_dynamic_translation>
+        <event_name>activate.life.cycle.migration</event_name>
+        <event_parm_1>false</event_parm_1>
+        <event_parm_2>false</event_parm_2>
+        <exclude_delegates>false</exclude_delegates>
+        <force_delivery>false</force_delivery>
+        <from>copperswitchoff@glide.co.uk</from>
+        <generation_type>triggered</generation_type>
+        <importance/>
+        <include_attachments>false</include_attachments>
+        <item>event.parm1</item>
+        <item_table/>
+        <mandatory>false</mandatory>
+        <message/>
+        <message_html><![CDATA[<p>This is an automated response.</p>
+<p>Thank you for reaching out, your enquiry has been received and logged under ticket reference ${number}.</p>
+<p>A member of the team will be allocated and respond to you within the next 5 working days.&nbsp;</p>
+<p>If you feel your enquiry requires more immediate attention, please give us a call on 0333 380 0143. Our working hours are 9.00am until 5.30pm Monday to Friday.</p>]]></message_html>
+        <message_list/>
+        <message_text/>
+        <name>Retention Copper/Cab - Newcase created</name>
+        <omit_watermark>false</omit_watermark>
+        <order>100</order>
+        <push_message_only>false</push_message_only>
+        <recipient_fields>people</recipient_fields>
+        <recipient_groups/>
+        <recipient_users/>
+        <reply_to>copperswitchoff@glide.co.uk</reply_to>
+        <send_self>false</send_self>
+        <sms_alternate/>
+        <style/>
+        <subject>Your Ticket has been Logged </subject>
+        <subscribable>false</subscribable>
+        <sys_class_name>sysevent_email_action</sys_class_name>
+        <sys_created_by>hamza.hassan</sys_created_by>
+        <sys_created_on>2023-09-26 23:21:11</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a7da70551be1719025017b46464bcb65</sys_id>
+        <sys_mod_count>12</sys_mod_count>
+        <sys_name>Retention Copper/Cab - Newcase created</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sysevent_email_action_a7da70551be1719025017b46464bcb65</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2024-02-09 09:45:39</sys_updated_on>
+        <sys_version>2</sys_version>
+        <template display_value="Retentions: Copper Stop sell">99d00d9d1be1719025017b46464bcb42</template>
+        <type>email</type>
+        <u_body_html/>
+        <u_generate_and_attach_pdf>false</u_generate_and_attach_pdf>
+        <u_pdf_html/>
+        <u_pdf_orientation>PORTRAIT</u_pdf_orientation>
+        <u_pdf_size>A4</u_pdf_size>
+        <u_pdf_title/>
+        <u_suffix_with_date>false</u_suffix_with_date>
+        <u_suffix_with_reference/>
+        <u_use_subject_as_pdf_title>false</u_use_subject_as_pdf_title>
+        <weight>20</weight>
+    </sysevent_email_action>
+</record_update>

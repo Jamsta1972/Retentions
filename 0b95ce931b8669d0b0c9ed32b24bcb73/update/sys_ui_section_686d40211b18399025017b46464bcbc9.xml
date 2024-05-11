@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_section caption="Major Case Information" section_id="686d40211b18399025017b46464bcbc9" sys_domain="global" table="x_canl_emails_eocn_retentions_case" version="3" view="case">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>major_case_state</element>
+            <position>0</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:35</sys_created_on>
+            <sys_id>a06d40211b18399025017b46464bcbcb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Major Case Information" display_value="Major Case Information" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="ed6f80a4373953000587772a53990e11">686d40211b18399025017b46464bcbc9</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.split</element>
+            <position>1</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:35</sys_created_on>
+            <sys_id>a46d40211b18399025017b46464bcbcb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Major Case Information" display_value="Major Case Information" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="ed6f80a4373953000587772a53990e11">686d40211b18399025017b46464bcbc9</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:35</sys_updated_on>
+            <sys_user/>
+            <type>.split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>recipient_list</element>
+            <position>2</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:35</sys_created_on>
+            <sys_id>a86d40211b18399025017b46464bcbcb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Major Case Information" display_value="Major Case Information" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="ed6f80a4373953000587772a53990e11">686d40211b18399025017b46464bcbc9</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>.end_split</element>
+            <position>3</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:35</sys_created_on>
+            <sys_id>ac6d40211b18399025017b46464bcbcb</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Major Case Information" display_value="Major Case Information" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="ed6f80a4373953000587772a53990e11">686d40211b18399025017b46464bcbc9</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:35</sys_updated_on>
+            <sys_user/>
+            <type>.end_split</type>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>business_impact</element>
+            <position>4</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:35</sys_created_on>
+            <sys_id>a06d40211b18399025017b46464bcbcc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Major Case Information" display_value="Major Case Information" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="ed6f80a4373953000587772a53990e11">686d40211b18399025017b46464bcbc9</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>probable_cause</element>
+            <position>5</position>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:35</sys_created_on>
+            <sys_id>a46d40211b18399025017b46464bcbcc</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="Major Case Information" display_value="Major Case Information" name="x_canl_emails_eocn_retentions_case" sys_domain="global" view="ed6f80a4373953000587772a53990e11">686d40211b18399025017b46464bcbc9</sys_ui_section>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:35</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption>Major Case Information</caption>
+            <header>false</header>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>jamie.wildish</sys_created_by>
+            <sys_created_on>2023-07-27 11:21:34</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>686d40211b18399025017b46464bcbc9</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_canl_emails_eocn_retentions_case</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+            <sys_policy/>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+            <sys_update_name>sys_ui_section_686d40211b18399025017b46464bcbc9</sys_update_name>
+            <sys_updated_by>jamie.wildish</sys_updated_by>
+            <sys_updated_on>2023-07-27 11:21:34</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Case" name="case">ed6f80a4373953000587772a53990e11</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

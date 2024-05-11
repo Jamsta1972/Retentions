@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>abtn_available_services_table</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+    //Populate additional rows for available services, on the B2B ATBN notification.
+
+    var row2 = '</span></p></td></tr><tr style="height: 28px"><td style="width:33.34%;border-right:1pt solid #a5a5a5;border-bottom:1pt solid #a5a5a5;border-left:1pt solid #a5a5a5;border-image:initial;border-top:none;padding:0 5.4pt;height: 28px" valign="top"><p style="margin:0;font-size:9pt;color:#3b3838"><span style="font-family:Karla">' + (current.getValue('current_service2') || current.getValue('comparable_service2')) + '<span style="font-size:9pt;line-height:107%;font-family:Karla;color:#3b3838"> on a new contract for another ' + current.getValue('renewal_service_term2') +  '</span>&nbsp;</span></p></td><td style="width:40.3%;border-top:none;border-left:none;border-bottom:1pt solid #a5a5a5;border-right:1pt solid #a5a5a5;padding:0 5.4pt;height: 28px" valign="top"><p style="margin:0;font-size:9pt;color:#3b3838"><span style="font-family:Karla">' + current.getValue('renewal_service_description2') + '</span></p></td><td style="width:26.38%;border-top:none;border-left:none;border-bottom:1pt solid #a5a5a5;border-right:1pt solid #a5a5a5;padding:0 5.4pt;height: 28px" valign="top"><p style="margin:0;font-size:9pt;color:#3b3838"><span style="font-family:Karla">' + current.getDisplayValue('renewal_service_cost2');
+
+    var row3 = '</span></p></td></tr><tr style="height: 28px"><td style="width:33.34%;border-right:1pt solid #a5a5a5;border-bottom:1pt solid #a5a5a5;border-left:1pt solid #a5a5a5;border-image:initial;border-top:none;padding:0 5.4pt;height: 28px" valign="top"><p style="margin:0;font-size:9pt;color:#3b3838"><span style="font-family:Karla">' + current.getValue('upgrade_service') + ' on a new contract for ' + current.getValue('upgrade_service_term') + '</span>&nbsp;</span></p></td><td style="width:40.3%;border-top:none;border-left:none;border-bottom:1pt solid #a5a5a5;border-right:1pt solid #a5a5a5;padding:0 5.4pt;height: 28px" valign="top"><p style="margin:0;font-size:9pt;color:#3b3838"><span style="font-family:Karla">' + current.getValue('upgrade_service_description') + '</span></p></td><td style="width:26.38%;border-top:none;border-left:none;border-bottom:1pt solid #a5a5a5;border-right:1pt solid #a5a5a5;padding:0 5.4pt;height: 28px" valign="top"><p style="margin:0;font-size:9pt;color:#3b3838"><span style="font-family:Karla">' + current.getDisplayValue('upgrade_service_cost');
+
+    var output = '';
+    if (current.current_service2)
+        output += row2;
+    if (current.upgrade_service)
+        output += row3;
+
+    template.print(output);
+
+})(current, template, email, email_action, event);]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-06-13 10:42:54</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>658e19571bd7e91025017b46464bcbe4</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>abtn_available_services_table</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_email_658e19571bd7e91025017b46464bcbe4</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-07-04 22:09:49</sys_updated_on>
+        <u_template/>
+    </sys_script_email>
+</record_update>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_ui_policy_action">
+    <sys_ui_policy_action action="INSERT_OR_UPDATE">
+        <cleared>false</cleared>
+        <disabled>ignore</disabled>
+        <field>closure_code</field>
+        <field_message/>
+        <field_message_type>none</field_message_type>
+        <mandatory>true</mandatory>
+        <sys_class_name>sys_ui_policy_action</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2023-07-28 11:21:05</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>bbc619b11bd83990b0c9ed32b24bcb5d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>closure_code</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_ui_policy_action_bbc619b11bd83990b0c9ed32b24bcb5d</sys_update_name>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2023-07-28 11:21:05</sys_updated_on>
+        <table>x_canl_emails_eocn_retentions_case</table>
+        <ui_policy display_value="Closure Code">4eb695b11bd83990b0c9ed32b24bcb26</ui_policy>
+        <value/>
+        <value_action>ignore</value_action>
+        <visible>true</visible>
+    </sys_ui_policy_action>
+</record_update>
