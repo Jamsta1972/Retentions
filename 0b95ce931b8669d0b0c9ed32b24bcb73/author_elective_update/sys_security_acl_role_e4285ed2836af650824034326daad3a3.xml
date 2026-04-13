@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role">
+    <sys_security_acl_role action="DELETE">
+        <sys_class_name>sys_security_acl_role</sys_class_name>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-01-22 10:29:07</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e4285ed2836af650824034326daad3a3</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CancelCeaseAjax.admin</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_security_acl display_value="CancelCeaseAjax">14289ad2836af650824034326daad3cd</sys_security_acl>
+        <sys_update_name>sys_security_acl_role_e4285ed2836af650824034326daad3a3</sys_update_name>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-01-22 10:29:07</sys_updated_on>
+        <sys_user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</sys_user_role>
+    </sys_security_acl_role>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</application>
+        <file_path/>
+        <instance_id>626909056fe6164423b2a9cc5d3ee4fc</instance_id>
+        <instance_name>cablecomnetworkingdev</instance_name>
+        <name>sys_security_acl_role_e4285ed2836af650824034326daad3a3</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_acl_role"><sys_security_acl_role action="INSERT_OR_UPDATE"><sys_class_name>sys_security_acl_role</sys_class_name><sys_created_by>maj.hussain@nowbench.com</sys_created_by><sys_created_on>2026-01-22 10:29:07</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>e4285ed2836af650824034326daad3a3</sys_id><sys_mod_count>0</sys_mod_count><sys_name>CancelCeaseAjax.admin</sys_name><sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope><sys_security_acl display_value="CancelCeaseAjax">14289ad2836af650824034326daad3cd</sys_security_acl><sys_update_name>sys_security_acl_role_e4285ed2836af650824034326daad3a3</sys_update_name><sys_updated_by>maj.hussain@nowbench.com</sys_updated_by><sys_updated_on>2026-01-22 10:29:07</sys_updated_on><sys_user_role display_value="admin" name="admin">2831a114c611228501d4ea6c309d626d</sys_user_role></sys_security_acl_role></record_update>]]></payload>
+        <payload_hash>-971602555</payload_hash>
+        <record_name>CancelCeaseAjax.admin</record_name>
+        <reverted_from/>
+        <source>f97cb0718366b250824034326daad365</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-01-22 10:29:07</sys_created_on>
+        <sys_id>20285ed2836af650824034326daad3bb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19be5402e9e0000001</sys_recorded_at>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-01-22 10:29:07</sys_updated_on>
+        <type>Access Roles</type>
+        <update_guid>6c285ed2306af65097df41e3090761b9</update_guid>
+        <update_guid_history>6c285ed2306af65097df41e3090761b9:-971602555</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete display_value="Record deleted 04/02/2026 12:34:18">4d71b12afbbaf6107376fa42aeefdc98</sys_audit_delete>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-02-04 12:34:18</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="sys_security_acl_role">sys_security_acl_role</sys_db_object>
+        <sys_id>13ab0eab79544851a3e2f905896b43d1</sys_id>
+        <sys_metadata>e4285ed2836af650824034326daad3a3</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>CancelCeaseAjax.admin</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_parent display_value="CancelCeaseAjax">14289ad2836af650824034326daad3cd</sys_parent>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_scope_delete display_value="">23da01d2011646d49057f260cbb3f710</sys_scope_delete>
+        <sys_update_name>sys_security_acl_role_e4285ed2836af650824034326daad3a3</sys_update_name>
+        <sys_update_version display_value="sys_security_acl_role_e4285ed2836af650824034326daad3a3">20285ed2836af650824034326daad3bb</sys_update_version>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-02-04 12:34:18</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

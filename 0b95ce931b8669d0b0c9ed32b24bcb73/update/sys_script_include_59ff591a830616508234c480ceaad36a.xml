@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_canl_emails_eocn.RetentionsUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description>Functions used in Retentions / EOCN / ABTN. 
+</description>
+        <mobile_callable>false</mobile_callable>
+        <name>RetentionsUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var RetentionsUtils = Class.create();
+RetentionsUtils.prototype = {
+    initialize: function() {},
+
+    type: 'RetentionsUtils',
+
+    /******************************************************************/
+    /****** CREATE RETENTIONS CASE (Called from Scheduled Job) ********/
+    /******************************************************************/
+    createRetentionsCase: function(soldProdGR, category, isTest) {
+        //if isTest is TRUE, test cases and test emails are generated.
+
+        var catKey = { //Category mapping.
+            ABTN: '1',
+            EOCN: '2',
+			EOCN6: '10'
+
+        };
+
+        //Get all Sold Products for the location:
+        var liveSoldProds = this.getLiveSoldProds(soldProdGR.getValue('u_location') || '');
+        if (liveSoldProds.length == 0)
+            liveSoldProds.push(soldProdGR.getUniqueValue());
+
+        //Get the contact(s) for the location / account:
+        var people = this.getPeople(soldProdGR);
+
+        //Get the cost change date:
+        var costChangeDate = this.getCostChangeDate(soldProdGR, category);
+
+        var csGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+        csGR.newRecord();
+
+        csGR.company = soldProdGR.account;
+        csGR.location = soldProdGR.u_location;
+        csGR.people = people.join(',');
+        csGR.state = (isTest) ? '800' : '200'; //'Test' : 'Awaiting customer response'.
+        csGR.category = catKey[category]; //ABTN = 1, EOCN = 2.
+        if (costChangeDate)
+            csGR.cost_change_date = costChangeDate;
+        csGR.assignment_group = '0cda8e5f1bb629103329a86fe54bcbfc'; //GB Client Relationship Team
+        //csGR.short_description = category + ' Customer Notification';
+		if (category == 'EOCN6') {
+    csGR.short_description = '6 month renewal EOCN';
+	csGR.state = '1';
+	
+} else {
+    csGR.short_description = category + ' Customer Notification';
+}
+        csGR.notification_date = new GlideDateTime();
+        csGR.renewal_date = soldProdGR.u_renewal_date;
+		
+		if (csGR.isValidField('u_next_eocn_due'))
+    csGR.setValue('u_next_eocn_due', soldProdGR.getValue('u_next_eocn_due'));
+else if (csGR.isValidField('next_eocn_due'))
+    csGR.setValue('next_eocn_due', soldProdGR.getValue('u_next_eocn_due'));
+
+        csGR.existing_price = this.calculateExistingPrice(liveSoldProds, category);
+        csGR.customer_reference = this.gatherCustomerRefs(liveSoldProds);
+        csGR.sold_product = soldProdGR.getUniqueValue();
+        csGR.live_sold_products_for_location = liveSoldProds.join(',');
+        var doNotSendFor = this.getFlaggedDontSend(soldProdGR.getValue('u_location') || '');
+        csGR.flagged_do_not_send = doNotSendFor.join(',');
+        //That field holds a snapshot of the sold products flagged for NOT sending, immediately before this case is created.
+
+        //Set Description:
+        csGR.description = this.setDescription(csGR);
+
+        csGR.insert();
+
+        /*Now update the Last EOCN sent / Last ABTN sent date fields on the Sold Product records.
+        This is done via a scheduled event / script action, so that the updates to the date fields
+        happen AFTER the email has been generated. Otherwise the mail scripts will be running against
+        the new dates rather than the dates as they were. The script action calls setLastSent() in this
+        script include.
+        */
+        if (!isTest) {
+            var updateDt = new GlideDateTime();
+            updateDt.addSeconds(180); //Wait 3 mins, for the mail scripts to run.
+            liveSoldProds = liveSoldProds.filter(function(soldProd_id){
+                return !doNotSendFor.includes(soldProd_id);
+            });
+            gs.eventQueueScheduled('x_canl_emails_eocn.set.last.sent', csGR, liveSoldProds.join(','), category, updateDt);
+        }
+
+        //Trigger the email:
+        var eventName = 'x_canl_emails_eocn.automated' + category;
+        var emails = (isTest) ? gs.getProperty('x_canl_emails_eocn.test.email.address') : csGR.getValue('people');
+        gs.eventQueue(eventName, csGR, emails, isTest);
+    },
+
+
+    /********************************************************************/
+    /****** GET SOLD PRODUCTS FLAGGED FOR NOT SENDING EOCN/ABTN *********/
+    /********************************************************************/
+    getFlaggedDontSend: function(location){
+        if (!location)
+            return '';
+
+        var soldProdGR = new GlideRecord('sn_install_base_sold_product');
+        var qStr = 'u_location=' + location + '^u_don_t_send_eocn_abtn=true';
+        soldProdGR.addEncodedQuery(qStr);
+        soldProdGR.query();
+        var soldProds = [];
+        while (soldProdGR.next()){
+            soldProds.push(soldProdGR.getUniqueValue());
+        }
+
+        return soldProds;
+    },
+
+
+    /***********************************************************/
+    /****** SET LAST ABTN / EOCN sent **************************/
+    /***********************************************************/
+    setLastSent: function(liveSoldProds, category) {
+        //Note: the sold products that were flagged as Don't send EOCN/ABTN, are already filtered out of 'liveSoldProds'.
+        var _BUSINESS_WHOLESALE = '2000437ddb90d890ba1c449e3b961906'; //Market Sector
+        var soldProdGR = new GlideRecord('sn_install_base_sold_product');
+        soldProdGR.addQuery('sys_id', 'IN', liveSoldProds);
+        soldProdGR.query();
+        while (soldProdGR.next()) {
+
+            //If Not Billed, do not update:
+             if (soldProdGR.getValue('u_billing_frequency_sp') == 'Not billed')
+                continue;
+
+            if (soldProdGR.u_location.u_market_sector == _BUSINESS_WHOLESALE)
+                continue;
+
+            var renewalDate = soldProdGR.getValue('u_renewal_date') || '';
+            if (!renewalDate)
+                continue;
+            
+            //And apply the same filter used to highlight the affected service(s) on the current services table / select the services for the renewal table:
+            var fldsToSet = (category == 'EOCN') ? this.isRelevantEOCN(soldProdGR) : this.isRelevantABTN(soldProdGR);
+            if (fldsToSet.u_last_abtn_sent){
+                soldProdGR.u_last_abtn_sent = fldsToSet.u_last_abtn_sent;
+            }
+            if (fldsToSet.u_last_eocn_sent){
+                soldProdGR.u_last_eocn_sent = fldsToSet.u_last_eocn_sent;
+            }
+            //Note: It is possible for both dates to be set, in those cases where we are scooping up ABTNs onto an EOCN notification (and vice versa).
+
+            soldProdGR.update();
+        }
+    },
+
+
+    /*******************************************************************/
+    /** IS SOLD PRODUCT RELEVANT FOR SETTING LAST SENT DATES (EOCN) ****/
+    /*******************************************************************/
+    isRelevantEOCN: function(soldProdGR) {
+        //Sold product is relevant if the Next EOCN due date is Today, or if the Next ABTN due date is in the past or is this month.
+
+        //If Not Billed:
+        if (soldProdGR.getValue('u_billing_frequency_sp') == 'Not billed')
+            return {};
+
+        var dtToday = new GlideDate();
+       
+        var nextEOCNdue = soldProdGR.getValue('u_next_eocn_due') || '';
+        var nextABTNdue = soldProdGR.getValue('u_next_abtn_due') || '';
+
+        //Check for ABTN due or in the past:
+        if (nextABTNdue && nextABTNdue <= dtToday.getValue())
+            return {u_last_abtn_sent: dtToday.getValue(), u_last_eocn_sent: dtToday.getValue()};
+
+        //Check for ABTN due in same calendar month and year:
+        if (nextABTNdue && nextABTNdue.slice(5, 7) == dtToday.getMonthUTC() && nextABTNdue.slice(0, 4) == dtToday.getYearUTC()) {
+            return {u_last_abtn_sent: dtToday.getValue(), u_last_eocn_sent: dtToday.getValue()};
+        }
+
+        if (nextEOCNdue == dtToday.getValue())
+            return {u_last_eocn_sent: dtToday.getValue()};
+
+		return {};
+    },
+
+
+    /*****************************************************************/
+    /** IS SOLD PRODUCT RELEVANT FOR SETTING LAST SENT DATES (ABTN) **/
+    /*****************************************************************/
+    isRelevantABTN: function(soldProdGR) {
+        //Sold product is relevant if the Next ABTN due date is Today or in the past, or if the Next EOCN due date is this month.
+
+        //If Not Billed:
+        if (soldProdGR.getValue('u_billing_frequency_sp') == 'Not billed')
+            return {};
+
+        var dtToday = new GlideDate();
+
+        var nextEOCNdue = soldProdGR.getValue('u_next_eocn_due') || '';
+        var nextABTNdue = soldProdGR.getValue('u_next_abtn_due') || '';
+
+        //Check for ABTN due or in the past:
+        if (nextABTNdue && nextABTNdue <= dtToday.getValue())
+            return {u_last_abtn_sent: dtToday.getValue()};
+
+        //Check for EOCN due in same calendar month and year:
+        if (nextEOCNdue && nextEOCNdue.slice(5, 7) == dtToday.getMonthUTC() && nextEOCNdue.slice(0, 4) == dtToday.getYearUTC()) {
+            return {u_last_abtn_sent: dtToday.getValue(), u_last_eocn_sent: dtToday.getValue()};
+        }
+
+        return {};       
+    },
+
+
+    /***********************************************************/
+    /****** SET DESCRIPTION ON RETENTIONS CASE *****************/
+    /***********************************************************/
+    setDescription: function(csGR) {
+        //Get Address from Location:
+        var addressFlds = ['name', 'u_address_line_1', 'u_address_line_2', 'city', 'zip'];
+        var lcnGR = csGR.location.getRefRecord();
+        var address = '';
+
+        if (lcnGR.isValidRecord()) {
+            address = addressFlds.map(function(fld) {
+                return lcnGR.getValue(fld) || '';
+            }).filter(function(fld2) {
+                return !!fld2;
+            }).join(', ');
+        }
+
+        //Get email Addresses:
+        var emails = [];
+        var userGR = new GlideRecord('sys_user');
+        userGR.addQuery('sys_id', 'IN', csGR.getValue('people') || '');
+        userGR.query();
+        while (userGR.next()) {
+            emails.push(userGR.getValue('email'));
+        }
+        emails = emails.filter(function(email, ind) {
+            return emails.indexOf(email) == ind;
+        });
+
+        var description = 'Customer: ' + csGR.getDisplayValue('company') +
+            '\nAddress: ' + address +
+            '\nEmail(s): ' + emails +
+            '\nCustomer Ref(s): ' + csGR.getValue('customer_reference');
+
+        return description;
+    },
+
+
+    /******************************************************************/
+    /****** GET CUSTOMER REFERENCES ***********************************/
+    /******************************************************************/
+    gatherCustomerRefs: function(liveSoldProds) {
+
+        var soldProdGR = new GlideRecord('sn_install_base_sold_product');
+        var qStr = 'u_billing_frequency_sp!=Not billed^u_don_t_send_eocn_abtn=false^sys_idIN' + liveSoldProds;
+        soldProdGR.addEncodedQuery(qStr);
+        soldProdGR.orderBy('name');
+        soldProdGR.query();
+        var customerRefs = [];
+        while (soldProdGR.next()) {
+            customerRefs.push(soldProdGR.getValue('name') || soldProdGR.getDisplayValue())
+        }
+
+        return customerRefs.join(',');
+    },
+
+
+    /******************************************************************/
+    /****** CALCULATE EXISTING PRICE **********************************/
+    /******************************************************************/
+    calculateExistingPrice: function(liveSoldProds, category) {
+        /*
+        For ABTN, only include price of services where the contract end date is in the past.
+        For EOCN, only include price of services where the contract end date is on or before 90 days from now:
+        */
+        var soldProdGR = new GlideAggregate('sn_install_base_sold_product');
+
+        soldProdGR.addQuery('sys_id', 'IN', liveSoldProds.join(','));
+        var qStr = (category == 'ABTN') ? 'u_renewal_date<javascript:gs.beginningOfToday()^u_billing_frequency_sp!=Not billed^u_don_t_send_eocn_abtn=false' :
+            'u_renewal_dateRELATIVELT@dayofweek@ahead@91^u_billing_frequency_sp!=Not billed^u_don_t_send_eocn_abtn=false';
+
+        soldProdGR.addEncodedQuery(qStr);
+        soldProdGR.addAggregate('SUM', 'u_unit_rate');
+        soldProdGR.setGroup(false);
+        soldProdGR.query();
+
+        var existingPrice = 0;
+        if (soldProdGR.next()) {
+            existingPrice = parseFloat(soldProdGR.getAggregate('SUM', 'u_unit_rate'));
+        }
+
+        return existingPrice;
+    },
+
+
+    /******************************************************************/
+    /****** GET CONTACTS FOR LOCATION / ACCOUNT ***********************/
+    /******************************************************************/
+    getPeople: function(soldProdGR) {
+        if (!soldProdGR.isValidRecord()) {
+            return [];
+        }
+
+        var people = [];
+
+        /*
+        Find active C1 users with the C1 Contact Type 'Sales Lead':
+        */
+        var _SALES_LEAD = 'd4b24ef41b630590b0c9ed32b24bcb6b';
+        //Get location contacts:
+        if (soldProdGR.u_location) {
+            var locConGR = new GlideRecord('u_m2m_locations_users');
+            var qStr = 'u_location=' + soldProdGR.getValue('u_location') +
+                '^u_user.u_c1_contact_typeLIKE' + _SALES_LEAD;
+
+            locConGR.addEncodedQuery(qStr);
+            locConGR.query();
+            while (locConGR.next()) {
+                people.push(locConGR.getValue('u_user'));
+            }
+        }
+
+        //Get company/account contacts:
+        if (soldProdGR.account) {
+            var compConGR = new GlideRecord('u_m2m_companies_users2');
+            var qStr = 'u_company=' + soldProdGR.getValue('account') +
+                '^u_user.u_c1_contact_typeLIKE' + _SALES_LEAD;
+
+            compConGR.addEncodedQuery(qStr);
+            compConGR.query();
+            while (compConGR.next()) {
+                people.push(compConGR.getValue('u_user'));
+            }
+        }
+
+        //Get rid of duplicates:
+        people = people.filter(function(person, ind) {
+            return people.indexOf(person) == ind;
+        });
+
+        return people;
+    },
+
+
+    /******************************************************************/
+    /****** GET ALL LIVE SOLD PRODUCTS FOR A LOCATION *****************/
+    /******************************************************************/
+    getLiveSoldProds: function(location_sys_id) {
+        if (!location_sys_id) {
+            return [];
+        }
+
+        var liveSoldProds = [];
+        var qStr = '^u_status=Live^u_location=' + location_sys_id;
+        var soldProdGR = new GlideRecord('sn_install_base_sold_product');
+        soldProdGR.addEncodedQuery(qStr);
+        soldProdGR.query();
+
+        while (soldProdGR.next()) {
+            liveSoldProds.push(soldProdGR.getUniqueValue());
+        }
+
+        return liveSoldProds;
+    },
+
+
+    /******************************************************************/
+    /****** GET COST CHANGE DATE, FROM SOLD PRODUCT **************/
+    /******************************************************************/
+    getCostChangeDate: function(soldProdGR, category) {
+        if (soldProdGR.getValue('u_billing_frequency_sp') == 'Not billed')
+            return '';
+        if (soldProdGR.u_don_t_send_eocn_abtn)
+            return '';
+
+        if (category == 'EOCN')
+            return this.getEOCNCostChangeDate(soldProdGR);
+        if (category == 'ABTN')
+            return this.getABTNCostChangeDate(soldProdGR);
+    },
+
+
+    /******************************************************************/
+    /****** GET EOCN COST CHANGE DATE, FROM SOLD PRODUCT **************/
+    /******************************************************************/
+    getEOCNCostChangeDate: function(soldProdGR) {
+        var aDate = new GlideDate();
+        aDate.addDaysUTC(30); //Set to 30 days from now.
+
+        var renewalDate = new GlideDate();
+        renewalDate.setValue(soldProdGR.u_renewal_date);
+        if (renewalDate.getValue() > aDate.getValue()) //If the Contract End date is > 30 days from now, set to the contract end date.
+            aDate = renewalDate;
+
+        var dayOfMonth = aDate.getDayOfMonthNoTZ();
+
+        if (dayOfMonth > 1) { //Move to the first of the following month (if not currently on 1st of month).
+            aDate.addMonthsUTC(1);
+            var newDayOfMonth = aDate.getDayOfMonthNoTZ();
+            aDate.addDaysUTC(1 - newDayOfMonth);
+        }
+
+        return aDate.getValue();
+    },
+
+
+    /******************************************************************/
+    /****** GET ABTN COST CHANGE DATE, FROM SOLD PRODUCT **************/
+    /******************************************************************/
+    getABTNCostChangeDate: function(soldProdGR) {
+        //Return the closest first day of the month that is at least 60 calendar days after the date of the email.
+        var aDate = new GlideDate();
+        aDate.addDaysUTC(60);
+
+        var dayOfMonth = aDate.getDayOfMonthNoTZ();
+
+        if (dayOfMonth > 1) {
+            aDate.addMonthsUTC(1);
+            var newDayOfMonth = aDate.getDayOfMonthNoTZ();
+            aDate.addDaysUTC(1 - newDayOfMonth);
+        }
+
+        return aDate.getValue();
+    },
+
+
+    /******************************************************************/
+    /****** REF QUAL FOR LOCATION ON MANUAL RETENTIONS CASE ***********/
+    /******************************************************************/
+    locRefQualifier: function(company_id) {
+        //Return all locations for which company_id is the legal entity or the operator:
+        var locList = [];
+        var locGR = new GlideRecord('cmn_location');
+        var qStr = 'u_managing_agent=' + company_id + '^ORu_company_name_legal_entity=' + company_id;
+        locGR.addEncodedQuery(qStr);
+        locGR.query();
+        while (locGR.next()) {
+            locList.push(locGR.getUniqueValue());
+        }
+
+        return 'sys_idIN' + locList.join(',');
+    },
+
+
+    /**********************************************************/
+    /****** PRE-POP PEOPLE ON MANUAL RETENTIONS CASE **********/
+    /**********************************************************/
+    prePopPeople: function(location_id) {
+        var people = [];
+
+        /*
+        Find active C1 users with the C1 Contact Type 'Sales Lead':
+        */
+        var _SALES_LEAD = 'd4b24ef41b630590b0c9ed32b24bcb6b';
+        //Get location contacts:
+        var locConGR = new GlideRecord('u_m2m_locations_users');
+        var qStr = 'u_location=' + location_id +
+            '^u_user.u_c1_contact_typeLIKE' + _SALES_LEAD;
+
+        locConGR.addEncodedQuery(qStr);
+        locConGR.query();
+        while (locConGR.next()) {
+            people.push(locConGR.getValue('u_user'));
+        }
+
+        var locGR = new GlideRecord('cmn_location');
+        locGR.get(location_id);
+
+        if (locGR.isValidRecord() && locGR.u_managing_agent) {
+            var account_id = locGR.getValue('u_managing_agent');
+
+            //Get company/account contacts:
+            var compConGR = new GlideRecord('u_m2m_companies_users2');
+            var qStr = 'u_company=' + account_id +
+                '^u_user.u_c1_contact_typeLIKE' + _SALES_LEAD;
+
+            compConGR.addEncodedQuery(qStr);
+            compConGR.query();
+            while (compConGR.next()) {
+                people.push(compConGR.getValue('u_user'));
+            }
+        }
+
+        //Get rid of duplicates:
+        people = people.filter(function(person, ind) {
+            return people.indexOf(person) == ind;
+        });
+
+        return people.join(',');
+    },
+
+
+    /**********************************************************/
+    /****** EOCN EMAIL: RELEVANT FOR  RENEWAL TABLE ***********/
+    /**********************************************************/
+    isRelevantEOCNRenewal: function(soldProdGR, isTest) {
+        /*Is this sold product relevant for the renewal table in an EOCN notification.
+        Sold product is relevant if the Next EOCN due date is Today,
+        or in the case of test emails, the Next EOCN due date is 'leadTime' days from today.
+		BUT also, if the next ABTN due date is in the same month as the send month, or is in the past.
+        Note, those with the Don't send flag set, have already been filtered out.
+		*/
+
+        //If Not Billed, do not include:
+        if (soldProdGR.getValue('u_billing_frequency_sp') == 'Not billed')
+            return false;
+
+        var dtToday = new GlideDate();
+        var nextEOCNdue = soldProdGR.getValue('u_next_eocn_due') || '';
+        var nextABTNdue = soldProdGR.getValue('u_next_abtn_due') || '';
+        if (!isTest) {
+
+            //Check for ABTN due in the past:
+            if (nextABTNdue && nextABTNdue < dtToday.getValue())
+                return true;
+
+            //Check for same calendar month and year:
+            if (nextABTNdue && nextABTNdue.slice(5, 7) == dtToday.getMonthUTC() && nextABTNdue.slice(0, 4) == dtToday.getYearUTC()) {
+                return true;
+            }
+            return nextEOCNdue == dtToday.getValue();
+        }
+
+        //Test email:
+        var leadTime = parseInt(gs.getProperty('x_canl_emails_eocn.test.email.lead.time'));
+        dtToday.addDaysUTC(leadTime);
+        //Check for ABTN due in the past (where NOW is in the future, according to the lead time):
+        if (nextABTNdue && nextABTNdue < dtToday.getValue())
+            return true;
+
+        //Check for same calendar month and year:
+        if (nextABTNdue && nextABTNdue.slice(5, 7) == dtToday.getMonthUTC() && nextABTNdue.slice(0, 4) == dtToday.getYearUTC()) {
+            return true;
+        }
+        return nextEOCNdue == dtToday.getValue();
+    },
+
+
+    /**********************************************************/
+    /****** ABTN EMAIL: RELEVANT FOR  RENEWAL TABLE ***********/
+    /**********************************************************/
+    isRelevantABTNRenewal: function(soldProdGR, isTest) {
+        /*Is this sold product relevant for the renewal table in an ABTN notification?
+        Sold product is relevant if the Next ABTN due date is Today or in the past,
+        or in the case of test emails, the Next ABTN due date is 'leadTime' days from today (or before that date).
+		BUT also, if the next EOCN due date is in the same month as the send month.
+        Note, those with the Don't send flag set, have already been filtered out.
+		*/
+
+        //If Not Billed, do not include:
+        if (soldProdGR.getValue('u_billing_frequency_sp') == 'Not billed')
+            return false;
+
+        var dtToday = new GlideDate();
+        var nextEOCNdue = soldProdGR.getValue('u_next_eocn_due') || '';
+        var nextABTNdue = soldProdGR.getValue('u_next_abtn_due') || '';
+        if (!isTest) {
+
+            //Check for ABTN due in the past:
+            if (nextABTNdue && nextABTNdue < dtToday.getValue())
+                return true;
+
+            //Check for same calendar month and year:
+            if (nextEOCNdue && nextEOCNdue.slice(5, 7) == dtToday.getMonthUTC() && nextEOCNdue.slice(0, 4) == dtToday.getYearUTC()) {
+                return true;
+            }
+            return nextABTNdue == dtToday.getValue();
+        }
+
+        //Test email:
+        var leadTime = parseInt(gs.getProperty('x_canl_emails_eocn.test.email.lead.time'));
+        dtToday.addDaysUTC(leadTime);
+        //Check for ABTN due in the past (where NOW is in the future, according to the lead time):
+        if (nextABTNdue && nextABTNdue < dtToday.getValue())
+            return true;
+
+        //Check for same calendar month and year:
+        if (nextEOCNdue && nextEOCNdue.slice(5, 7) == dtToday.getMonthUTC() && nextEOCNdue.slice(0, 4) == dtToday.getYearUTC()) {
+            return true;
+        }
+        return nextABTNdue == dtToday.getValue();
+    },
+
+
+    /**********************************************************/
+    /****** SOLD PRODUCT: Determine "Don't send EOCN/ABTN" *****/
+    /**********************************************************/
+    flagDontSend: function(soldProd_id){
+		
+		var soldProdGR = new GlideRecord('sn_install_base_sold_product');
+		if (!soldProdGR.get(soldProd_id))
+			return;
+			
+		//Sold product is for a product with master category = 'Manage':
+		var _MANAGED = 'c0f9513c1b2db190b0c9ed32b24bcbe0';
+		if ((soldProdGR?.product?.u_master_category || '').toString() == _MANAGED)
+			return true;
+
+        //Sold Product is linked to active renewal case:
+        var qStr = 'category=7^stateNOT IN400,7,800^live_sold_products_for_locationLIKE' + soldProd_id;
+        var retCaseGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+        retCaseGR.addEncodedQuery(qStr);
+        retCaseGR.setLimit(1);
+        retCaseGR.query();
+        if (retCaseGR.hasNext())
+            return true;
+			
+        //Sold Product is linked to a not Lost or Won renewal opportunity:
+        qStr = 'stateNOT IN4,5^u_sold_products_being_renewedLIKE' + soldProd_id;
+        var oppGR = new GlideRecord('u_opportunity');
+        oppGR.addEncodedQuery(qStr);
+        oppGR.query();
+        if (oppGR.hasNext())
+            return true;
+
+        /*Sold Product is linked to a PROREQ AND the PROREQ Stage IS NOT one of:
+        Circuit Completed
+        Supplier Cancelled In-Flight
+        Order Cancelled In-Flight
+        Provisioning Request Cancelled
+        */
+        qStr = 'u_selected_product.u_associated_existing_sold_product=' + soldProd_id + 
+            '^u_stageNOT IN33,500,25,22,32';
+        var proreqGR = new GlideRecord('u_provisioning_request');
+        proreqGR.addEncodedQuery(qStr);
+        proreqGR.setLimit(1);
+        proreqGR.query();
+        if (proreqGR.hasNext())
+            return true;
+
+		//If none of those criteria are met, the flag should not be checked:
+		return false;
+    }
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2024-11-25 17:31:06</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>59ff591a830616508234c480ceaad36a</sys_id>
+        <sys_mod_count>74</sys_mod_count>
+        <sys_name>RetentionsUtils</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_include_59ff591a830616508234c480ceaad36a</sys_update_name>
+        <sys_updated_by>shilpa.tiwari</sys_updated_by>
+        <sys_updated_on>2025-09-25 10:57:43</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>59ff591a830616508234c480ceaad36a</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2025-03-27 15:37:39</sys_created_on>
+        <sys_id>1d3895a183ace2108234c480ceaad3d5</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2025-06-03 17:35:48</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

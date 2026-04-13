@@ -2,9 +2,10 @@
     <sys_ui_section caption="Current" section_id="8799568a1bb36dd025017b46464bcbe6" sys_domain="global" table="x_canl_emails_eocn_customer_data" version="3" view="">
         <sys_ui_annotation action="INSERT_OR_UPDATE">
             <is_plain_text>false</is_plain_text>
+            <name/>
             <sys_created_by>jamie.wildish</sys_created_by>
             <sys_created_on>2023-10-11 08:21:56</sys_created_on>
-            <sys_id>b11db6711bf5f91025017b46464bcb3b</sys_id>
+            <sys_id>751db6711bf5f91025017b46464bcbdd</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>jamie.wildish</sys_updated_by>
             <sys_updated_on>2023-10-11 08:21:56</sys_updated_on>
@@ -13,9 +14,10 @@
         </sys_ui_annotation>
         <sys_ui_annotation action="INSERT_OR_UPDATE">
             <is_plain_text>false</is_plain_text>
+            <name/>
             <sys_created_by>jamie.wildish</sys_created_by>
             <sys_created_on>2023-10-11 08:21:56</sys_created_on>
-            <sys_id>751db6711bf5f91025017b46464bcbdd</sys_id>
+            <sys_id>b11db6711bf5f91025017b46464bcb3b</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_updated_by>jamie.wildish</sys_updated_by>
             <sys_updated_on>2023-10-11 08:21:56</sys_updated_on>

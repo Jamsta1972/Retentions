@@ -24,7 +24,7 @@
         <scoped_administration>false</scoped_administration>
         <short_description>Batch Mailing for EOCN/ABTN</short_description>
         <source>x_canl_emails_eocn</source>
-        <store_correlation_id/>
+        <store_correlation_id>REPOAPP0002506549</store_correlation_id>
         <store_url/>
         <subscription_entitlement/>
         <sys_class_name>sys_app</sys_class_name>
@@ -32,15 +32,15 @@
         <sys_created_by>jamie.wildish</sys_created_by>
         <sys_created_on>2023-04-12 10:14:57</sys_created_on>
         <sys_id>0b95ce931b8669d0b0c9ed32b24bcb73</sys_id>
-        <sys_mod_count>104</sys_mod_count>
-        <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2023-11-24 21:21:04</sys_updated_on>
+        <sys_mod_count>106</sys_mod_count>
+        <sys_updated_by>hamza.hassan</sys_updated_by>
+        <sys_updated_on>2026-04-13 10:02:53</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role/>
         <vendor>Glide Student &amp; Residential Ltd</vendor>
         <vendor_prefix/>
-        <version>2.3.9</version>
+        <version>2.3.10</version>
     </sys_app>
 </record_update>

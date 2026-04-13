@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sysauto_script">
+    <sysauto_script action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <advanced>false</advanced>
+        <business_calendar/>
+        <condition/>
+        <conditional>false</conditional>
+        <entered_run_end/>
+        <entered_run_start/>
+        <entered_time/>
+        <max_drift/>
+        <name>Create EOCN Retentions cases (Automation Nov 2024)</name>
+        <offset/>
+        <offset_type>0</offset_type>
+        <repeat_every/>
+        <run_as/>
+        <run_as_tz/>
+        <run_dayofmonth>1</run_dayofmonth>
+        <run_dayofweek>1</run_dayofweek>
+        <run_daysofweek/>
+        <run_end/>
+        <run_month/>
+        <run_period/>
+        <run_start>2024-11-25 17:26:32</run_start>
+        <run_time>1970-01-01 08:00:00</run_time>
+        <run_type>daily</run_type>
+        <run_weekinmonth/>
+        <script><![CDATA[(function () {
+  var CASE_TABLE = 'x_canl_emails_eocn_retentions_case';
+  var CAT = { ABTN: '1', EOCN: '2', EOCN6: '10' };
+
+  // Adjust if your instance uses different values / text
+  var STATE = { COMPLETE: '400', CANCELLED: '7' };
+  var CLOSURE_ROLLING = 'Rolling contract';
+
+  var retentionsUtils = new RetentionsUtils();
+
+  function todayStr() { var d = new GlideDate(); return d.getValue(); }
+
+  // Compute EOCN-style cost change date from the case's renewal_date (mirrors getEOCNCostChangeDate)
+  function computeEOCNCostChangeDateFromCase(caseGR) {
+    try {
+      var aDate = new GlideDate();
+      aDate.addDaysUTC(30);
+
+      var renStr = caseGR.getValue('renewal_date') || '';
+      if (renStr) {
+        var r = new GlideDate(); r.setValue(renStr);
+        if (r.getValue() > aDate.getValue()) aDate = r;
+      }
+
+      var dom = aDate.getDayOfMonthNoTZ();
+      if (dom > 1) {
+        aDate.addMonthsUTC(1);
+        var newDom = aDate.getDayOfMonthNoTZ();
+        aDate.addDaysUTC(1 - newDom);
+      }
+      return aDate.getValue();
+    } catch (e) { return ''; }
+  }
+
+  // Helper: parse case's captured live sold products list
+  function getCaseLiveSoldProds(caseGR) {
+    var raw = (caseGR.getValue('live_sold_products_for_location') || '').toString();
+    if (!raw) return [];
+    return raw.split(',').map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+
+  // Fallback "don't send" filter when no location is available: remove SPs with the flag
+  function filterDontSendBySPList(ids) {
+    if (!ids.length) return [];
+    var keep = [];
+    var sp = new GlideRecord('sn_install_base_sold_product');
+    sp.addQuery('sys_id', 'IN', ids);
+    sp.addQuery('u_don_t_send_eocn_abtn', false);
+    sp.query();
+    while (sp.next()) keep.push(sp.getUniqueValue());
+    return keep;
+  }
+
+  // =========================================================
+  // PHASE A: Promote due EOCN6 cases → EOCN (one per location)
+  // =========================================================
+  var promotedLocations = [];
+
+  var ec = new GlideRecord(CASE_TABLE);
+  ec.addQuery('category', CAT.EOCN6);
+  if (ec.isValidField('u_next_eocn_due')) ec.addQuery('u_next_eocn_due', todayStr());
+  else                                     ec.addQuery('next_eocn_due',  todayStr());
+  ec.query();
+
+  while (ec.next()) {
+    // Case location
+    var locId = (ec.getValue('location') || ec.getValue('u_location') || '').toString();
+    var locKey = locId || ('NO_LOC_' + ec.getUniqueValue());
+    if (promotedLocations.indexOf(locKey) !== -1) continue; // one per location
+
+    // Use the case's captured list of live sold products
+    var liveSoldProds = getCaseLiveSoldProds(ec);
+
+    // Convert to EOCN & refresh fields as per EOCN rules
+    ec.setWorkflow(false);
+    ec.autoSysFields(false);
+    ec.category = CAT.EOCN;
+    ec.short_description = 'EOCN Customer Notification';
+
+    var ccd = computeEOCNCostChangeDateFromCase(ec);
+    if (ccd) ec.cost_change_date = ccd;
+
+    try {
+      ec.existing_price = retentionsUtils.calculateExistingPrice(liveSoldProds, 'EOCN');
+      ec.customer_reference = retentionsUtils.gatherCustomerRefs(liveSoldProds);
+      if (liveSoldProds.length) ec.live_sold_products_for_location = liveSoldProds.join(',');
+      ec.description = retentionsUtils.setDescription(ec);
+    } catch (eCalc) { /* best effort */ }
+
+    // Send rule:
+    // SEND if (state != Cancelled) OR (state == Complete AND closure_code == 'Rolling contract')
+    var st = (ec.getValue('state') || '').toString();
+    var cc = (ec.getValue('closure_code') || '').toString();
+    var shouldSend = (st != STATE.CANCELLED) || (st == STATE.COMPLETE && cc == CLOSURE_ROLLING);
+
+    // Stamp/clear notification_date accordingly
+    if (ec.isValidField('notification_date')) {
+      ec.notification_date = shouldSend ? new GlideDateTime() : '';
+    }
+		// FIX: Set state to Awaiting Customer Response (200) if notification is being sent
+		if (shouldSend) {
+			ec.state = '200';  // Awaiting Customer Response
+		}
+    ec.update();
+
+    if (shouldSend) {
+      // Build "don't send" list from location if available, else from SP list
+      var doNotSendFor = [];
+      try {
+        if (locId) {
+          doNotSendFor = retentionsUtils.getFlaggedDontSend(locId); // expects location sys_id
+        } else {
+          // No location on case: fallback filter from SP list
+          var filtered = filterDontSendBySPList(liveSoldProds);
+          // We'll use 'filtered' directly below, so override liveSoldProds for set.last.sent
+          liveSoldProds = filtered;
+        }
+      } catch (eDNS) { /* ignore */ }
+
+      // If we had a location-based list, apply it now:
+      if (doNotSendFor && doNotSendFor.length) {
+        liveSoldProds = liveSoldProds.filter(function (id) { return doNotSendFor.indexOf(id) === -1; });
+      }
+
+      // Fire standard EOCN event + schedule "set last sent"
+      var eventName = 'x_canl_emails_eocn.automatedEOCN';
+      var emails = ec.getValue('people') || gs.getProperty('x_canl_emails_eocn.test.email.address') || '';
+      gs.eventQueue(eventName, ec, emails, /*isTest*/ false);
+
+      var updateDt = new GlideDateTime(); updateDt.addSeconds(180);
+      gs.eventQueueScheduled('x_canl_emails_eocn.set.last.sent', ec, (liveSoldProds || []).join(','), 'EOCN', updateDt);
+    }
+
+    promotedLocations.push(locKey);
+  }
+
+  // =========================================================
+  // PHASE B:  EXISTING creation logic (skip promoted locs)
+  // =========================================================
+  var eocnMarketSectors = gs.getProperty('x_canl_emails_eocn.eocnMarketSectors');
+
+  var qStr = 'u_status=Live' +
+             '^u_don_t_send_eocn_abtn=false' +
+             '^u_billing_frequency_sp!=Not billed' +
+             '^u_next_eocn_dueONToday@javascript:gs.beginningOfToday()@javascript:gs.endOfToday()' +
+             '^u_locationISNOTEMPTY' +
+             '^u_location.u_market_sectorIN' + eocnMarketSectors;
+
+  var soldProdGR = new GlideRecord('sn_install_base_sold_product');
+  soldProdGR.addEncodedQuery(qStr);
+  soldProdGR.query();
+
+  gs.info(soldProdGR.getRowCount() + ' Sold Products have next EOCN date = Today. Generating Retentions cases');
+
+  var locations = []; // keep one-per-location guard
+  while (soldProdGR.next()) {
+    var loc = (soldProdGR.getValue('u_location') || '').toString();
+
+    // Skip location if already handled via EOCN6→EOCN promotion above
+    if (promotedLocations.indexOf(loc) !== -1) continue;
+
+    if (!locations.includes(loc)) {
+      retentionsUtils.createRetentionsCase(soldProdGR, 'EOCN');
+      locations.push(loc);
+    }
+  }
+})();
+]]></script>
+        <sys_class_name>sysauto_script</sys_class_name>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2024-11-25 17:32:20</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a22f9956830616508234c480ceaad3dd</sys_id>
+        <sys_mod_count>19</sys_mod_count>
+        <sys_name>Create EOCN Retentions cases (Automation Nov 2024)</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sysauto_script_a22f9956830616508234c480ceaad3dd</sys_update_name>
+        <sys_updated_by>hamza.hassan</sys_updated_by>
+        <sys_updated_on>2026-02-26 12:14:14</sys_updated_on>
+        <time_zone/>
+        <u_advanced>true</u_advanced>
+        <u_conditions/>
+        <u_event_name/>
+        <u_event_parm_1/>
+        <u_event_parm_2/>
+        <u_run_business_rules>true</u_run_business_rules>
+        <u_save_script><![CDATA[new global.ScriptlessScheduledJobUtils(current).updateRecords();]]></u_save_script>
+        <u_set_field_values/>
+        <u_table/>
+        <u_trigger_event>false</u_trigger_event>
+        <upgrade_safe>false</upgrade_safe>
+    </sysauto_script>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>a22f9956830616508234c480ceaad3dd</id>
+        <sys_created_by>jamie.wildish</sys_created_by>
+        <sys_created_on>2025-06-02 20:30:06</sys_created_on>
+        <sys_id>e2add34fc375a210c017391c050131e6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>jamie.wildish</sys_updated_by>
+        <sys_updated_on>2025-06-02 20:30:06</sys_updated_on>
+        <table>sysauto_script</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

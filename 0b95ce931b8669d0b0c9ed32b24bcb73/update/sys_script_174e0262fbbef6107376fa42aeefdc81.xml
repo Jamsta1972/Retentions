@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script">
+    <sys_script action="INSERT_OR_UPDATE">
+        <abort_action>false</abort_action>
+        <access>package_private</access>
+        <action_delete>false</action_delete>
+        <action_insert>false</action_insert>
+        <action_query>false</action_query>
+        <action_update>true</action_update>
+        <active>true</active>
+        <add_message>false</add_message>
+        <advanced>true</advanced>
+        <change_fields>false</change_fields>
+        <client_callable>false</client_callable>
+        <collection>x_canl_emails_eocn_retentions_case</collection>
+        <condition/>
+        <description>STRY0019513 04/02/26 - Enforce State Transitions Complete/Reopened&#13;
+&#13;
+Server-side validation to enforce state transition restrictions as a safety net for the client script.&#13;
+- From Complete (400): Can only transition to Reopened (8)&#13;
+- From Reopened (8): Can only transition to Complete (400)&#13;
+&#13;
+Prevents invalid state changes via list edits, APIs, or browser developer tools. Aborts the transaction and displays an error message if an invalid transition is attempted.</description>
+        <execute_function>false</execute_function>
+        <filter_condition table="x_canl_emails_eocn_retentions_case">stateCHANGESFROM400^ORstateCHANGESFROM8^EQ<item display_value="Complete" endquery="false" field="state" goto="false" newquery="false" operator="CHANGESFROM" or="false" value="400"/>
+            <item display_value="Reopened" endquery="false" field="state" goto="false" newquery="false" operator="CHANGESFROM" or="true" value="8"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </filter_condition>
+        <is_rest>false</is_rest>
+        <message/>
+        <name>Enforce State Transition Restrictions </name>
+        <order>100</order>
+        <priority>100</priority>
+        <rest_method/>
+        <rest_method_text/>
+        <rest_service/>
+        <rest_service_text/>
+        <rest_variables/>
+        <role_conditions/>
+        <script><![CDATA[(function executeRule(current, previous) {
+    // STRY0019513 04/02/26 - Enforce state transition restrictions
+
+    // 1. Admin Override: If the user has the admin role, bypass these restrictions
+    if (gs.hasRole('admin')) {
+        return;
+    }
+
+    // 2. Optimization: Exit early if state hasn't changed or if it's a new record
+    if (current.isNewRecord() || !current.state.changes()) {
+        return;
+    }
+
+    var prevState = previous.getValue('state');
+    var newState = current.getValue('state');
+
+    // 3. Restriction: From Complete (400) -> Must be Reopened (8)
+    if (prevState == '400' && newState !== '8') {
+        gs.addErrorMessage('Completed cases can only be moved to a Reopened state.');
+        current.setAbortAction(true);
+    }
+
+    // 4. Restriction: From Reopened (8) -> Must be Complete (400) or Cancelled (7)
+    else if (prevState == '8' && newState !== '400' && newState !== '7') {
+        gs.addErrorMessage('Reopened cases can only be moved to Complete or Cancelled.');
+        current.setAbortAction(true);
+    }
+
+})(current, previous);]]></script>
+        <sys_class_name>sys_script</sys_class_name>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-02-04 14:47:29</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>174e0262fbbef6107376fa42aeefdc81</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name>Enforce State Transition Restrictions </sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_174e0262fbbef6107376fa42aeefdc81</sys_update_name>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-02-18 09:47:26</sys_updated_on>
+        <template/>
+        <when>before</when>
+    </sys_script>
+    <sys_translated_text action="delete_multiple" query="documentkey=174e0262fbbef6107376fa42aeefdc81"/>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>174e0262fbbef6107376fa42aeefdc81</id>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-02-04 14:47:29</sys_created_on>
+        <sys_id>0cff42e2fbbef6107376fa42aeefdc09</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-02-04 14:47:29</sys_updated_on>
+        <table>sys_script</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

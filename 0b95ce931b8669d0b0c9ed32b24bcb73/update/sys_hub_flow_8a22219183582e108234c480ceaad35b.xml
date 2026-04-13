@@ -1,0 +1,1073 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_hub_flow">
+    <sys_hub_flow action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=5281599000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>25000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from>fe9a0a1783155210de872b80ceaad30a</copied_from>
+        <copied_from_name>Email inbound: IT Incident</copied_from_name>
+        <description/>
+        <display_name_after_preview/>
+        <flow_priority>MEDIUM</flow_priority>
+        <generation_source/>
+        <internal_name>email_inbound_retentions</internal_name>
+        <label_cache>[{"name":"3d8f5a9f-7497-4e92-b94d-43fb72b16cf8.relevantcase","label":"2 - Email inbound: Retentions➛relevantCase","reference":"x_canl_emails_eocn_retentions_case","reference_display":"Retentions case","type":"reference","base_type":"reference","usedInstances":{"e642a98f-db6b-4c46-8438-036b98e498ea":["record","instance"],"2b305d8a-baf2-4c73-9466-5acedc6fbe38":["target_record"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5e841836-fab8-4895-b043-249a5528330c"}},{"name":"0e22c5bd-c40b-4617-8e59-e97d731eb1a1.usergr","label":"1 - getCorrectUserFromEmail➛UserGR","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","usedInstances":{"3d8f5a9f-7497-4e92-b94d-43fb72b16cf8":["retrievedusergr"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"e5709334-58b6-49f3-807e-ff3dc521cb21"}},{"name":"Inbound Email_1.target_record.target_record","label":"Trigger - Inbound Email➛Target Record","type":"reference","base_type":"reference","usedInstances":{"f443d1dc-88a8-4be8-8a50-aee3b0f71c3e":["record"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.from_address","label":"Trigger - Inbound Email➛From address","type":"string_full_utf8","base_type":"string_full_utf8","usedInstances":{"55cc4eaa-9d6b-4fc8-9a06-841c3eab2d8e":["condition"],"f443d1dc-88a8-4be8-8a50-aee3b0f71c3e":["parm1"],"0e22c5bd-c40b-4617-8e59-e97d731eb1a1":["email_address"],"3d8f5a9f-7497-4e92-b94d-43fb72b16cf8":["fromemail"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.user","label":"Trigger - Inbound Email➛User Record","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","usedInstances":{"80fd1202-d0d8-43c2-b0fe-dbe34982a3d1":["caller_id","opened_by"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.body_text","label":"Trigger - Inbound Email➛Body Text","type":"string_full_utf8","base_type":"string_full_utf8","usedInstances":{"80fd1202-d0d8-43c2-b0fe-dbe34982a3d1":["description"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.subject","label":"Trigger - Inbound Email➛Subject","type":"string_full_utf8","base_type":"string_full_utf8","usedInstances":{"80fd1202-d0d8-43c2-b0fe-dbe34982a3d1":["short_description"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.inbound_email","label":"Trigger - Inbound Email➛Email Record","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","usedInstances":{"e642a98f-db6b-4c46-8438-036b98e498ea":["record"],"2b305d8a-baf2-4c73-9466-5acedc6fbe38":["email_record"],"3d8f5a9f-7497-4e92-b94d-43fb72b16cf8":["receivedemailgr"]},"attributes":{}},{"name":"80fd1202-d0d8-43c2-b0fe-dbe34982a3d1.record","label":"3 - Create Record➛Retentions case Record","reference":"x_canl_emails_eocn_retentions_case","reference_display":"Retentions case","type":"reference","base_type":"reference","usedInstances":{"e642a98f-db6b-4c46-8438-036b98e498ea":["instance"],"f443d1dc-88a8-4be8-8a50-aee3b0f71c3e":["record"],"2b305d8a-baf2-4c73-9466-5acedc6fbe38":["target_record"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}}]</label_cache>
+        <master_snapshot>6f18211d83582e108234c480ceaad3d5</master_snapshot>
+        <master_snapshot_digest/>
+        <name>Email inbound: Retentions</name>
+        <natlang/>
+        <outputs/>
+        <pre_compiled>false</pre_compiled>
+        <remote_trigger_id>0c28611d83582e108234c480ceaad37d</remote_trigger_id>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <show_draft_actions>false</show_draft_actions>
+        <show_triggered_flows>false</show_triggered_flows>
+        <status>published</status>
+        <substatus/>
+        <sys_class_name>sys_hub_flow</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:26:57</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>8a22219183582e108234c480ceaad35b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Email inbound: Retentions</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_hub_flow_8a22219183582e108234c480ceaad35b</sys_update_name>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:49:32</sys_updated_on>
+        <type>flow</type>
+        <updation_source/>
+        <version>2</version>
+        <version_record>a3c79b1883d40750824034326daad39d</version_record>
+    </sys_hub_flow>
+    <sys_variable_value action="delete_multiple" query="document_key=8a22219183582e108234c480ceaad35b"/>
+    <sys_trigger_runner_mapping action="delete_multiple" query="identifier=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=8a22219183582e108234c480ceaad35b"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=8a22219183582e108234c480ceaad35b"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_8a22219183582e108234c480ceaad35b"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_8a22219183582e108234c480ceaad35b"/>
+    <sys_hub_flow_snapshot action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <acls/>
+        <active>true</active>
+        <annotation/>
+        <attributes>browserActivatedIn=chrome,integrationActivatedIn=standalone,labelCacheCleanUpExecuted=true,timeFromCreateToActivate=10349822000,viewActivatedIn=naturalLanguage</attributes>
+        <authored_on_release_version>25000</authored_on_release_version>
+        <callable_by_client_api>false</callable_by_client_api>
+        <category/>
+        <copied_from>fe9a0a1783155210de872b80ceaad30a</copied_from>
+        <copied_from_name/>
+        <description/>
+        <flow_priority>MEDIUM</flow_priority>
+        <internal_name>email_inbound_retentions</internal_name>
+        <label_cache>[{"name":"3d8f5a9f-7497-4e92-b94d-43fb72b16cf8.relevantcase","label":"2 - Email inbound: Retentions➛relevantCase","reference":"x_canl_emails_eocn_retentions_case","reference_display":"Retentions case","type":"reference","base_type":"reference","usedInstances":{"e642a98f-db6b-4c46-8438-036b98e498ea":["record","instance"],"2b305d8a-baf2-4c73-9466-5acedc6fbe38":["target_record"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"5e841836-fab8-4895-b043-249a5528330c"}},{"name":"0e22c5bd-c40b-4617-8e59-e97d731eb1a1.usergr","label":"1 - getCorrectUserFromEmail➛UserGR","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","usedInstances":{"3d8f5a9f-7497-4e92-b94d-43fb72b16cf8":["retrievedusergr"]},"attributes":{"uiType":"reference","uiTypeLabel":"Reference","element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper","uiUniqueId":"e5709334-58b6-49f3-807e-ff3dc521cb21"}},{"name":"Inbound Email_1.target_record.target_record","label":"Trigger - Inbound Email➛Target Record","type":"reference","base_type":"reference","usedInstances":{"f443d1dc-88a8-4be8-8a50-aee3b0f71c3e":["record"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.from_address","label":"Trigger - Inbound Email➛From address","type":"string_full_utf8","base_type":"string_full_utf8","usedInstances":{"55cc4eaa-9d6b-4fc8-9a06-841c3eab2d8e":["condition"],"f443d1dc-88a8-4be8-8a50-aee3b0f71c3e":["parm1"],"0e22c5bd-c40b-4617-8e59-e97d731eb1a1":["email_address"],"3d8f5a9f-7497-4e92-b94d-43fb72b16cf8":["fromemail"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.user","label":"Trigger - Inbound Email➛User Record","reference":"sys_user","reference_display":"User","type":"reference","base_type":"reference","usedInstances":{"80fd1202-d0d8-43c2-b0fe-dbe34982a3d1":["caller_id","opened_by"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.body_text","label":"Trigger - Inbound Email➛Body Text","type":"string_full_utf8","base_type":"string_full_utf8","usedInstances":{"80fd1202-d0d8-43c2-b0fe-dbe34982a3d1":["description"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.subject","label":"Trigger - Inbound Email➛Subject","type":"string_full_utf8","base_type":"string_full_utf8","usedInstances":{"80fd1202-d0d8-43c2-b0fe-dbe34982a3d1":["short_description"]},"attributes":{"test_input_hidden":"true"}},{"name":"Inbound Email_1.inbound_email","label":"Trigger - Inbound Email➛Email Record","reference":"sys_email","reference_display":"Email","type":"reference","base_type":"reference","usedInstances":{"e642a98f-db6b-4c46-8438-036b98e498ea":["record"],"2b305d8a-baf2-4c73-9466-5acedc6fbe38":["email_record"],"3d8f5a9f-7497-4e92-b94d-43fb72b16cf8":["receivedemailgr"]},"attributes":{}},{"name":"80fd1202-d0d8-43c2-b0fe-dbe34982a3d1.record","label":"3 - Create Record➛Retentions case Record","reference":"x_canl_emails_eocn_retentions_case","reference_display":"Retentions case","type":"reference","base_type":"reference","usedInstances":{"e642a98f-db6b-4c46-8438-036b98e498ea":["instance"],"f443d1dc-88a8-4be8-8a50-aee3b0f71c3e":["record"],"2b305d8a-baf2-4c73-9466-5acedc6fbe38":["target_record"]},"attributes":{"element_mapping_provider":"com.glide.flow_design.action.data.FlowDesignVariableMapper"}}]</label_cache>
+        <master>true</master>
+        <name>Email inbound: Retentions</name>
+        <natlang/>
+        <outputs/>
+        <parent_flow display_value="Email inbound: Retentions">8a22219183582e108234c480ceaad35b</parent_flow>
+        <remote_trigger_id/>
+        <run_as>system</run_as>
+        <run_with_roles/>
+        <sc_callable>false</sc_callable>
+        <status>published</status>
+        <sys_class_name>sys_hub_flow_snapshot</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:52:59</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_id>6f18211d83582e108234c480ceaad3d5</sys_id>
+        <sys_mod_count>8</sys_mod_count>
+        <sys_name/>
+        <sys_overrides/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:33:38</sys_updated_on>
+        <type>flow</type>
+        <version>2</version>
+    </sys_hub_flow_snapshot>
+    <sys_variable_value action="delete_multiple" query="document_key=6f18211d83582e108234c480ceaad3d5"/>
+    <sys_hub_flow_stage action="delete_multiple" query="flow=6f18211d83582e108234c480ceaad3d5"/>
+    <sys_flow_cat_variable_model action="delete_multiple" query="id=6f18211d83582e108234c480ceaad3d5^sys_idNOT IN6b18211d83582e108234c480ceaad3d6"/>
+    <sys_flow_cat_variable_model action="INSERT_OR_UPDATE">
+        <id>6f18211d83582e108234c480ceaad3d5</id>
+        <name>Email inbound: Retentions</name>
+        <sys_class_name>sys_flow_cat_variable_model</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:52:59</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6b18211d83582e108234c480ceaad3d6</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-03-14 11:52:59</sys_updated_on>
+    </sys_flow_cat_variable_model>
+    <sys_flow_cat_variable action="delete_multiple" query="flow_catalog_model=6b18211d83582e108234c480ceaad3d6"/>
+    <sys_hub_flow_input action="delete_multiple" query="model=6f18211d83582e108234c480ceaad3d5^sys_idNOT IN2718211d83582e108234c480ceaad3f6,6f18211d83582e108234c480ceaad3ee,7718611d83582e108234c480ceaad319,e718211d83582e108234c480ceaad3e7,eb18211d83582e108234c480ceaad3fd,ef18211d83582e108234c480ceaad3d7,fb18611d83582e108234c480ceaad311"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,uiType=reference</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>inbound_email</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Reference">reference</internal_type>
+        <label>Inbound Email</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</model>
+        <model_id>6f18211d83582e108234c480ceaad3d5</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="sys_email">sys_email</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual>type=received^sys_created_onONLast 3 months@javascript:gs.beginningOfLast3Months()@javascript:gs.endOfLast3Months()^EQ</reference_qual>
+        <reference_qual_condition table="sys_email">type=received^sys_created_onONLast 3 months@javascript:gs.beginningOfLast3Months()@javascript:gs.endOfLast3Months()^EQ<item display_value="received" endquery="false" field="type" goto="false" newquery="false" operator="=" or="false" value="received"/>
+            <item endquery="false" field="sys_created_on" goto="false" newquery="false" operator="ON" or="false" value="Last 3 months@javascript:gs.beginningOfLast3Months()@javascript:gs.endOfLast3Months()"/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </reference_qual_condition>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2718211d83582e108234c480ceaad3f6</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:33:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=2718211d83582e108234c480ceaad3f6"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=string_full_utf8</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>subject</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">string_full_utf8</internal_type>
+        <label>Subject</label>
+        <mandatory>false</mandatory>
+        <max_length>255</max_length>
+        <model display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</model>
+        <model_id>6f18211d83582e108234c480ceaad3d5</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>6f18211d83582e108234c480ceaad3ee</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:33:38</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=6f18211d83582e108234c480ceaad3ee"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=document_id</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent>target_table_name</dependent>
+        <dependent_on_field>target_table_name</dependent_on_field>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>target_record</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">document_id</internal_type>
+        <label>Target Record</label>
+        <mandatory>false</mandatory>
+        <max_length>255</max_length>
+        <model display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</model>
+        <model_id>6f18211d83582e108234c480ceaad3d5</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>7718611d83582e108234c480ceaad319</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:33:38</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>true</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=7718611d83582e108234c480ceaad319"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=string_full_utf8</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>body_text</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">string_full_utf8</internal_type>
+        <label>Body Text</label>
+        <mandatory>false</mandatory>
+        <max_length>255</max_length>
+        <model display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</model>
+        <model_id>6f18211d83582e108234c480ceaad3d5</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>e718211d83582e108234c480ceaad3e7</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:33:38</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=e718211d83582e108234c480ceaad3e7"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=reference</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>user</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="Reference">reference</internal_type>
+        <label>User</label>
+        <mandatory>false</mandatory>
+        <max_length>32</max_length>
+        <model display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</model>
+        <model_id>6f18211d83582e108234c480ceaad3d5</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference display_value="" name="sys_user">sys_user</reference>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>eb18211d83582e108234c480ceaad3fd</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:33:38</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=eb18211d83582e108234c480ceaad3fd"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=table_name</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>target_table_name</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">table_name</internal_type>
+        <label>Target Table</label>
+        <mandatory>false</mandatory>
+        <max_length>255</max_length>
+        <model display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</model>
+        <model_id>6f18211d83582e108234c480ceaad3d5</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:52:59</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>ef18211d83582e108234c480ceaad3d7</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:33:37</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=ef18211d83582e108234c480ceaad3d7"/>
+    <sys_hub_flow_input action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <array>false</array>
+        <array_denormalized>false</array_denormalized>
+        <attributes>element_mapping_provider=com.glide.flow_design.action.data.FlowDesignVariableMapper,test_input_hidden=true,uiType=string_full_utf8</attributes>
+        <audit>false</audit>
+        <calculation><![CDATA[(function calculatedFieldValue(current) {
+
+	// Add your code here
+	return '';  // return the calculated value
+
+})(current);]]></calculation>
+        <choice/>
+        <choice_field/>
+        <choice_table/>
+        <column_label/>
+        <comments/>
+        <create_roles/>
+        <default_value/>
+        <defaultsort/>
+        <delete_roles/>
+        <dependent/>
+        <dependent_on_field/>
+        <display>false</display>
+        <dynamic_creation>false</dynamic_creation>
+        <dynamic_creation_script/>
+        <dynamic_default_value/>
+        <dynamic_ref_qual/>
+        <element>from_address</element>
+        <element_reference>false</element_reference>
+        <foreign_database/>
+        <formula/>
+        <function_definition/>
+        <function_field>false</function_field>
+        <help/>
+        <hint/>
+        <internal_type display_value="">string_full_utf8</internal_type>
+        <label>From address</label>
+        <mandatory>false</mandatory>
+        <max_length>255</max_length>
+        <model display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</model>
+        <model_id>6f18211d83582e108234c480ceaad3d5</model_id>
+        <model_table>sys_hub_flow_snapshot</model_table>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <next_element/>
+        <order>100</order>
+        <primary>false</primary>
+        <read_only>false</read_only>
+        <read_roles/>
+        <reference/>
+        <reference_cascade_rule/>
+        <reference_floats>false</reference_floats>
+        <reference_key/>
+        <reference_qual/>
+        <reference_qual_condition/>
+        <reference_type/>
+        <sizeclass/>
+        <spell_check>false</spell_check>
+        <staged>false</staged>
+        <sys_class_name>sys_hub_flow_input</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>fb18611d83582e108234c480ceaad311</sys_id>
+        <sys_mod_count>15</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:33:38</sys_updated_on>
+        <table_reference>false</table_reference>
+        <text_index>false</text_index>
+        <unique>false</unique>
+        <use_dependent_field>false</use_dependent_field>
+        <use_dynamic_default>false</use_dynamic_default>
+        <use_reference_qualifier>simple</use_reference_qualifier>
+        <virtual>false</virtual>
+        <virtual_type>script</virtual_type>
+        <widget/>
+        <write_roles/>
+        <xml_view>false</xml_view>
+    </sys_hub_flow_input>
+    <sys_hub_action_input_action_instance action="delete_multiple" query="action_input=fb18611d83582e108234c480ceaad311"/>
+    <sys_hub_flow_output action="delete_multiple" query="model=6f18211d83582e108234c480ceaad3d5"/>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=6f18211d83582e108234c480ceaad3d5"/>
+    <sys_hub_trigger_instance_v2 action="delete_multiple" query="flow=6f18211d83582e108234c480ceaad3d5^sys_idNOT INc95dfddb8374e210de872b80ceaad30b"/>
+    <sys_hub_trigger_instance_v2 action="INSERT_OR_UPDATE">
+        <comment>When email sent to retentions@glide.co.uk / businesssupport@glide.co.uk / businessaccounts@glide.co.uk / businesscustomer@glide.co.uk w keywords</comment>
+        <display_text/>
+        <flow display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</flow>
+        <generation_source/>
+        <name>Inbound Email</name>
+        <published_version/>
+        <remote_sys_id/>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-04-14 15:04:54</sys_created_on>
+        <sys_id>c95dfddb8374e210de872b80ceaad30b</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_scope/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-05-14 14:33:37</sys_updated_on>
+        <trigger_definition display_value="Inbound Email">6f0180400b320300f4eb8bf637673ad4</trigger_definition>
+        <trigger_inputs>H4sIAAAAAAAA/91WbW/cRBD+K5Y/h8g+X3KXfKKEVoqoEpFU/VK11no9d1nY87rrdZKjqpRGPVQkSIJUECFRoVJoK6EWJNQSLil/hvNd+om/wK7vJXbOvpwIiJdv9sx4dp59npnxjTu64KRaBT7vBQJ5GJbrwbyrz+oICoWCOWOWralyAUyjXLCKuFg2MCDkWqikT+gUOUBl6OUaIlTDzHOJIMwLpIt4AriH6LW6DzIi5ashz0WC8bo+W0E0gAmdcRe4PmsaxoTuoZr6AlROO/XdKqKhcnHAxCfgieDq/HuXnTAgHgRBEPo+4+LtKiUuTGI2GX54a3EpHftOL3Z5jNh+XoQxC6VtrMSXxgnuZ8ZhIFgN+FiZ57KCg9D5ALBQcXOKOyo/H7JRpC7wjAdQAGnTVXI7JG5G7ALTKPOkQjTBkUu8atp9DXiNeEhAtnko3SDelXaHuXVbwHoaQoZ1ACLt68FIGdNAUq4sKKmAJJhMR0bSFKAEUJzBCM5lBA8zQvMY8UYzIrIZEXmMiFxGcCYjeAQjOIsRms9IFpRUgMhjROQzkgAkmwnIKthCzqH5hQrja4i7Ex6s3Vp4P91oHIR8VKNmZD8uZYflniPnlo+4nGlCTbg7Ol4h1OXg6bM3bsoxqSatWTZMwyqWcMkyC5ZhVIrgILNYmEIzpWmrcs6kzZ+XImP2JietvC3wXHAHY3h4MHNA7qJHTw0rcrDLnHODnJrPQq7dDhElFQLqCWigwVuqnEBWWquBVIsntFUmOGgVGq5PxjtgPSAfyfKKhiqFQwW4CpS5g3pgx2j0hN12SeBTVO/fgfThFUYwLPqqDGlWgJFDofuIGQ1r3kL3buS7CxUUUnG9t0KkJQxkUvDVDShIPXyV5RW2ttQ/9Qrx4uvqOSnDiA7ekJCb0wkFBDGv/RuxnVAyrL7SVwv63RiDre6nX0jvSLtbtQzoQbtCgLrdoABz4otLWEhJ9c67O/FXbOrFmP6h9axeq7EjdzcXEruZ9bL0F7Jp6AMU15O285Q/bTiWIXWfrfwSZFR+pgRxFkCy3AsIvLN3GP3wS6u5FTVetY6+jBrfdb7f7Tx8GT3febP5onX06uTpk2j782j32e/Hn7YOm+3nBwNLe3un9ete5+v7reOvosaDTvPpbxubac2nFZ8j9H+dxldJQLqnCy6PGEfbf5uSlwXzNZ8zLP+N5NoY1rTDGAXkjdK0ldC0/LvyT8enDUrb8XJJ6nxY5vFFnC90Ke9iOVfoFRgJbIwKxVnMSYQXaIPoyWb70b7Ud2f/Gyn06MFu66gRHdzv7HwcNX5u73/S3t9ovd6KNo7fPG5GzW0p+vbLe/+I3HtM9KzvZtL0P+6HJfBpXVsCLJnX4hYY6oj4Lu1YTSOaophoCoF4FYTdJeG0D4bbYIwWcGZM2QLF8pRlWqoFwClhA8l/n2kXW0Vn6hws2RWJDGRJHBeQfutwq3X8rRz80d6j6OCz5OyPGj+d3HsotX7y4sfo9Rfq4fGzM6Iv/zdn/J/V8M0/AJ+iHs9JEAAA</trigger_inputs>
+        <trigger_outputs/>
+        <trigger_type>email</trigger_type>
+        <updation_source/>
+    </sys_hub_trigger_instance_v2>
+    <sys_hub_action_instance_v2 action="delete_multiple" query="flow=6f18211d83582e108234c480ceaad3d5^sys_idNOT IN115dfddb8374e210de872b80ceaad343,515dfddb8374e210de872b80ceaad342"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Move Email Attachments to Record">bd8fcd48a73133008299b39f087901fc</action_type>
+        <action_type_parent display_value="Move Email Attachments to Record">731fc148a73133008299b39f087901a4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>bd8fcd48a73133008299b39f087901fc</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</flow>
+        <generation_source/>
+        <order>4</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-04-14 15:04:55</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>115dfddb8374e210de872b80ceaad343</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-04-14 15:04:55</sys_updated_on>
+        <ui_id>2b305d8a-baf2-4c73-9466-5acedc6fbe38</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+1Ty27bMBD8lYBnWdDLkeRbETeAgbYB4iCXIBBWfNgEKEqlKCeq4X/vUpKdIHGBoO0xuu1wdjkz4j7sCVAra73SrQVN+bpvV4wsCET4hXmYxfMs4mGQRXFCkyygHIDFcEk8Ih2vZJmgLMkgjcM4DpCX52WciyBL8yAUDHkaKo5MXoFUheG0Ng7dgeocvN+vdFl3ml18HQihL8e6GBoOB+Qy2TYK+vupBRG6lYoZrsni4dEjDRi8w3JDFvs3Rx8VqaDkCqmDiIvbo8rz2m3fOJTVtKu4toU8gt+mKcvp5GK1xBNsctJCj/BnyzXjqEmAarlHKtAMbG16srCmQ8BwYDda9SfGVmo7eq7guZW/8OI4cjzB0SSd8jiVxZTVCIslWFjjZGo7c4qulpS3YzyMC+iUvXqNjYSbxj2LscVCqY7dteoq/WOMhZwGvPo1XYsieON8OuWTDbHe1k+3R5XXUg+RTIeqpqBOFVhrZNlZp2dPOnl3Lm2u+FBU0DRSb4rG1Ds5zESJlb9RWPhC1U+opZUb7Y/P3Me0wb9GfDnA92CkM/cdx2Az/ivMvmCmbprJs/st5OCRtm+vFLTti3XMvPjZOeFjEJPlYkzNtVAjG/sFL97xyd3B+9eFS+eZCMLsD285iF8erQWz4fbcxsW4D3PIxSxN8nSW8DyalXnCZkksyjQqw0sqMt9gxDvQlgLK/h9b+AHlxy28G6S/W8O3jv5uD6PPPfzcw8ffBL2u4foGAAA=</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=115dfddb8374e210de872b80ceaad343"/>
+    <sys_hub_action_instance_v2 action="INSERT_OR_UPDATE">
+        <action_type display_value="Update Record">f9d01dd2c31332002841b63b12d3aea1</action_type>
+        <action_type_parent display_value="Update Record">baf174c8c3c232002841b63b12d3aee4</action_type_parent>
+        <attributes/>
+        <comment/>
+        <compiled_snapshot>f9d01dd2c31332002841b63b12d3aea1</compiled_snapshot>
+        <display_text/>
+        <flow display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</flow>
+        <generation_source/>
+        <order>3</order>
+        <parent_ui_id/>
+        <sys_class_name>sys_hub_action_instance_v2</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-04-14 15:04:55</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>515dfddb8374e210de872b80ceaad342</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-04-14 15:04:55</sys_updated_on>
+        <ui_id>e642a98f-db6b-4c46-8438-036b98e498ea</ui_id>
+        <updation_source/>
+        <values>H4sIAAAAAAAA/+VVXU/bMBT9K1We2ypfpUnfJgpSJQYSTLwwFt3YN8WS42S2U+iq/vfdxGmpACHQmCa0vN0v+9zje25uNh4wKyq1UMaCYni1NgvuzbwUwzAM0iCJJkmIgZ+EUczixGcIwKN06g090ebFyH1KO2JREEWh74dJHORHUR6EPALEgPIUlEiZGlmlOdkrkE3r2GwWKq8axQcnJQiZBWPh7Axbe7ulXC5MLWF93ZeQh90JyTUqb3ZzO/Rq0HS6Re3NNk9Cb4UnIUdJqZc7fE/x2nXd2rxiTYnKZmLnPOsr531ksJhThIpaOIE/9PDBouJIQAqQBodeCYqDrfTam1ndkEMj8Asl1/uMO6Gsa7SEByN+0c2x3+YVSJ2xnoS9mfUEOXcxBwtXdDKzjd7zVQmGxnHCsYBG2uNDn0u4qNspcCUWcrmrrmRTqnPHiLc/4OA9GkMgsG77bJG7toqru+r+cgfyVKiOkr5FWTGQewus1SJvbAtn46HEjuMS6lqoZVbraiW6YoJSjpeSjHEhq3u604ilGrvpHROrMD4l/7xzX4MWbRNf6Rgq3g49szbHEox5bIU4zH42LRLXWN9C1rHQUZB1k9AWMy1q+4WuWmEPfDv8U+Xkk9dGk6WPk3gA5lE91JDTyXOVnPTu90nlDXh2UvnWDcjL+Hq1PPOdHdYOzl2g18rkw7SSfCat9G18erH8NYn44avb+2AEO1WYA3mI/srvje9HfLOJeFJMIC1G0zidjmJMw1GexnwUR0U+DXO6o0jGmhhdgbIMCP32hwW9RJt1T+zOecgYKOl0R/KrmMo0SUq1TZqsLXuuxn+I5H0L4A1s7xbAqUDJzQv079SPJVFgMXPP8WQD9MHBdR/c/zE/bA0ER373faJl8N/8OG9/A9siB3F0CgAA</values>
+    </sys_hub_action_instance_v2>
+    <sys_hub_alias_mapping action="delete_multiple" query="source_id=515dfddb8374e210de872b80ceaad342"/>
+    <sys_hub_sub_flow_instance_v2 action="delete_multiple" query="flow=6f18211d83582e108234c480ceaad3d5^sys_idNOT IN115dfddb8374e210de872b80ceaad341,d95dfddb8374e210de872b80ceaad33f"/>
+    <sys_hub_sub_flow_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</flow>
+        <generation_source/>
+        <order>2</order>
+        <parent_ui_id/>
+        <show_stages>false</show_stages>
+        <subflow display_value="Email inbound: Retentions">c3e5e5d583582e108234c480ceaad345</subflow>
+        <subflow_inputs>H4sIAAAAAAAA/9VVy27bMBD8lUJny9DTkn0r8igCtA2QNLkEgbAilw4LilIoyolr+N9LWrKjuHHgoE7QHrm75M7OcjA3C6du8lNRPpzJWoMkeEadieODnyKl4zSM0wB9Lw3CiESpRxCAhl7iDBxu68IgSQJ/V11s6yQUaCoVEuQzpFgAF1NlEjMQjc0sFmcyLxtJP53YXOYPeXvOVrXLpamlvK4EzK+7KyZC7rigCqUzubkdOBUo00ajciaLrdS+OAXkKHpAV2C+XLw2gZ5XbYKhaUewC33tXrroxUtFLTh/4OCjRknRoGIgahw4BUgKulRzZ6JVYwIKgZ5LMd9U3HGp26kLeKz5L9M0DAa9vhOnntctXU4vnnW0mfxJl2PHoOHS9CG6URsqS06wbumiyKAR+qgfawvOK81L2V7RkIvttqQUTSG/t2Q5m5d6O2tqAwkrO74dqJuOXd6VDxuuTrlcMdUlRUlA9EoRFLk75SjsVs3P/YlEm5dBa8XzRlvEC6fhP/7cTBt8aTcosDCAsgKqistpVqlyxlcgzEzFcCrMYciMRAz4mk/lEIhlYmi2BkMrneNV+BoUt7R8M8+gWnW8kvy+aRVFwBuNRjG4LAF0Iwa+m2Mcu1FAkoiOfcaS1FkOLKNHAur6iUczRHbfWBZaVjv+snYX9gpRvNKfDagZdlQtB3+nawav6SXNn1TBVFmsf8BuRduqDKhRZV2/JOg9brxN8HsMsBa87bSWxwtDdSKvzQeT0y2FX66DnbyDQ8k79TzvucB36Prwkv4YJe8Q7Ibl52rd8PwhUsVolPhjP3DjHJgbAQvdnLHIRY94uR8Rj+X5PyTVV61tHPYNzNCIxsHM9tSWBXsYBCTOqUsiL3ejkZ+4KcZjF8cJTUIfcwNn2N47iCHvgfrJkDvYV6b9c0Penufthhy+pyFbXDt0e9Wm3sGOu6Yf78arrfwXVpxEPsKYuUnuUfPXkbqpTyPX8zAKqBfFhOEB9X37Gzk0RkRkCwAA</subflow_inputs>
+        <sys_class_name>sys_hub_sub_flow_instance_v2</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-04-14 15:04:55</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>115dfddb8374e210de872b80ceaad341</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-04-14 15:04:55</sys_updated_on>
+        <ui_id>3d8f5a9f-7497-4e92-b94d-43fb72b16cf8</ui_id>
+        <updation_source/>
+        <wait_for_completion>true</wait_for_completion>
+    </sys_hub_sub_flow_instance_v2>
+    <sys_hub_sub_flow_instance_v2 action="INSERT_OR_UPDATE">
+        <attributes/>
+        <comment/>
+        <display_text/>
+        <flow display_value="Email inbound: Retentions">6f18211d83582e108234c480ceaad3d5</flow>
+        <generation_source/>
+        <order>1</order>
+        <parent_ui_id/>
+        <show_stages>false</show_stages>
+        <subflow display_value="getCorrectUserFromEmail">a61aa50a839d9610de872b80ceaad3e2</subflow>
+        <subflow_inputs>H4sIAAAAAAAA/41TXWvbQBD8K+GebaEv25LfQtKAoW2gafMSgljdreyD00m5Dyeu8X/vniU5JaWQx52b3Z2Z5Z6OzPr6TnWvG20daI4bwdYsT5MChCiLbFGkmMRFmuU8L2KOACITgs2YDDyEBGARQ5GVolwmscBildYTD3PiaWgxMFuQqqKZBq0leA/KB/x43Oi681pcfTkzkqgxXTsRTyeiCml7BYfHz3fwnVRUabZ+ep6xHgxpcGjY+vjh6bMmFNSoiHreeHV9cfEfc+7QB9g6I/V2rL+OIx4msDMiSEpmDN8caoGkpQFlccZa0AJcZw5s7YwnwCCIe60OF8ZOakfDWOC+Wfmb1hVxHAdmg2SP4/B6KasxxQFubsEBKfHceTNS+a6THO0QjMAGvHI3f2MD4b53stNDi4NaTd2d8q3+PuTBLgOmoxHiLYnAPjgN2kcjzcOue/0xqbyT+hzK+Kg6DupSgaPoau+CniPz8ueHlAfkn5xRYUsbqxb6npCqN91enreQ6DbaKiqihn4AqbNyqyPgwWFEF4Ao/IzbM/wIRga732gMNYd1v7R88cOHSYpVuYBVMU/5spjn2XIxL7O8mKOIU+S4LIVI2WnG7MHeKLD2PSi6UPXig80htjGgasg4tHAje3dNovY4ZnF6/gPXjQr8uAMAAA==</subflow_inputs>
+        <sys_class_name>sys_hub_sub_flow_instance_v2</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-04-14 15:04:55</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>d95dfddb8374e210de872b80ceaad33f</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_name/>
+        <sys_package/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-04-14 15:04:55</sys_updated_on>
+        <ui_id>0e22c5bd-c40b-4617-8e59-e97d731eb1a1</ui_id>
+        <updation_source/>
+        <wait_for_completion>true</wait_for_completion>
+    </sys_hub_sub_flow_instance_v2>
+    <sys_hub_flow_logic_instance_v2 action="delete_multiple" query="flow=6f18211d83582e108234c480ceaad3d5"/>
+    <sys_hub_pill_compound action="delete_multiple" query="attached_to=6f18211d83582e108234c480ceaad3d5"/>
+    <sys_hub_flow_variable action="delete_multiple" query="model=6f18211d83582e108234c480ceaad3d5"/>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>body_text</element>
+        <help/>
+        <hint/>
+        <label>Body Text</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>2b18211d83582e108234c480ceaad3eb</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Body Text</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-03-14 11:53:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>from_address</element>
+        <help/>
+        <hint/>
+        <label>From address</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>3318611d83582e108234c480ceaad316</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>From address</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-03-14 11:53:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>target_table_name</element>
+        <help/>
+        <hint/>
+        <label>Target Table</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a318211d83582e108234c480ceaad3e4</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Target Table</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-03-14 11:53:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>inbound_email</element>
+        <help/>
+        <hint>L'enregistrement représentant l'e-mail entrant.</hint>
+        <label>Inbound Email</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a718211d83582e108234c480ceaad3fa</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Inbound Email</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-03-14 11:53:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>user</element>
+        <help/>
+        <hint/>
+        <label>User</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>a718611d83582e108234c480ceaad30e</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>User</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-03-14 11:53:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>subject</element>
+        <help/>
+        <hint/>
+        <label>Subject</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>ef18211d83582e108234c480ceaad3f2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Subject</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-03-14 11:53:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_documentation action="INSERT_OR_UPDATE">
+        <element>target_record</element>
+        <help/>
+        <hint/>
+        <label>Target Record</label>
+        <language>en</language>
+        <name>var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5</name>
+        <plural/>
+        <sys_class_name>sys_documentation</sys_class_name>
+        <sys_created_by>Ed.Fingleton</sys_created_by>
+        <sys_created_on>2025-03-14 11:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>fb18611d83582e108234c480ceaad31d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Target Record</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name/>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-03-14 11:53:00</sys_updated_on>
+        <url/>
+        <url_target/>
+    </sys_documentation>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_input_6f18211d83582e108234c480ceaad3d5"/>
+    <sys_choice action="delete_multiple" query="name=var__m_sys_hub_flow_output_6f18211d83582e108234c480ceaad3d5"/>
+    <sys_hub_flow action="UPDATE">
+        <sys_id>8a22219183582e108234c480ceaad35b</sys_id>
+        <latest_snapshot>6f18211d83582e108234c480ceaad3d5</latest_snapshot>
+        <compiler_build>glide-zurich-07-01-2025__patch5-12-17-2025_01-05-2026_2218.zip</compiler_build>
+        <version_record/>
+    </sys_hub_flow>
+    <sys_flow_trigger_plan action="delete_multiple" query="plan_id=8a22219183582e108234c480ceaad35b"/>
+    <sys_flow_subflow_plan action="delete_multiple" query="plan_id=8a22219183582e108234c480ceaad35b"/>
+</record_update>

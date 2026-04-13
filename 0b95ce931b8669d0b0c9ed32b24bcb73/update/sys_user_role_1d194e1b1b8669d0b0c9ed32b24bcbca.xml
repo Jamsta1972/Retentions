@@ -5,6 +5,7 @@
         <description/>
         <elevated_privilege>false</elevated_privilege>
         <encryption_context/>
+        <federated_id>Y1SHTekLCtnLB3UiIEzBs83m5BSU60DOX9Nuqoqkoik=</federated_id>
         <grantable>true</grantable>
         <includes_roles/>
         <name>x_canl_emails_eocn.customer_data_user</name>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description>Limit State field options when the State is Complete to Reopened.</description>
+        <field/>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Limit State Options</name>
+        <order/>
+        <script><![CDATA[function onLoad() {
+    var currentState = g_form.getValue('state');
+
+    // STRY0019513 04/02/26 - Limit state options when Complete or Reopened
+    // Complete = 400, Reopened = 8
+    if (currentState == '400') {
+        // From Complete, can only stay Complete or go to Reopened and Cancelled
+        removeAllStateOptionsExcept(['400', '8', '7']);
+    } else if (currentState == '8') {
+        // From Reopened, can only stay Reopened or go to Complete or Cancelled
+        removeAllStateOptionsExcept(['8', '400', '7']);
+    } else if (currentState == '7') {
+        // Add handling for state '7' Cancelled
+        removeAllStateOptionsExcept(['7']);
+    }
+}
+
+function removeAllStateOptionsExcept(allowedValues) {
+    var stateField = g_form.getControl('state');
+    if (!stateField) return;
+
+    for (var i = stateField.options.length - 1; i >= 0; i--) {
+        var optionValue = stateField.options[i].value;
+        if (allowedValues.indexOf(optionValue) === -1) {
+            g_form.removeOption('state', optionValue);
+        }
+    }
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-02-04 14:37:39</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>a47dce2efbbaf6107376fa42aeefdc4f</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>Limit State Options</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_client_a47dce2efbbaf6107376fa42aeefdc4f</sys_update_name>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-02-16 12:06:58</sys_updated_on>
+        <table>x_canl_emails_eocn_retentions_case</table>
+        <type>onLoad</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege">
+    <sys_scope_privilege action="DELETE">
+        <operation>read</operation>
+        <source_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</source_scope>
+        <status>allowed</status>
+        <sys_class_name>sys_scope_privilege</sys_class_name>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-01-21 12:50:12</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>51dea10683627650824034326daad368</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_canl_finance_tas_cease_billing_task</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_scope_privilege_51dea10683627650824034326daad368</sys_update_name>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-01-21 12:50:12</sys_updated_on>
+        <target_name>x_canl_finance_tas_cease_billing_task</target_name>
+        <target_scope display_value="Finance tasks">d7f20d5b1b007950b0c9ed32b24bcba4</target_scope>
+        <target_type>sys_db_object</target_type>
+    </sys_scope_privilege>
+    <sys_update_version action="INSERT_OR_UPDATE">
+        <action>DELETE</action>
+        <application display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</application>
+        <file_path/>
+        <instance_id>626909056fe6164423b2a9cc5d3ee4fc</instance_id>
+        <instance_name>cablecomnetworkingdev</instance_name>
+        <name>sys_scope_privilege_51dea10683627650824034326daad368</name>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_scope_privilege"><sys_scope_privilege action="INSERT_OR_UPDATE"><operation>read</operation><source_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</source_scope><status>allowed</status><sys_class_name>sys_scope_privilege</sys_class_name><sys_created_by>maj.hussain@nowbench.com</sys_created_by><sys_created_on>2026-01-21 12:50:12</sys_created_on><sys_customer_update>false</sys_customer_update><sys_id>51dea10683627650824034326daad368</sys_id><sys_mod_count>0</sys_mod_count><sys_name>x_canl_finance_tas_cease_billing_task</sys_name><sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package><sys_policy/><sys_replace_on_upgrade>false</sys_replace_on_upgrade><sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope><sys_update_name>sys_scope_privilege_51dea10683627650824034326daad368</sys_update_name><sys_updated_by>maj.hussain@nowbench.com</sys_updated_by><sys_updated_on>2026-01-21 12:50:12</sys_updated_on><target_name>x_canl_finance_tas_cease_billing_task</target_name><target_scope display_value="Finance tasks">d7f20d5b1b007950b0c9ed32b24bcba4</target_scope><target_type>sys_db_object</target_type></sys_scope_privilege></record_update>]]></payload>
+        <payload_hash>1852619757</payload_hash>
+        <record_name>x_canl_finance_tas_cease_billing_task</record_name>
+        <reverted_from/>
+        <source>f97cb0718366b250824034326daad365</source>
+        <source_table>sys_update_set</source_table>
+        <state>previous</state>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-01-21 12:50:12</sys_created_on>
+        <sys_id>9ddea10683627650824034326daad36b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_recorded_at>19be09afc4b0000001</sys_recorded_at>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-01-21 12:50:12</sys_updated_on>
+        <type>Cross scope privilege</type>
+        <update_guid>d9dea10617627650b07e8d50877d6d6a</update_guid>
+        <update_guid_history>d9dea10617627650b07e8d50877d6d6a:1852619757</update_guid_history>
+    </sys_update_version>
+    <sys_metadata_delete action="INSERT_OR_UPDATE">
+        <sys_audit_delete/>
+        <sys_class_name>sys_metadata_delete</sys_class_name>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-01-21 13:06:19</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_db_object display_value="" name="sys_scope_privilege">sys_scope_privilege</sys_db_object>
+        <sys_id>0c6391557187424a8169a898ccba1ff9</sys_id>
+        <sys_metadata>51dea10683627650824034326daad368</sys_metadata>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_canl_finance_tas_cease_billing_task</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_parent/>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_scope_delete display_value="">23da01d2011646d49057f260cbb3f710</sys_scope_delete>
+        <sys_update_name>sys_scope_privilege_51dea10683627650824034326daad368</sys_update_name>
+        <sys_update_version display_value="sys_scope_privilege_51dea10683627650824034326daad368">9ddea10683627650824034326daad36b</sys_update_version>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-01-21 13:06:19</sys_updated_on>
+    </sys_metadata_delete>
+</record_update>

@@ -9,6 +9,7 @@
         <collection>x_canl_emails_eocn_retentions_case</collection>
         <condition/>
         <content_type>text/html</content_type>
+        <default_digest>false</default_digest>
         <default_interval/>
         <description>Where an  email has been received and created a new retentions case with a category of Copper/Cab&#13;
 same email is used for both Copper stop / Cab refresh</description>
@@ -22,6 +23,7 @@ same email is used for both Copper stop / Cab refresh</description>
         <digest_subject/>
         <digest_template/>
         <digest_text/>
+        <digest_type>single</digest_type>
         <digestable>false</digestable>
         <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>activate.life.cycle.migration</event_name>

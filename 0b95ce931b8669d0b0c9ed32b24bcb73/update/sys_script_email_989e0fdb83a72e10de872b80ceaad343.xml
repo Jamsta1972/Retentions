@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_email">
+    <sys_script_email action="INSERT_OR_UPDATE">
+        <name>bcc_recipients</name>
+        <new_lines_to_html>false</new_lines_to_html>
+        <script><![CDATA[(function runMailScript(current, template, email, email_action, event) {
+    // Use your Person/People field
+    if (gs.nil(current.people)) return;
+
+    // split sys_ids (works for single or glide_list)
+    var ids = (current.people + '').split(',');
+
+    var user = new GlideRecord('sys_user');
+    user.addQuery('sys_id', 'IN', ids);   
+    user.addQuery('notification', 2);     
+    user.addQuery('email', '!=', '');
+    user.query();
+
+    var seen = {};
+    while (user.next()) {
+        var addr = (user.email + '').trim().toLowerCase();
+        if (!addr || seen[addr]) continue; 
+        seen[addr] = true;
+
+        email.addAddress('bcc', addr, user.getDisplayValue());
+    }
+})(current, template, email, email_action, event);
+]]></script>
+        <sys_class_name>sys_script_email</sys_class_name>
+        <sys_created_by>shilpa.tiwari</sys_created_by>
+        <sys_created_on>2025-08-29 13:54:20</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>989e0fdb83a72e10de872b80ceaad343</sys_id>
+        <sys_mod_count>2</sys_mod_count>
+        <sys_name>bcc_recipients</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_email_989e0fdb83a72e10de872b80ceaad343</sys_update_name>
+        <sys_updated_by>shilpa.tiwari</sys_updated_by>
+        <sys_updated_on>2025-08-29 14:25:48</sys_updated_on>
+        <u_template/>
+    </sys_script_email>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>989e0fdb83a72e10de872b80ceaad343</id>
+        <sys_created_by>shilpa.tiwari</sys_created_by>
+        <sys_created_on>2025-08-29 13:54:20</sys_created_on>
+        <sys_id>dbfe071383e72e10de872b80ceaad37b</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shilpa.tiwari</sys_updated_by>
+        <sys_updated_on>2025-08-29 13:54:20</sys_updated_on>
+        <table>sys_script_email</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>

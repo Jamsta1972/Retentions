@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sysevent_email_action">
     <sysevent_email_action action="INSERT_OR_UPDATE">
         <action_insert>false</action_insert>
-        <action_update>false</action_update>
+        <action_update>true</action_update>
         <active>true</active>
         <advanced_condition/>
         <affected_field_on_event/>
         <category display_value="Uncategorized" name="Uncategorized">c97d83137f4432005f58108c3ffa917a</category>
         <collection>x_canl_emails_eocn_retentions_case</collection>
-        <condition/>
+        <condition table="x_canl_emails_eocn_retentions_case">customer_referenceVALCHANGES^EQ<item endquery="false" field="customer_reference" goto="false" newquery="false" operator="VALCHANGES" or="false" value=""/>
+            <item endquery="true" field="" goto="false" newquery="false" operator="=" or="false" value=""/>
+        </condition>
         <content_type>text/html</content_type>
+        <default_digest>false</default_digest>
         <default_interval/>
         <description>Send reminders after 14 days and 28 days, if customer has not responsded to original EOCN or ABTN notification.&#13;
 Fired by Flow: EOCN / ABTN reminder emails.</description>
@@ -16,12 +19,13 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
         <digest_html/>
         <digest_reply_to/>
         <digest_separator_html><![CDATA[<p>&nbsp;</p>
-<hr />
+<hr>
 <p>&nbsp;</p>]]></digest_separator_html>
         <digest_separator_text><![CDATA[\n--------------------------------------------------------------------------------\n]]></digest_separator_text>
         <digest_subject/>
         <digest_template/>
         <digest_text/>
+        <digest_type>single</digest_type>
         <digestable>false</digestable>
         <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>activate.life.cycle.migration</event_name>
@@ -37,7 +41,7 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
         <item_table/>
         <mandatory>false</mandatory>
         <message/>
-        <message_html><![CDATA[<p>&nbsp;</p>
+        <message_html><![CDATA[<p>${mail_script:bcc_recipients}</p>
 <!-- [if !mso]><!--><!--<![endif]-->
 <style type="text/css">#outlook a { padding:0; }
       body { margin:0;padding:0;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%; }
@@ -58,7 +62,7 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
       .mj-outlook-group-fix { width:100% !important; }
     </style>
     <![endif]--><!-- [if !mso]><!-->
-<p><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css" /></p>
+<p><link href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700" rel="stylesheet" type="text/css"></p>
 <style type="text/css">@import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700);</style>
 <!--<![endif]-->
 <style type="text/css">@media only screen and (min-width:480px) {
@@ -90,7 +94,7 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
 <table style="border-collapse: collapse; border-spacing: 0px;" role="presentation" border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="width: 600px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/mmzt6/gp7j8.jpeg" alt="" width="600" height="auto" /></td>
+<td style="width: 600px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/mmzt6/gp7j8.jpeg" alt="" width="600" height="auto"></td>
 </tr>
 </tbody>
 </table>
@@ -141,7 +145,7 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
 <tr>
 <td style="background-color: #400c6c; font-size: 0px; padding: 0px 20px 0px 20px; word-break: break-word;" align="left">
 <div style="font-family: Arial, sans-serif; font-size: 18px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
-<p class="text-build-content" style="line-height: 25px; text-align: center; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="zX1f_3xvo7Kbuqbk3Z2V8"><span style="color: #2aca73; font-family: Arial; font-size: 22px;">Want to save? Then renew with Glide!</span><br /><br /><span style="color: #ffffff; font-family: Arial; font-size: 18px;">Don&rsquo;t miss out and extend your journey now&nbsp;for another&nbsp;24 months to qualify.</span></p>
+<p class="text-build-content" style="line-height: 25px; text-align: center; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="zX1f_3xvo7Kbuqbk3Z2V8"><span style="color: #2aca73; font-family: Arial; font-size: 22px;">Want to save? Then renew with Glide!</span><br><br><span style="color: #ffffff; font-family: Arial; font-size: 18px;">Don&rsquo;t miss out and extend your journey now&nbsp;for another&nbsp;24 months to qualify.</span></p>
 </div>
 </td>
 </tr>
@@ -168,7 +172,7 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
 <table style="border-collapse: collapse; border-spacing: 0px;" role="presentation" border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="width: 110px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/m1k7h/gpkyg.gif" alt="" width="110" height="auto" /></td>
+<td style="width: 110px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/m1k7h/gpkyg.gif" alt="" width="110" height="auto"></td>
 </tr>
 </tbody>
 </table>
@@ -184,7 +188,7 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
 <tr>
 <td style="font-size: 0px; padding: 0px 30px 0px 30px; word-break: break-word;" align="left">
 <div style="font-family: Arial, sans-serif; font-size: 15px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
-<p class="text-build-content" style="line-height: 28px; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="YqFTiLn66"><span style="color: #250d47; font-family: Arial; font-size: 15px;">To take advantage of this deal, please contact us on&nbsp;<strong>0333 380 0143</strong> or email <strong>${mail_script:eocn_abtn_reminder_reply_to} </strong>to discuss your options.</span></p>
+<p class="text-build-content" style="line-height: 28px; margin: 10px 0; margin-top: 10px; margin-bottom: 10px;" data-testid="YqFTiLn66"><span style="color: #250d47; font-family: Arial; font-size: 15px;">To take advantage of this deal, please contact us on&nbsp;<strong>${mail_script:eocnabtn_phone_number}</strong> or email <strong>${mail_script:eocn_abtn_reminder_reply_to} </strong>to discuss your options.</span></p>
 </div>
 </td>
 </tr>
@@ -210,7 +214,7 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
 <table style="border-collapse: collapse; border-spacing: 0px;" role="presentation" border="0" cellspacing="0" cellpadding="0">
 <tbody>
 <tr>
-<td style="width: 600px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/m1k7h/gpn8x.png" alt="" width="600" height="auto" /></td>
+<td style="width: 600px;"><img style="border: none; display: block; outline: none; text-decoration: none; height: auto; width: 100%; font-size: 13px;" src="https://go.glide.co.uk/tplimg/x1hty/b/m1k7h/gpn8x.png" alt="" width="600" height="auto"></td>
 </tr>
 </tbody>
 </table>
@@ -220,7 +224,7 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
 <td style="font-size: 0px; padding: 0px 20px 0px 20px; padding-top: 0px; padding-bottom: 0px; word-break: break-word;" align="left">
 <div style="font-family: Arial, sans-serif; font-size: 11px; letter-spacing: normal; line-height: 1; text-align: left; color: #000000;">
 <p class="text-build-content" style="line-height: 20px; text-align: center; margin: 10px 0; margin-top: 10px;" data-testid="dYqZT0S3UUIQ"><span style="color: #55575d; font-family: Arial; font-size: 11px;">*T&amp;C's apply. Each year in April, we may adjust the prices of some of our products and services in line with the ONS&rsquo;s Retail Price Index (RPI). For example, if you are paying &pound;90/month, a 10% RPI increase would mean you would pay &pound;99/month from April 2024.</span></p>
-<p class="text-build-content" style="line-height: 20px; text-align: center; margin: 10px 0; margin-bottom: 10px;" data-testid="dYqZT0S3UUIQ"><span style="color: #55575d; font-family: Arial; font-size: 11px;">&copy; 2023 Glide Student &amp; Residential Ltd, Glide House, Ground Floor, Building 4, Windmill Road, Clevedon, North Somerset, BS21 6UJ, United Kingdom, 01275 793400</span></p>
+<p class="text-build-content" style="line-height: 20px; text-align: center; margin: 10px 0; margin-bottom: 10px;" data-testid="dYqZT0S3UUIQ"><span style="color: rgb(85, 87, 93); font-family: Arial; font-size: 11px;">&copy; 2023 Glide Student &amp; Residential Ltd, Alpha Tower, Suffolk Street Queensway, Birmingham, B1 1TT, United Kingdom, 01275 793400</span></p>
 </div>
 </td>
 </tr>
@@ -241,9 +245,9 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
         <omit_watermark>false</omit_watermark>
         <order>100</order>
         <push_message_only>false</push_message_only>
-        <recipient_fields>people</recipient_fields>
+        <recipient_fields/>
         <recipient_groups/>
-        <recipient_users/>
+        <recipient_users>noreply@glide.co.uk</recipient_users>
         <reply_to/>
         <send_self>true</send_self>
         <sms_alternate/>
@@ -257,7 +261,7 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>06baf5841b81b190b0c9ed32b24bcb02</sys_id>
-        <sys_mod_count>12</sys_mod_count>
+        <sys_mod_count>25</sys_mod_count>
         <sys_name>EOCN/ABTN Reminder</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
@@ -265,8 +269,8 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
         <sys_update_name>sysevent_email_action_06baf5841b81b190b0c9ed32b24bcb02</sys_update_name>
-        <sys_updated_by>jamie.wildish</sys_updated_by>
-        <sys_updated_on>2024-02-09 09:33:39</sys_updated_on>
+        <sys_updated_by>Ed.Fingleton</sys_updated_by>
+        <sys_updated_on>2025-12-23 16:51:29</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>
@@ -281,4 +285,15 @@ Fired by Flow: EOCN / ABTN reminder emails.</description>
         <u_use_subject_as_pdf_title>false</u_use_subject_as_pdf_title>
         <weight>0</weight>
     </sysevent_email_action>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>06baf5841b81b190b0c9ed32b24bcb02</id>
+        <sys_created_by>shilpa.tiwari</sys_created_by>
+        <sys_created_on>2025-08-29 14:05:21</sys_created_on>
+        <sys_id>6881179783e72e10de872b80ceaad31d</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>shilpa.tiwari</sys_updated_by>
+        <sys_updated_on>2025-08-29 14:05:21</sys_updated_on>
+        <table>sysevent_email_action</table>
+        <use_es_latest>false</use_es_latest>
+    </sys_es_latest_script>
 </record_update>

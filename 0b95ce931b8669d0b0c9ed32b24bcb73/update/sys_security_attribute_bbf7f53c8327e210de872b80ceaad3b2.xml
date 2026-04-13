@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_security_attribute">
+    <sys_security_attribute action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <condition>Group!=f6cc6838d7b122004f1e82285e610317</condition>
+        <description>Auto Created Attribute - ACL_47ac8cad1bd4399025017b46464bcb74</description>
+        <is_dynamic>true</is_dynamic>
+        <is_localized>true</is_localized>
+        <is_system>false</is_system>
+        <label>ACL_47ac8cad1bd4399025017b46464bcb74</label>
+        <lookup_table/>
+        <lookup_table_column/>
+        <name>x_canl_emails_eocn__ACL_47ac8cad1bd4399025017b46464bcb74</name>
+        <script/>
+        <sys_class_name>sys_security_attribute</sys_class_name>
+        <sys_created_by>hamza.hassan</sys_created_by>
+        <sys_created_on>2025-08-21 13:09:28</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>bbf7f53c8327e210de872b80ceaad3b2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_canl_emails_eocn__ACL_47ac8cad1bd4399025017b46464bcb74</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_security_attribute_bbf7f53c8327e210de872b80ceaad3b2</sys_update_name>
+        <sys_updated_by>hamza.hassan</sys_updated_by>
+        <sys_updated_on>2025-08-21 13:09:28</sys_updated_on>
+        <type>compound</type>
+    </sys_security_attribute>
+</record_update>

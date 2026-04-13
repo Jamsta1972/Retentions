@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_ui_action">
+    <sys_ui_action action="INSERT_OR_UPDATE">
+        <action_name>cancel_cease_request</action_name>
+        <active>true</active>
+        <client>true</client>
+        <client_script_v2><![CDATA[function onClick(g_form) {
+
+}]]></client_script_v2>
+        <comments/>
+        <condition>current.state == '8' &amp;&amp; current.category == '5'</condition>
+        <form_action>true</form_action>
+        <form_button>true</form_button>
+        <form_button_v2>false</form_button_v2>
+        <form_context_menu>false</form_context_menu>
+        <form_link>false</form_link>
+        <form_menu_button_v2>false</form_menu_button_v2>
+        <form_style>destructive</form_style>
+        <format_for_configurable_workspace>false</format_for_configurable_workspace>
+        <hint/>
+        <isolate_script>true</isolate_script>
+        <list_action>false</list_action>
+        <list_banner_button>false</list_banner_button>
+        <list_button>false</list_button>
+        <list_choice>false</list_choice>
+        <list_context_menu>false</list_context_menu>
+        <list_link>false</list_link>
+        <list_save_with_form_button>false</list_save_with_form_button>
+        <list_style/>
+        <messages/>
+        <name>Cancel Cease Request</name>
+        <onclick>confirmCancelCease()</onclick>
+        <order>100</order>
+        <script><![CDATA[function confirmCancelCease() {
+    var relatedList = GlideList2.get('x_canl_emails_eocn_retentions_case.REL:633d9741834e4a10de872b80ceaad3ec');
+    if (!relatedList) {
+        alert('Unable to find the Sold Products related list.');
+        return false;
+    }
+    var selectedSysIds = relatedList.getChecked();
+    if (!selectedSysIds) {
+        alert('Please select one or more Sold Products from the related list.');
+        return false;
+    }
+    var count = selectedSysIds.split(',').length;
+    if (!confirm('Are you sure you want to cancel the cease request for ' + count + ' Sold Product(s)?')) {
+        return false;
+    }
+
+    var gaValidate = new GlideAjax('CancelCeaseAjax');
+    gaValidate.addParam('sysparm_name', 'validateCancelCease');
+    gaValidate.addParam('sysparm_case_sys_id', g_form.getUniqueValue());
+    gaValidate.addParam('sysparm_selected_ids', selectedSysIds);
+    gaValidate.getXMLAnswer(function(answer) {
+        var result = JSON.parse(answer);
+        /*if (!result.valid) {
+            var dialog = new GlideModal('glide_modal');
+            dialog.setTitle('Cease Date Validation');
+            dialog.setPreference('body', result.message);
+            dialog.render();
+            return;
+        }*/
+        if (!result.valid) {
+            alert(result.message);
+            return;
+        }
+        _executeCancelCease(selectedSysIds);
+    });
+
+    return false;
+}
+
+function _executeCancelCease(selectedSysIds) {
+    var ga = new GlideAjax('CancelCeaseAjax');
+    ga.addParam('sysparm_name', 'cancelSelected');
+    ga.addParam('sysparm_case_id', g_form.getUniqueValue());
+    ga.addParam('sysparm_selected_ids', selectedSysIds);
+    ga.getXMLAnswer(function(answer) {
+        var result = JSON.parse(answer);
+        g_form.clearMessages();
+        if (result.success) {
+            g_form.addInfoMessage(result.message);
+            if (result.cancelled && result.cancelled.length > 0) {
+                g_form.addInfoMessage('Cancelled Products: ' + result.cancelled.join(', '));
+            }
+            if (result.newState && result.newStateLabel) {
+                g_form.addOption('state', result.newState, result.newStateLabel);
+                g_form.setValue('state', result.newState);
+                g_form.setReadOnly('state', true);
+            }
+            var rl = GlideList2.get('x_canl_emails_eocn_retentions_case.REL:633d9741834e4a10de872b80ceaad3ec');
+            if (rl) rl.refresh();
+        } else {
+            g_form.addErrorMessage(result.message);
+        }
+    });
+}]]></script>
+        <show_insert>false</show_insert>
+        <show_multiple_update>false</show_multiple_update>
+        <show_query>false</show_query>
+        <show_update>true</show_update>
+        <sys_class_name>sys_ui_action</sys_class_name>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-01-20 14:36:05</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>0b8c74718366b250824034326daad3d2</sys_id>
+        <sys_mod_count>30</sys_mod_count>
+        <sys_name>Cancel Cease Request</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy/>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_ui_action_0b8c74718366b250824034326daad3d2</sys_update_name>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-03-03 11:49:26</sys_updated_on>
+        <table>x_canl_emails_eocn_retentions_case</table>
+        <ui11_compatible>true</ui11_compatible>
+        <ui16_compatible>false</ui16_compatible>
+    </sys_ui_action>
+</record_update>

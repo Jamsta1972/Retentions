@@ -13,7 +13,7 @@
         <from/>
         <name>CeaseCancellationInboundAction-Reply</name>
         <order>-894</order>
-        <reply_email><![CDATA[<p>// Retrieve the existing case based on the email thread ID<br />var existingCase &#61; new GlideRecord(&#34;x_canl_emails_eocn_retentions_case&#34;);<br />if (existingCase.get(&#34;email_thread_id&#34;, email.thread_id)) {<br />    // Update the existing case with information from the email reply<br />    existingCase.comments &#61; (existingCase.comments || &#39;&#39;) &#43; &#34;\n\n--- Reply from: &#34; &#43; email.origemail &#43; &#34;\n\n&#34; &#43; email.body_text;<br />    existingCase.update();<br />}</p>]]></reply_email>
+        <reply_email><![CDATA[<p>// Retrieve the existing case based on the email thread ID<br />var existingCase &#61; new GlideRecord(&#34;x_canl_emails_eocn_retentions_case&#34;);<br />if (existingCase.get(&#34;email_thread_id&#34;, email.thread_id)) {<!-- --><br />    // Update the existing case with information from the email reply<br />    existingCase.comments &#61; (existingCase.comments || &#39;&#39;) &#43; &#34;\n\n--- Reply from: &#34; &#43; email.origemail &#43; &#34;\n\n&#34; &#43; email.body_text;<br />    existingCase.update();<br />}</p>]]></reply_email>
         <required_roles/>
         <script><![CDATA[(function () {
 

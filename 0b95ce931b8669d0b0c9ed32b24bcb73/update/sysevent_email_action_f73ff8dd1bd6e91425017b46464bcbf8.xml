@@ -9,18 +9,20 @@
         <collection>x_canl_emails_eocn_customer_data</collection>
         <condition/>
         <content_type>text/html</content_type>
+        <default_digest>false</default_digest>
         <default_interval/>
         <description>End of Contract notification (Consumer)</description>
         <digest_from/>
         <digest_html/>
         <digest_reply_to/>
         <digest_separator_html><![CDATA[<p>&nbsp;</p>
-<hr />
+<hr>
 <p>&nbsp;</p>]]></digest_separator_html>
         <digest_separator_text><![CDATA[\n--------------------------------------------------------------------------------\n]]></digest_separator_text>
         <digest_subject/>
         <digest_template/>
         <digest_text/>
+        <digest_type>single</digest_type>
         <digestable>false</digestable>
         <enable_dynamic_translation>false</enable_dynamic_translation>
         <event_name>x_canl_emails_eocn.b2c.eocn2</event_name>
@@ -40,7 +42,7 @@
 <table style="border-collapse: collapse; width: 800px; height: 20px;" border="0">
 <tbody>
 <tr style="height: 16px;">
-<td style="width: 785.6px; height: 16px; text-align: center;"><img src="abtn_header_batch_2.png" width="785" height="124" /></td>
+<td style="width: 785.6px; height: 16px; text-align: center;"><img src="abtn_header_batch_2.png" width="785" height="124"></td>
 </tr>
 </tbody>
 </table>
@@ -84,7 +86,7 @@
 <p style="margin: 0cm; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="font-family: Karla;">Notice period</span></p>
 </td>
 <td style="width: 83.175px; border-top: 1pt solid #a5a5a5; border-right: 1pt solid #a5a5a5; border-bottom: 1pt solid #a5a5a5; border-image: initial; border-left: none; background: #d9d9d9; padding: 0cm 5.4pt; height: 43px;" valign="top">
-<p style="margin: 0cm; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="font-family: Karla;"><span style="font-size: 9pt; line-height: 107%; font-family: Karla; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">The cost of your service if you do not renew before</span>&nbsp;${mail_script:eocn_cost_increase_date}***</span></p>
+<p style="margin: 0cm; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="font-family: Karla;"><span style="font-size: 9pt; line-height: 107%; font-family: Karla; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">Rolling contract price if not renewed before</span>&nbsp;${mail_script:eocn_cost_increase_date}***</span></p>
 </td>
 </tr>
 <tr style="height: 28px;">
@@ -112,35 +114,35 @@
 <tbody>
 <tr>
 <td style="width: 800px;">
-<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="background-color: #ffffff;"><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla;">We want to ensure you're fully informed about all your options going forward, so here's what's available to you:</span></span><span class="eop"><span style="font-size: 10pt;">&nbsp;</span></span></span></p>
-<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 10pt; font-family: 'Segoe UI', sans-serif;">&nbsp;</span></p>
+<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="background-color: rgb(255, 255, 255); font-family: arial, helvetica, sans-serif;"><span class="normaltextrun"><span style="font-size: 10pt;">We want to ensure you're fully informed about all your options going forward, so here's what's available to you:</span></span><span class="eop"><span style="font-size: 10pt;">&nbsp;</span></span></span></p>
+<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif;">&nbsp;</span></p>
 <ol style="margin-top: 0cm; margin-bottom: 0cm; list-style-position: inside;">
-<li><span style="background-color: #ffffff;"><strong><span style="font-size: 11pt; font-family: Karla; color: #7255a5;">Renew at Existing Price</span></strong><span class="normaltextrun"><strong><span style="font-size: 10pt; font-family: Karla;">:</span></strong></span><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla;"> Sign up to a new contract with us for a comparable service to your existing service at the same price you are currently paying. See the table below for the Glide product(s) available to you. You can also discuss with us options for any services still in contract with Glide.</span></span><span class="normaltextrun"><span style="font-size: 10pt;"> </span></span></span></li>
+<li style="font-family: arial, helvetica, sans-serif;"><span style="font-family: arial, helvetica, sans-serif;"><span style="background-color: #ffffff;"><strong><span style="font-size: 11pt; color: rgb(114, 85, 165);">Renew at Existing Price</span></strong><span class="normaltextrun"><strong><span style="font-size: 10pt;">:</span></strong></span><span class="normaltextrun"><span style="font-size: 10pt;">&nbsp;</span></span></span><span style="font-size: 10pt;">Sign up to a new contract with us for a comparable service to your existing service at the same price you are currently paying. See the table below for the Glide product(s) available to you. You can also discuss with us options for any services still in contract with Glide. <span style="background: rgb(255, 255, 255);">Due to the nationwide copper switch-off, we are unable to offer fixed term contracts for copper services.</span></span></span></li>
 </ol>
-<p style="margin: 0cm 0cm 0cm 36pt; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 10pt; font-family: Karla; color: #7030a0;">&nbsp;</span></p>
+<p style="margin: 0cm 0cm 0cm 36pt; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif; color: rgb(112, 48, 160);">&nbsp;</span></p>
 <ol style="margin-top: 0cm; margin-bottom: 0cm; list-style-position: inside;" start="2">
-<li><span style="background-color: #ffffff;"><strong><span style="font-size: 11pt; font-family: Karla; color: #7255a5;">Continue your Existing Service</span></strong><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla;">: You have the choice to continue with your existing service without being tied into a minimum contract period at the updated pricing detailed in the table above. You will need to give us at least 30 days&rsquo; notice to cancel your service if you choose this option.</span></span></span></li>
+<li style="font-family: arial, helvetica, sans-serif;"><span style="background-color: rgb(255, 255, 255); font-family: arial, helvetica, sans-serif;"><strong><span style="font-size: 11pt; color: rgb(114, 85, 165);">Continue your Existing Service</span></strong><span class="normaltextrun"><span style="font-size: 10pt;">: You have the choice to continue with your existing service without being tied into a minimum contract period at the updated pricing detailed in the table above. You will need to give us at least 30 days&rsquo; notice to cancel your service if you choose this option</span></span></span></li>
 </ol>
-<p style="margin: 0cm 0cm 0cm 36pt; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 10pt; font-family: Karla; color: #7255a5;">&nbsp;</span></p>
+<p style="margin: 0cm 0cm 0cm 36pt; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif; color: rgb(114, 85, 165);">&nbsp;</span></p>
 <ol style="margin-top: 0cm; margin-bottom: 0cm; list-style-position: inside;" start="3">
-<li><span style="background-color: #ffffff;"><strong><span style="font-size: 11pt; font-family: Karla; color: #7255a5;">Upgrade and Embrace the Future</span></strong><span class="normaltextrun"><span style="font-size: 11pt; font-family: Karla;">: </span></span><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla;">If you're not already on a full fibre service, now might be the perfect opportunity to upgrade. Sign up for our ultrafast full fibre service and experience the next level of connectivity.</span></span></span></li>
+<li style="font-family: arial, helvetica, sans-serif;"><span style="background-color: rgb(255, 255, 255); font-family: arial, helvetica, sans-serif;"><strong><span style="font-size: 11pt; color: rgb(114, 85, 165);">Upgrade and Embrace the Future</span></strong><span class="normaltextrun"><span style="font-size: 11pt;">: </span><span style="font-size: 10pt;">If you're not already on a full fibre service, now might be the perfect opportunity to upgrade. Sign up for our ultrafast full fibre service and experience the next level of connectivity.</span></span></span><span style="font-family: arial, helvetica, sans-serif; font-size: 10pt;">For upgrading from a copper service we will need to speak to you directly in order to assess suitability of your site before an upgrade service can be offered.</span></li>
 </ol>
-<p style="margin: 0cm 0cm 0cm 36pt; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 10pt; font-family: Karla;">&nbsp;</span></p>
+<p style="margin: 0cm 0cm 0cm 36pt; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif;">&nbsp;</span></p>
 <ol style="margin-top: 0cm; margin-bottom: 0cm; list-style-position: inside;" start="4">
-<li><span style="background-color: #ffffff;"><strong><span style="font-size: 11pt; font-family: Karla; color: #7255a5;">Upgrade and Enhance Your Experience</span></strong><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla;">: Already on a full fibre service? Great! You can elevate your experience by upgrading your existing plan.</span></span></span></li>
+<li style="font-family: arial, helvetica, sans-serif;"><span style="background-color: rgb(255, 255, 255); font-family: arial, helvetica, sans-serif;"><strong><span style="font-size: 11pt; color: rgb(114, 85, 165);">Upgrade and Enhance Your Experience</span></strong><span class="normaltextrun"><span style="font-size: 10pt;">: Already on a full fibre service? Great! You can elevate your experience by upgrading your existing plan.</span></span></span></li>
 </ol>
-<p style="margin: 0cm 0cm 0cm 36pt; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11pt; font-family: Karla; color: #7255a5;">&nbsp;</span></p>
+<p style="margin: 0cm 0cm 0cm 36pt; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-size: 11pt; font-family: arial, helvetica, sans-serif; color: rgb(114, 85, 165);">&nbsp;</span></p>
 <ol style="margin-top: 0cm; margin-bottom: 0cm; list-style-position: inside;" start="5">
-<li><span style="background-color: #ffffff;"><strong><span style="font-size: 11pt; font-family: Karla; color: #7255a5;">Switch to a different Provider</span></strong><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla;">: As a valued customer, w<span style="color: #0d0d0d;">e sincerely hope you'll choose to continue your journey with us, but s</span>hould you decide to explore other providers, we respect your choice. However, please remember to provide us with at least 30 days' notice for a smooth transition. If switching, some providers may offer new customers better deals.</span></span></span></li>
+<li style="font-family: arial, helvetica, sans-serif;"><span style="background-color: rgb(255, 255, 255); font-family: arial, helvetica, sans-serif;"><strong><span style="font-size: 11pt; color: rgb(114, 85, 165);">Switch to a different Provider</span></strong><span class="normaltextrun"><span style="font-size: 10pt;">: As a valued customer, w<span style="color: #0d0d0d;">e sincerely hope you'll choose to continue your journey with us, but s</span>hould you decide to explore other providers, we respect your choice. However, please remember to provide us with at least 30 days' notice for a smooth transition. If switching, some providers may offer new customers better deals.</span></span></span></li>
 </ol>
-<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span class="normaltextrun" style="background-color: #ffffff;"><span style="font-size: 10pt; font-family: Karla;">&nbsp;</span></span><span style="font-size: 11pt; font-family: Karla;">&nbsp;</span></p>
-<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="background-color: #ffffff;"><span class="normaltextrun"><strong><span style="font-size: 11pt; font-family: Karla; color: #250d47;">Need to discuss things with us before you decide?</span></strong></span><span class="eop"><span style="font-size: 11pt; color: #250d47;">&nbsp;</span></span></span><span style="font-size: 9pt; font-family: 'Segoe UI', sans-serif;">&nbsp;</span></p>
-<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="background-color: #ffffff;"><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla;">To explore all your options including signing up to a new contract or terminating your current service, please call us on&nbsp;</span></span><span class="eop"><span style="font-size: 10pt;">&nbsp;</span></span><span class="normaltextrun"><strong><span style="font-size: 10pt; font-family: Karla; color: #250d47;">0333 380 0143</span></strong></span><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla; color: #250d47;"> </span></span><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla;">or email </span></span><a style="background-color: #ffffff;" href="mailto:EndOfContract@Glide.co.uk" target="_blank" rel="noopener"><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla; color: blue;">EndOfContract@Glide.co.uk</span></span></a><span class="normaltextrun"><span style="font-size: 10pt; font-family: Karla;">.</span></span><span class="eop"><span style="font-size: 10pt;">&nbsp;</span></span></span></p>
+<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-family: arial, helvetica, sans-serif;"><span class="normaltextrun" style="background-color: #ffffff;"><span style="font-size: 10pt;">&nbsp;</span></span><span style="font-size: 11pt;">&nbsp;</span></span></p>
+<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="font-family: arial, helvetica, sans-serif;"><span style="background-color: #ffffff;"><span class="normaltextrun"><strong><span style="font-size: 11pt; color: rgb(37, 13, 71);">Need to discuss things with us before you decide?</span></strong></span><span class="eop"><span style="font-size: 11pt; color: #250d47;">&nbsp;</span></span></span><span style="font-size: 9pt;">&nbsp;</span></span></p>
+<p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;"><span style="background-color: rgb(255, 255, 255); font-family: arial, helvetica, sans-serif;"><span class="normaltextrun"><span style="font-size: 10pt;">To explore all your options including signing up to a new contract or terminating your current service, please call us on&nbsp;</span></span><span class="eop"><span style="font-size: 10pt;">&nbsp;</span></span><span class="normaltextrun"><strong><span style="font-size: 10pt; color: rgb(37, 13, 71);">0333 380 0143</span></strong></span><span class="normaltextrun"><span style="font-size: 10pt; color: rgb(37, 13, 71);"> </span></span><span class="normaltextrun"><span style="font-size: 10pt;">or email </span></span><a style="background-color: #ffffff;" href="mailto:EndOfContract@Glide.co.uk" target="_blank" rel="noopener"><span class="normaltextrun"><span style="font-size: 10pt; color: blue;">EndOfContract@Glide.co.uk</span></span></a><span class="normaltextrun"><span style="font-size: 10pt;">.</span></span><span class="eop"><span style="font-size: 10pt;">&nbsp;</span></span></span></p>
 <p style="margin: 0cm; font-size: 12pt; font-family: 'Times New Roman', serif;">&nbsp;</p>
-<p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="background-color: #ffffff;"><strong><span style="font-size: 12pt; line-height: 107%; font-family: Karla;">Thinking about signing up to a new contract?</span></strong></span></p>
-<p style="line-height: normal; margin: 10pt 0cm; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="font-size: 10pt; font-family: Karla; color: windowtext;">This is the best priced Glide service available, which offers you a comparable service to your existing service.&nbsp;</span></p>
-<p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="background-color: #ffffff;"><span style="font-size: 10pt; line-height: 107%; font-family: Karla; color: #250d47;">Act now! This renewal offer is only valid for 30 days only, so don&rsquo;t miss this opportunity to secure this great deal</span><span style="font-size: 11pt; line-height: 107%; font-family: Karla; color: #250d47;">.</span></span></p>
-<p style="line-height: normal; margin: 10pt 0cm; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="background-color: #ffffff;"><span style="font-family: Karla; color: windowtext; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">Please note that if you decide to stay with your existing copper based service and you remain in contract, Glide&rsquo;s ability to provide the service may be impacted by the UK wide &lsquo;Copper Switch Off&rsquo; programme and our preparations for this. We may need to upgrade the service from copper to fibre, or in some cases we may no longer be able to provide a service even if you are still within your minimum contract period. Where viable, you will be offered an alternative solution. For more information on this, please see: </span><a style="background-color: #ffffff;" href="http://glide.co.uk/news/copper-switch-off-will-my-business-be-affected/" target="_blank" rel="noopener"><span style="font-family: Karla; color: blue; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">http://glide.co.uk/news/copper-switch-off-will-my-business-be-affected/.</span></a></span></p>
+<p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="background-color: rgb(255, 255, 255); font-family: arial, helvetica, sans-serif;"><strong><span style="font-size: 12pt; line-height: 107%;">Thinking about signing up to a new contract?</span></strong></span></p>
+<p style="line-height: normal; margin: 10pt 0cm; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="font-size: 10pt; font-family: arial, helvetica, sans-serif; color: windowtext;">This is the best priced Glide service available, which offers you a comparable service to your existing service.&nbsp;</span></p>
+<p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="background-color: rgb(255, 255, 255); font-family: arial, helvetica, sans-serif;"><span style="font-size: 10pt; line-height: 107%; color: rgb(37, 13, 71);">Act now! This renewal offer is only valid for 30 days only, so don&rsquo;t miss this opportunity to secure this great deal</span><span style="font-size: 11pt; line-height: 107%; color: rgb(37, 13, 71);">.</span></span></p>
+<p style="line-height: normal; margin: 10pt 0cm; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="background-color: rgb(255, 255, 255); font-family: arial, helvetica, sans-serif;"><span style="color: windowtext; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">Please note that if you decide to stay with your existing copper based service and you remain in contract, Glide&rsquo;s ability to provide the service may be impacted by the UK wide &lsquo;Copper Switch Off&rsquo; programme and our preparations for this. We may need to upgrade the service from copper to fibre, or in some cases we may no longer be able to provide a service even if you are still within your minimum contract period. Where viable, you will be offered an alternative solution. For more information on this, please see: </span><a style="background-color: #ffffff;" href="http://glide.co.uk/news/copper-switch-off-will-my-business-be-affected/" target="_blank" rel="noopener"><span style="color: blue; background-image: initial; background-position: initial; background-size: initial; background-repeat: initial; background-attachment: initial; background-origin: initial; background-clip: initial;">http://glide.co.uk/news/copper-switch-off-will-my-business-be-affected/.</span></a></span></p>
 </td>
 </tr>
 </tbody>
@@ -180,7 +182,7 @@
 </tbody>
 </table>
 <p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="font-family: Karla;"> ${mail_script:eocn_abtn_add_bcc} </span></p>
-<p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="font-family: Karla;"> <img src="eocn_abtn_letter_footer.png" width="369" height="61" /></span></p>]]></message_html>
+<p style="margin: 10pt 0cm; line-height: 107%; font-size: 9pt; font-family: 'Avenir Book'; color: #3b3838;"><span style="font-family: Karla;"> <img src="eocn_abtn_letter_footer.png" width="369" height="61"></span></p>]]></message_html>
         <message_list/>
         <message_text/>
         <name>EOCN B2C template 2</name>
@@ -203,7 +205,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>f73ff8dd1bd6e91425017b46464bcbf8</sys_id>
-        <sys_mod_count>36</sys_mod_count>
+        <sys_mod_count>37</sys_mod_count>
         <sys_name>EOCN B2C template 2</sys_name>
         <sys_overrides/>
         <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
@@ -211,8 +213,8 @@
         <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
         <sys_update_name>sysevent_email_action_f73ff8dd1bd6e91425017b46464bcbf8</sys_update_name>
-        <sys_updated_by>jamie.wildish</sys_updated_by>
-        <sys_updated_on>2024-05-08 16:59:58</sys_updated_on>
+        <sys_updated_by>shilpa.tiwari</sys_updated_by>
+        <sys_updated_on>2026-01-27 16:12:45</sys_updated_on>
         <sys_version>2</sys_version>
         <template/>
         <type>email</type>

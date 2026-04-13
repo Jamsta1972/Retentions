@@ -137,5 +137,29 @@
             <u_sm_outage_res/>
             <value>7</value>
         </sys_choice>
+        <sys_choice action="INSERT_OR_UPDATE">
+            <dependent_value/>
+            <element>state</element>
+            <hint>Case has been reopened</hint>
+            <inactive>false</inactive>
+            <label>Reopened</label>
+            <language>en</language>
+            <name>x_canl_emails_eocn_retentions_case</name>
+            <sequence>60</sequence>
+            <synonyms/>
+            <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+            <sys_created_on>2026-01-20 11:23:45</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+            <sys_updated_on>2026-01-20 11:23:45</sys_updated_on>
+            <u_correlation_id/>
+            <u_glide_service/>
+            <u_incident_type/>
+            <u_service_management_category/>
+            <u_sm_outage_res/>
+            <value>8</value>
+        </sys_choice>
     </sys_choice>
 </record_update>

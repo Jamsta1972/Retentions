@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>public</access>
+        <active>true</active>
+        <api_name>x_canl_emails_eocn.CancelCeaseAjax</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>CancelCeaseAjax</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var CancelCeaseAjax = Class.create();
+CancelCeaseAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+
+    // Constants
+    PROGRAMME_OFFICE_GROUP_ID: '0db44f101b77155032128732f54bcb94',
+    BUSINESS_SCHEDULE_ID: '08fcd0830a0a0b2600079f56b1adb9ae',
+    // Set to false to enforce validation for all users, used in validateCancelCease
+    PROGRAMME_OFFICE_BYPASS_ENABLED: true,
+
+    cancelSelected: function() {
+        var caseSysId = this.getParameter('sysparm_case_id');
+        var selectedIds = this.getParameter('sysparm_selected_ids');
+
+        if (!selectedIds) {
+            return JSON.stringify({
+                success: false,
+                message: 'No Sold Products selected.',
+                cancelled: []
+            });
+        }
+
+        // Get case number upfront
+        var caseNumber = '';
+        var newStateLabel = '';
+        var caseGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+        if (caseGR.get(caseSysId)) {
+            caseNumber = caseGR.getDisplayValue('number');
+        }
+
+        var cancelledProducts = [];
+        var idsArray = selectedIds.split(',');
+
+        var soldGR = new GlideRecord('sn_install_base_sold_product');
+        soldGR.addQuery('sys_id', 'IN', idsArray);
+        soldGR.query();
+
+        while (soldGR.next()) {
+            var productSysId = soldGR.getUniqueValue();
+            var productNumber = soldGR.getValue('number');
+            cancelledProducts.push(productNumber);
+            soldGR.setValue('u_status', 'Live');
+            soldGR.setValue('u_cease_requested_date', '');
+            soldGR.setValue('u_cease_date', '');
+            soldGR.setValue('u_cease_reason', '');
+            soldGR.update();
+
+            // Finance Tasks
+            var financeUtil = new x_canl_finance_tas.FinanceTaskUtils();
+            financeUtil.cancelBillingTask(productSysId, caseNumber);
+
+            // Provisioning Requests
+            var provGR = new GlideRecord('u_provisioning_request');
+            provGR.addQuery('u_initiated_from', productSysId);
+            provGR.query();
+
+            while (provGR.next()) {
+                provGR.setValue('u_customer_required_by_date', '');
+                provGR.setValue('u_stage', '34');
+                provGR.setValue('u_on_hold', 'true');
+                provGR.setValue('u_on_hold_reason', 'Inflight cease cancellation requested');
+                provGR.update();
+            }
+        }
+
+        // Update Retentions Case
+        if (caseGR.isValidRecord()) {
+            if (cancelledProducts.length > 0) {
+                caseGR.work_notes = 'Cease cancelled for: ' + cancelledProducts.join(', ');
+            }
+            caseGR.setValue('state', '7');
+            caseGR.update();
+            newStateLabel = caseGR.state.getDisplayValue(); // Safe - inside isValidRecord block
+        }
+
+        var message = 'Cease request cancelled for ' + cancelledProducts.length + ' product(s).';
+        return JSON.stringify({
+            success: true,
+            message: message,
+            cancelled: cancelledProducts,
+            newState: '7',
+            newStateLabel: newStateLabel
+        });
+    },
+
+    /**
+     * STRY0019513 - NB - MH - Cease Date Modification Restriction 1
+     * Check if user can bypass 15 business day cease date validation
+     * Bypass allowed when: case state is Complete (400) or Reopened (8) AND user is in Programme Office group
+     * @returns {string} 'true' if bypass allowed, 'false' otherwise
+     */
+    checkCeaseValidationBypass: function() {
+        var caseSysId = this.getParameter('sysparm_case_sys_id');
+
+        if (!caseSysId) {
+            return 'false';
+        }
+
+        var caseGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+        if (!caseGR.get(caseSysId)) {
+            return 'false';
+        }
+
+        var state = caseGR.getValue('state');
+        if (state != '400' && state != '8') {
+            return 'false';
+        }
+
+        return this._isProgrammeOffice() ? 'true' : 'false';
+    },
+
+    // 03/03/26 STRY0019744 - NB - MH - Cancel Cease Request
+    validateCancelCease: function() {
+        var caseSysId = this.getParameter('sysparm_case_sys_id');
+        var selectedIds = this.getParameter('sysparm_selected_ids');
+
+        if (!caseSysId || !selectedIds) {
+            return JSON.stringify({
+                valid: true
+            });
+        }
+
+        // Programme Office bypass
+        if (this.PROGRAMME_OFFICE_BYPASS_ENABLED && this._isProgrammeOffice()) {
+            return JSON.stringify({
+                valid: true,
+                bypass: true
+            });
+        }
+
+        // Only enforce for Reopened cases (state 8)
+        var caseGR = new GlideRecord('x_canl_emails_eocn_retentions_case');
+        if (!caseGR.get(caseSysId)) {
+            return JSON.stringify({
+                valid: true
+            });
+        }
+        if (caseGR.getValue('state') != '8') {
+            return JSON.stringify({
+                valid: true
+            });
+        }
+
+        // Check business days for each selected product
+        var todayDate = new GlideDate();
+        var todayStr = todayDate.getValue(); // yyyy-MM-dd system format
+
+        var soldGR = new GlideRecord('sn_install_base_sold_product');
+        soldGR.addQuery('sys_id', 'IN', selectedIds.split(','));
+        soldGR.query();
+
+        while (soldGR.next()) {
+            var ceaseDateStr = soldGR.getValue('u_cease_date'); // yyyy-MM-dd system format
+            if (!ceaseDateStr) {
+                continue;
+            }
+            var businessDays = this._calculateBusinessDays(todayStr, ceaseDateStr);
+            if (businessDays < 15) {
+                return JSON.stringify({
+                    valid: false,
+                    message: 'Please note that you are unable to change the Cease date as it is within 15 business days. Please contact the Programme Office to action this change.'
+                });
+            }
+        }
+
+        return JSON.stringify({
+            valid: true
+        });
+    },
+
+    _isProgrammeOffice: function() {
+        return gs.getUser().isMemberOf(this.PROGRAMME_OFFICE_GROUP_ID);
+    },
+
+    _calculateBusinessDays: function(startDateStr, endDateStr) {
+        var schedule = new GlideSchedule(this.BUSINESS_SCHEDULE_ID);
+
+        var startGDT = new GlideDateTime();
+        startGDT.setDisplayValue(startDateStr + ' 08:00:00');
+        var endGDT = new GlideDateTime();
+        endGDT.setDisplayValue(endDateStr + ' 17:00:00');
+
+        var businessDays = 0;
+        var currentDate = new GlideDateTime(startGDT);
+        while (currentDate.before(endGDT)) {
+            if (schedule.isInSchedule(currentDate)) {
+                businessDays++;
+            }
+            currentDate.addDaysLocalTime(1);
+        }
+        return businessDays;
+    },
+
+    type: 'CancelCeaseAjax'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-01-22 10:29:06</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
+        <sys_id>c8061e1e832af650824034326daad3b7</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_name>CancelCeaseAjax</sys_name>
+        <sys_package display_value="Retentions" source="x_canl_emails_eocn">0b95ce931b8669d0b0c9ed32b24bcb73</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Retentions">0b95ce931b8669d0b0c9ed32b24bcb73</sys_scope>
+        <sys_update_name>sys_script_include_c8061e1e832af650824034326daad3b7</sys_update_name>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-03-03 13:39:01</sys_updated_on>
+    </sys_script_include>
+    <sys_es_latest_script action="INSERT_OR_UPDATE">
+        <id>c8061e1e832af650824034326daad3b7</id>
+        <sys_created_by>maj.hussain@nowbench.com</sys_created_by>
+        <sys_created_on>2026-01-22 10:29:06</sys_created_on>
+        <sys_id>10289ad2836af650824034326daad3c9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_updated_by>maj.hussain@nowbench.com</sys_updated_by>
+        <sys_updated_on>2026-01-22 10:29:06</sys_updated_on>
+        <table>sys_script_include</table>
+        <use_es_latest>true</use_es_latest>
+    </sys_es_latest_script>
+</record_update>
